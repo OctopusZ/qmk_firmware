@@ -2,11 +2,11 @@
 
 void led_init(void) {
 	gpio_set_pin_output(CHIMERA_ERGO_GREEN_LED_PIN);
-	gpio_write_pin_high(CHIMERA_ERGO_GREEN_LED_PIN);
+	gpio_write_Pin_high(CHIMERA_ERGO_GREEN_LED_PIN);
 	gpio_set_pin_output(CHIMERA_ERGO_BLUE_LED_PIN);
-	gpio_write_pin_high(CHIMERA_ERGO_BLUE_LED_PIN);
+	gpio_write_Pin_high(CHIMERA_ERGO_BLUE_LED_PIN);
 	gpio_set_pin_output(CHIMERA_ERGO_RED_LED_PIN);
-	gpio_write_pin_high(CHIMERA_ERGO_RED_LED_PIN);
+	gpio_write_Pin_high(CHIMERA_ERGO_RED_LED_PIN);
 }
 
 

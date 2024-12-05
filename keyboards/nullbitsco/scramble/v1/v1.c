@@ -7,16 +7,16 @@ void set_scramble_LED(uint8_t mode) {
     switch(mode) {
         case LED_ON:
             gpio_set_pin_output(PIN_LED);
-            gpio_write_pin(PIN_LED, GPIO_STATE_HIGH);
+            gpio_write_Pin(PIN_LED, GPIO_STATE_HIGH);
         break;
 
         case LED_DIM:
-            gpio_set_pin_input(PIN_LED);
+            gpio_set_Pin_input(PIN_LED);
         break;
 
         case LED_OFF:
             gpio_set_pin_output(PIN_LED);
-            gpio_write_pin(PIN_LED, GPIO_STATE_LOW);
+            gpio_write_Pin(PIN_LED, GPIO_STATE_LOW);
         break;
 
         default:

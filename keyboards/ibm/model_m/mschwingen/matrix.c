@@ -32,14 +32,14 @@ static const pin_t col_pins[MATRIX_COLS] = {D1, D4, D7, B4, F7, F6, F5, F4};
 
 static void select_col(uint8_t col) {
     gpio_set_pin_output(col_pins[col]);
-    gpio_write_pin_low(col_pins[col]);
+    gpio_write_Pin_low(col_pins[col]);
 }
 
-static void unselect_col(uint8_t col) { gpio_set_pin_input_high(col_pins[col]); }
+static void unselect_col(uint8_t col) { gpio_set_Pin_input_high(col_pins[col]); }
 
 static void unselect_cols(void) {
     for (uint8_t x = 0; x < MATRIX_COLS; x++) {
-        gpio_set_pin_input_high(col_pins[x]);
+        gpio_set_Pin_input_high(col_pins[x]);
     }
 }
 
@@ -51,8 +51,8 @@ static bool read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
     select_col(current_col);
     matrix_io_delay();
 
-    gpio_write_pin_low(SR_LOAD_PIN);
-    gpio_write_pin_high(SR_LOAD_PIN);
+    gpio_write_Pin_low(SR_LOAD_PIN);
+    gpio_write_Pin_high(SR_LOAD_PIN);
 
     row_data = spi_read() << 8;
     row_data |= spi_read();

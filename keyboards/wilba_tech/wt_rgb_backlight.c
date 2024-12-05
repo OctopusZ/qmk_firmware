@@ -2624,11 +2624,11 @@ void backlight_debug_led( bool state )
     if (state)
     {
         gpio_set_pin_output(E6);
-        gpio_write_pin_high(E6);
+        gpio_write_Pin_high(E6);
     }
     else
     {
-        gpio_set_pin_input(E6);
+        gpio_set_Pin_input(E6);
     }
 }
 #endif // defined(RGB_DEBUGGING_ONLY)

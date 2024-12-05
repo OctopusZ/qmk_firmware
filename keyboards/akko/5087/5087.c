@@ -125,29 +125,29 @@ const snled27351_led_t PROGMEM g_snled27351_leds[SNLED27351_LED_COUNT] = {
 };
 #endif // RGB_MATRIX_ENABLE
 
-enum __layers { 
-	WIN_B, 
-	WIN_W, 
-	WIN_FN, 
-	MAC_B, 
-	MAC_W, 
-	MAC_FN, 
+enum __layers {
+	WIN_B,
+	WIN_W,
+	WIN_FN,
+	MAC_B,
+	MAC_W,
+	MAC_FN,
 };
 
 // clang-format on
 
 void matrix_init_kb(void) {
     gpio_set_pin_output(LED_MAC_OS_PIN); // LDE2 MAC\WIN
-    gpio_write_pin_low(LED_MAC_OS_PIN);
+    gpio_write_Pin_low(LED_MAC_OS_PIN);
     gpio_set_pin_output(LED_WIN_LOCK_PIN); // LED3 Win Lock
-    gpio_write_pin_low(LED_WIN_LOCK_PIN);
+    gpio_write_Pin_low(LED_WIN_LOCK_PIN);
 
     matrix_init_user();
 }
 
 void housekeeping_task_kb(void){
-    gpio_write_pin(LED_MAC_OS_PIN, (get_highest_layer(default_layer_state) == 3));
-    gpio_write_pin(LED_WIN_LOCK_PIN, keymap_config.no_gui);
+    gpio_write_Pin(LED_MAC_OS_PIN, (get_highest_layer(default_layer_state) == 3));
+    gpio_write_Pin(LED_WIN_LOCK_PIN, keymap_config.no_gui);
 }
 
 bool process_record_kb(uint16_t keycode, keyrecord_t* record) {

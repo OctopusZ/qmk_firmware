@@ -5,30 +5,30 @@ i2c_status_t mcp23018_status = 0x20;
 
 void matrix_init_kb(void) {
     // (tied to Vcc for hardware convenience)
-    //gpio_set_pin_input(B4);  // set B(4) as input, internal pull-up disabled
+    //gpio_set_Pin_input(B4);  // set B(4) as input, internal pull-up disabled
 
     // unused pins
     // set as input with internal pull-up enabled
-    gpio_set_pin_input_high(B4);
-    gpio_set_pin_input_high(B5);
-    gpio_set_pin_input_high(B6);
-    gpio_set_pin_input_high(B7);
+    gpio_set_Pin_input_high(B4);
+    gpio_set_Pin_input_high(B5);
+    gpio_set_Pin_input_high(B6);
+    gpio_set_Pin_input_high(B7);
 
-    gpio_set_pin_input_high(C6);
-    gpio_set_pin_input_high(C7);
+    gpio_set_Pin_input_high(C6);
+    gpio_set_Pin_input_high(C7);
 
-    gpio_set_pin_input_high(D4);
-    gpio_set_pin_input_high(D5);
-    gpio_set_pin_input_high(D6);
-    gpio_set_pin_input_high(D7);
+    gpio_set_Pin_input_high(D4);
+    gpio_set_Pin_input_high(D5);
+    gpio_set_Pin_input_high(D6);
+    gpio_set_Pin_input_high(D7);
 
-    gpio_set_pin_input_high(E6);
+    gpio_set_Pin_input_high(E6);
 
-    gpio_set_pin_input_high(D0);
-    gpio_set_pin_input_high(D1);
-    gpio_set_pin_input_high(D4);
-    gpio_set_pin_input_high(D6);
-    gpio_set_pin_input_high(D7);
+    gpio_set_Pin_input_high(D0);
+    gpio_set_Pin_input_high(D1);
+    gpio_set_Pin_input_high(D4);
+    gpio_set_Pin_input_high(D6);
+    gpio_set_Pin_input_high(D7);
 
     matrix_init_user();
 }

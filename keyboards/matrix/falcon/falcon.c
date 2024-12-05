@@ -1,6 +1,6 @@
 /**
  * falcon.c
- *   Copyright 2021 astro 
+ *   Copyright 2021 astro
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 2 of the License, or
@@ -19,11 +19,11 @@ void matrix_init_kb(void)
 {
     // enable charge
     gpio_set_pin_output(CHG_EN_PIN);
-    gpio_write_pin_high(CHG_EN_PIN);
+    gpio_write_Pin_high(CHG_EN_PIN);
 
     // enable led power
     gpio_set_pin_output(LED_POWER_PIN);
-    gpio_write_pin_high(LED_POWER_PIN);
+    gpio_write_Pin_high(LED_POWER_PIN);
 
     matrix_init_user();
 }

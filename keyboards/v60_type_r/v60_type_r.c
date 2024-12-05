@@ -118,19 +118,19 @@ void rgb_init(void) {
     gpio_set_pin_output(F4);
     gpio_set_pin_output(F5);
     gpio_set_pin_output(F6);
-    gpio_write_pin_high(F4);
-    gpio_write_pin_high(F5);
-    gpio_write_pin_high(F6);
+    gpio_write_Pin_high(F4);
+    gpio_write_Pin_high(F5);
+    gpio_write_Pin_high(F6);
 
     rgb_timer_init();
 }
 
 void set_rgb_pin_on(pin_t pin) {
-	gpio_write_pin_low(pin);
+	gpio_write_Pin_low(pin);
 }
 
 void set_rgb_pin_off(pin_t pin) {
-	gpio_write_pin_high(pin);
+	gpio_write_Pin_high(pin);
 }
 
 ISR(TIMER3_COMPA_vect)

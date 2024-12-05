@@ -28,12 +28,12 @@ void matrix_init_custom(void) {
     // actual matrix setup - cols
     for (int i = 0; i < MATRIX_COLS; i++) {
         gpio_set_pin_output(matrix_col_pins[i]);
-        gpio_write_pin_low(matrix_col_pins[i]);
+        gpio_write_Pin_low(matrix_col_pins[i]);
     }
 
     // rows
     for (int i = 0; i < MATRIX_ROWS; i++) {
-        gpio_set_pin_input_low(matrix_row_pins[i]);
+        gpio_set_Pin_input_low(matrix_row_pins[i]);
     }
 }
 
@@ -45,18 +45,18 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
         matrix_row_t data = 0;
 
         // strobe col
-        gpio_write_pin_high(matrix_col_pins[col]);
+        gpio_write_Pin_high(matrix_col_pins[col]);
 
         // need wait to settle pin state
         wait_us(20);
 
         // read row data
         for (int row = 0; row < MATRIX_ROWS; row++) {
-            data |= (gpio_read_pin(matrix_row_pins[row]) << row);
+            data |= (gpio_read_Pin(matrix_row_pins[row]) << row);
         }
 
         // unstrobe col
-        gpio_write_pin_low(matrix_col_pins[col]);
+        gpio_write_Pin_low(matrix_col_pins[col]);
 
         if (matrix_inverted[col] != data) {
             matrix_inverted[col] = data;

@@ -31,7 +31,7 @@ static inline void spi_select(void) {
 
 #if SPI_SELECT_MODE == SPI_SELECT_MODE_NONE
     if (current_slave_pin != NO_PIN) {
-        gpio_write_pin(current_slave_pin, current_cs_active_low ? 0 : 1);
+        gpio_write_Pin(current_slave_pin, current_cs_active_low ? 0 : 1);
     }
 #endif
 }
@@ -39,7 +39,7 @@ static inline void spi_select(void) {
 static inline void spi_unselect(void) {
 #if SPI_SELECT_MODE == SPI_SELECT_MODE_NONE
     if (current_slave_pin != NO_PIN) {
-        gpio_write_pin(current_slave_pin, current_cs_active_low ? 1 : 0);
+        gpio_write_Pin(current_slave_pin, current_cs_active_low ? 1 : 0);
     }
 #endif
 
@@ -52,12 +52,12 @@ __attribute__((weak)) void spi_init(void) {
         is_initialised = true;
 
         // Try releasing special pins for a short time
-        gpio_set_pin_input(SPI_SCK_PIN);
+        gpio_set_Pin_input(SPI_SCK_PIN);
         if (SPI_MOSI_PIN != NO_PIN) {
-            gpio_set_pin_input(SPI_MOSI_PIN);
+            gpio_set_Pin_input(SPI_MOSI_PIN);
         }
         if (SPI_MISO_PIN != NO_PIN) {
-            gpio_set_pin_input(SPI_MISO_PIN);
+            gpio_set_Pin_input(SPI_MISO_PIN);
         }
 
         chThdSleepMilliseconds(10);

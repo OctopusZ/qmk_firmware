@@ -22,12 +22,12 @@ void keyboard_pre_init_kb(void) {
 }
 
 __attribute__((weak)) layer_state_t layer_state_set_user(layer_state_t state) {
-    gpio_write_pin(B0, !(state & (1UL << 1)));
+    gpio_write_Pin(B0, !(state & (1UL << 1)));
     return state;
 }
 
 // Override core logic as we reuse SPLIT_HAND_PIN within matrix pins
 bool is_keyboard_left(void) {
-    gpio_set_pin_input(SPLIT_HAND_PIN);
-    return gpio_read_pin(SPLIT_HAND_PIN);
+    gpio_set_Pin_input(SPLIT_HAND_PIN);
+    return gpio_read_Pin(SPLIT_HAND_PIN);
 }

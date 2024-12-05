@@ -17,15 +17,15 @@
 #if defined(TMK_LED)
 // For TMK converter and Teensy
 #define LED_TX_INIT    gpio_set_pin_output(D6)
-#define LED_TX_ON      gpio_write_pin_high(D6)
-#define LED_TX_OFF     gpio_write_pin_low(D6)
-#define LED_TX_TOGGLE  gpio_toggle_pin(D6)
+#define LED_TX_ON      gpio_write_Pin_high(D6)
+#define LED_TX_OFF     gpio_write_Pin_low(D6)
+#define LED_TX_TOGGLE  gpio_toggle_Pin(D6)
 #elif defined(LEONARDO_LED)
 // For Leonardo(TX LED)
 #define LED_TX_INIT    gpio_set_pin_output(D5)
-#define LED_TX_ON      gpio_write_pin_low(D5)
-#define LED_TX_OFF     gpio_write_pin_high(D5)
-#define LED_TX_TOGGLE  gpio_toggle_pin(D5)
+#define LED_TX_ON      gpio_write_Pin_low(D5)
+#define LED_TX_OFF     gpio_write_Pin_high(D5)
+#define LED_TX_TOGGLE  gpio_toggle_Pin(D5)
 #else
 #define LED_TX_INIT
 #define LED_TX_ON

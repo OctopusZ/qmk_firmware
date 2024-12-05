@@ -134,9 +134,9 @@ void spi_init(void) {
         is_initialised = true;
 
         // Try releasing special pins for a short time
-        gpio_set_pin_input(SPI_SCK_PIN);
-        gpio_set_pin_input(SPI_MOSI_PIN);
-        gpio_set_pin_input(SPI_MISO_PIN);
+        gpio_set_Pin_input(SPI_SCK_PIN);
+        gpio_set_Pin_input(SPI_MOSI_PIN);
+        gpio_set_Pin_input(SPI_MISO_PIN);
 
         chThdSleepMilliseconds(10);
 
@@ -201,7 +201,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
             rgb_matrix_mode(13);
             return false; /* Skip all further processing of this key */
 
-        
+
         default:
             return true; /* Process all other keycodes normally */
     }

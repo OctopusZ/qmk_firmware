@@ -37,8 +37,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Layer-specific lighting */
 layer_state_t layer_state_set_user(layer_state_t state) {
-    gpio_write_pin(F4, !layer_state_cmp(state, _VC));
-    gpio_write_pin(F5, !layer_state_cmp(state, _VIM));
+    gpio_write_Pin(F4, !layer_state_cmp(state, _VC));
+    gpio_write_Pin(F5, !layer_state_cmp(state, _VIM));
     return state;
 };
 
@@ -47,10 +47,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case USER_CLUTCH:
         if (record->event.pressed) {
-            tap_code_delay(KC_ESC, 50); 
-            tap_code_delay(KC_A, 50); 
+            tap_code_delay(KC_ESC, 50);
+            tap_code_delay(KC_A, 50);
         } else {
-            tap_code_delay(KC_ESC, 50); 
+            tap_code_delay(KC_ESC, 50);
         }
         break;
     }

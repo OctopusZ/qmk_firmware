@@ -17,10 +17,10 @@
 
 void led_init_ports(void) {
     // Set our LED pins as open drain outputs
-    gpio_set_pin_output_open_drain(B6);
+    gpio_set_Pin_output_open_drain(B6);
 }
 
 layer_state_t layer_state_set_kb(layer_state_t state) {
-    gpio_write_pin(B6, !layer_state_cmp(state, 1));
+    gpio_write_Pin(B6, !layer_state_cmp(state, 1));
     return layer_state_set_user(state);
 }

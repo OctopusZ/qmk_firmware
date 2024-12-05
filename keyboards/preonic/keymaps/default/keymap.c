@@ -199,12 +199,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
               rgblight_step();
             #endif
             #ifdef __AVR__
-            gpio_write_pin_low(E6);
+            gpio_write_Pin_low(E6);
             #endif
           } else {
             unregister_code(KC_RSFT);
             #ifdef __AVR__
-            gpio_write_pin_high(E6);
+            gpio_write_Pin_high(E6);
             #endif
           }
           return false;

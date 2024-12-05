@@ -132,9 +132,9 @@ void spi_init(void) {
         is_initialised = true;
 
         // Try releasing special pins for a short time
-        gpio_set_pin_input(SPI_SCK_PIN);
-        gpio_set_pin_input(SPI_MOSI_PIN);
-        gpio_set_pin_input(SPI_MISO_PIN);
+        gpio_set_Pin_input(SPI_SCK_PIN);
+        gpio_set_Pin_input(SPI_MOSI_PIN);
+        gpio_set_Pin_input(SPI_MISO_PIN);
 
         chThdSleepMilliseconds(10);
 
@@ -152,7 +152,7 @@ void keyboard_pre_init_kb(void) {
     keyboard_pre_init_user();
 };
 void housekeeping_task_kb(void) {
-    gpio_write_pin(C15, keymap_config.no_gui);
+    gpio_write_Pin(C15, keymap_config.no_gui);
 };
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {

@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
+
 #include "creator_pro.h"
 
 void matrix_init_kb(void) {
@@ -24,10 +24,10 @@ void matrix_init_kb(void) {
     gpio_set_pin_output(GREEN_LED);
 }
 void turn_off_leds(void) {
-    gpio_write_pin_low(RED_LED);
-    gpio_write_pin_low(BLUE_LED);
-    gpio_write_pin_low(GREEN_LED);
+    gpio_write_Pin_low(RED_LED);
+    gpio_write_Pin_low(BLUE_LED);
+    gpio_write_Pin_low(GREEN_LED);
 }
 void turn_on_led(pin_t pin) {
-    gpio_write_pin_high(pin);
+    gpio_write_Pin_high(pin);
 }

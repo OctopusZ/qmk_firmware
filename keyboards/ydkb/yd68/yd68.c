@@ -18,19 +18,19 @@
 void keyboard_pre_init_kb(void) {
 	//Backlight LEDs Output Low
 	gpio_set_pin_output(D6);
-	gpio_write_pin_low(D6);
-	
+	gpio_write_Pin_low(D6);
+
 	//RGB power output low
 	gpio_set_pin_output(E2);
-	gpio_write_pin_low(E2);
-	
+	gpio_write_Pin_low(E2);
+
 	//Bluetooth power output high
 	gpio_set_pin_output(B2);
-	gpio_write_pin_low(B2);
-	
+	gpio_write_Pin_low(B2);
+
 	//RGB data output low
 	gpio_set_pin_output(B3);
-	gpio_write_pin_low(B3);
-	
+	gpio_write_Pin_low(B3);
+
 	keyboard_pre_init_user();
 }

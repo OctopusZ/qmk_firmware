@@ -55,9 +55,9 @@ void matrix_scan_user(void) {}
 void matrix_init(void)
 {
   //gpio_set_pin_output(F0);
-  //gpio_write_pin_high(F0);
+  //gpio_write_Pin_high(F0);
   gpio_set_pin_output(B4);
-  gpio_write_pin_low(B4);
+  gpio_write_Pin_low(B4);
 
   init_cols();
   init_rows();
@@ -123,20 +123,20 @@ void matrix_print(void)
  */
 static void init_rows(void)
 {
-  gpio_set_pin_input_high(E6);
-  gpio_set_pin_input_high(F6);
-  gpio_set_pin_input_high(F7);
-  gpio_set_pin_input_high(B7);
-  gpio_set_pin_input_high(D4);
+  gpio_set_Pin_input_high(E6);
+  gpio_set_Pin_input_high(F6);
+  gpio_set_Pin_input_high(F7);
+  gpio_set_Pin_input_high(B7);
+  gpio_set_Pin_input_high(D4);
 }
 
 static uint8_t read_rows(void)
 {
-  return ((gpio_read_pin(E6) ? 0 : (1 << 0)) |
-          (gpio_read_pin(F6) ? 0 : (1 << 1)) |
-          (gpio_read_pin(F7) ? 0 : (1 << 2)) |
-          (gpio_read_pin(B7) ? 0 : (1 << 3)) |
-          (gpio_read_pin(D4) ? 0 : (1 << 4)));
+  return ((gpio_read_Pin(E6) ? 0 : (1 << 0)) |
+          (gpio_read_Pin(F6) ? 0 : (1 << 1)) |
+          (gpio_read_Pin(F7) ? 0 : (1 << 2)) |
+          (gpio_read_Pin(B7) ? 0 : (1 << 3)) |
+          (gpio_read_Pin(D4) ? 0 : (1 << 4)));
 }
 
 /*
@@ -179,89 +179,89 @@ static void init_cols(void)
 
 static void unselect_cols(void)
 {
-  gpio_write_pin_high(F0);
-  gpio_write_pin_high(F1);
-  gpio_write_pin_high(F4);
-  gpio_write_pin_high(F5);
+  gpio_write_Pin_high(F0);
+  gpio_write_Pin_high(F1);
+  gpio_write_Pin_high(F4);
+  gpio_write_Pin_high(F5);
 
-  gpio_write_pin_high(D2);
-  gpio_write_pin_high(D3);
-  gpio_write_pin_high(D5);
-  gpio_write_pin_high(D6);
+  gpio_write_Pin_high(D2);
+  gpio_write_Pin_high(D3);
+  gpio_write_Pin_high(D5);
+  gpio_write_Pin_high(D6);
 }
 
 static void select_col(uint8_t col) {
 
    switch (col) {
         case 0:
-          gpio_write_pin_low(F0);
-          gpio_write_pin_low(F1);
-          gpio_write_pin_low(F4);
+          gpio_write_Pin_low(F0);
+          gpio_write_Pin_low(F1);
+          gpio_write_Pin_low(F4);
           break;
         case 1:
-          gpio_write_pin_high(F0);
-          gpio_write_pin_low(F1);
-          gpio_write_pin_low(F4);
+          gpio_write_Pin_high(F0);
+          gpio_write_Pin_low(F1);
+          gpio_write_Pin_low(F4);
           break;
         case 2:
-          gpio_write_pin_low(F0);
-          gpio_write_pin_high(F1);
-          gpio_write_pin_low(F4);
+          gpio_write_Pin_low(F0);
+          gpio_write_Pin_high(F1);
+          gpio_write_Pin_low(F4);
           break;
         case 3:
-          gpio_write_pin_high(F0);
-          gpio_write_pin_high(F1);
-          gpio_write_pin_low(F4);
+          gpio_write_Pin_high(F0);
+          gpio_write_Pin_high(F1);
+          gpio_write_Pin_low(F4);
           break;
         case 4:
-          gpio_write_pin_low(F0);
-          gpio_write_pin_low(F1);
-          gpio_write_pin_high(F4);
+          gpio_write_Pin_low(F0);
+          gpio_write_Pin_low(F1);
+          gpio_write_Pin_high(F4);
           break;
         case 5:
-          gpio_write_pin_high(F0);
-          gpio_write_pin_low(F1);
-          gpio_write_pin_high(F4);
+          gpio_write_Pin_high(F0);
+          gpio_write_Pin_low(F1);
+          gpio_write_Pin_high(F4);
           break;
         case 6:
-          gpio_write_pin_low(F0);
-          gpio_write_pin_high(F1);
-          gpio_write_pin_high(F4);
+          gpio_write_Pin_low(F0);
+          gpio_write_Pin_high(F1);
+          gpio_write_Pin_high(F4);
           break;
         case 7:
-          gpio_write_pin_low(D2);
-          gpio_write_pin_low(D3);
-          gpio_write_pin_low(D5);
+          gpio_write_Pin_low(D2);
+          gpio_write_Pin_low(D3);
+          gpio_write_Pin_low(D5);
           break;
         case 8:
-          gpio_write_pin_high(D2);
-          gpio_write_pin_low(D3);
-          gpio_write_pin_low(D5);
+          gpio_write_Pin_high(D2);
+          gpio_write_Pin_low(D3);
+          gpio_write_Pin_low(D5);
           break;
         case 9:
-          gpio_write_pin_low(D2);
-          gpio_write_pin_high(D3);
-          gpio_write_pin_low(D5);
+          gpio_write_Pin_low(D2);
+          gpio_write_Pin_high(D3);
+          gpio_write_Pin_low(D5);
           break;
         case 10:
-          gpio_write_pin_high(D2);
-          gpio_write_pin_high(D3);
-          gpio_write_pin_low(D5);
+          gpio_write_Pin_high(D2);
+          gpio_write_Pin_high(D3);
+          gpio_write_Pin_low(D5);
           break;
         case 11:
-          gpio_write_pin_low(D2);
-          gpio_write_pin_low(D3);
-          gpio_write_pin_high(D5);
+          gpio_write_Pin_low(D2);
+          gpio_write_Pin_low(D3);
+          gpio_write_Pin_high(D5);
           break;
         case 12:
-          gpio_write_pin_high(D2);
-          gpio_write_pin_low(D3);
-          gpio_write_pin_high(D5);
+          gpio_write_Pin_high(D2);
+          gpio_write_Pin_low(D3);
+          gpio_write_Pin_high(D5);
           break;
         case 13:
-          gpio_write_pin_low(D2);
-          gpio_write_pin_high(D3);
-          gpio_write_pin_high(D5);
+          gpio_write_Pin_low(D2);
+          gpio_write_Pin_high(D3);
+          gpio_write_Pin_high(D5);
           break;
     }
 }

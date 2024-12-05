@@ -23,17 +23,17 @@
 
 // ======== DEPRECATED DEFINES - DO NOT USE ========
 
-#define setPinInput(pin) gpio_set_pin_input(pin)
-#define setPinInputHigh(pin) gpio_set_pin_input_high(pin)
-#define setPinInputLow(pin) gpio_set_pin_input_low(pin)
-#define setPinOutputPushPull(pin) gpio_set_pin_output_push_pull(pin)
-#define setPinOutputOpenDrain(pin) gpio_set_pin_output_open_drain(pin)
-#define setPinOutput(pin) gpio_set_pin_output_push_pull(pin)
+#define setPinInput(pin) gpio_set_Pin_input(pin)
+#define setPinInputHigh(pin) gpio_set_Pin_input_high(pin)
+#define setPinInputLow(pin) gpio_set_Pin_input_low(pin)
+#define setPinOutputPushPull(pin) gpio_set_Pin_output_push_pull(pin)
+#define setPinOutputOpenDrain(pin) gpio_set_Pin_output_open_drain(pin)
+#define setPinOutput(pin) gpio_set_Pin_output_push_pull(pin)
 
-#define writePinHigh(pin) gpio_write_pin_high(pin)
-#define writePinLow(pin) gpio_write_pin_low(pin)
-#define writePin(pin, level) gpio_write_pin(pin, level)
+#define writePinHigh(pin) gpio_write_Pin_high(pin)
+#define writePinLow(pin) gpio_write_Pin_low(pin)
+#define writePin(pin, level) gpio_write_Pin(pin, level)
 
-#define readPin(pin) gpio_read_pin(pin)
+#define readPin(pin) gpio_read_Pin(pin)
 
-#define togglePin(pin) gpio_toggle_pin(pin)
+#define togglePin(pin) gpio_toggle_Pin(pin)

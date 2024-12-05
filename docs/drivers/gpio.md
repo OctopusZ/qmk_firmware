@@ -8,17 +8,17 @@ The following macros provide basic control of GPIOs and are found in `platforms/
 
 |Macro                                |Description                                                          |
 |-------------------------------------|---------------------------------------------------------------------|
-|`gpio_set_pin_input(pin)`            |Set pin as input with high impedance (High-Z)                        |
-|`gpio_set_pin_input_high(pin)`       |Set pin as input with builtin pull-up resistor                       |
-|`gpio_set_pin_input_low(pin)`        |Set pin as input with builtin pull-down resistor (unavailable on AVR)|
-|`gpio_set_pin_output(pin)`           |Set pin as output (alias of `gpio_set_pin_output_push_pull`)         |
-|`gpio_set_pin_output_push_pull(pin)` |Set pin as output, push/pull mode                                    |
-|`gpio_set_pin_output_open_drain(pin)`|Set pin as output, open-drain mode (unavailable on AVR)              |
-|`gpio_write_pin_high(pin)`           |Set pin level as high, assuming it is an output                      |
-|`gpio_write_pin_low(pin)`            |Set pin level as low, assuming it is an output                       |
-|`gpio_write_pin(pin, level)`         |Set pin level, assuming it is an output                              |
-|`gpio_read_pin(pin)`                 |Returns the level of the pin                                         |
-|`gpio_toggle_pin(pin)`               |Invert pin level, assuming it is an output                           |
+|`gpio_set_Pin_input(pin)`            |Set pin as input with high impedance (High-Z)                        |
+|`gpio_set_Pin_input_high(pin)`       |Set pin as input with builtin pull-up resistor                       |
+|`gpio_set_Pin_input_low(pin)`        |Set pin as input with builtin pull-down resistor (unavailable on AVR)|
+|`gpio_set_pin_output(pin)`           |Set pin as output (alias of `gpio_set_Pin_output_push_pull`)         |
+|`gpio_set_Pin_output_push_pull(pin)` |Set pin as output, push/pull mode                                    |
+|`gpio_set_Pin_output_open_drain(pin)`|Set pin as output, open-drain mode (unavailable on AVR)              |
+|`gpio_write_Pin_high(pin)`           |Set pin level as high, assuming it is an output                      |
+|`gpio_write_Pin_low(pin)`            |Set pin level as low, assuming it is an output                       |
+|`gpio_write_Pin(pin, level)`         |Set pin level, assuming it is an output                              |
+|`gpio_read_Pin(pin)`                 |Returns the level of the pin                                         |
+|`gpio_toggle_Pin(pin)`               |Invert pin level, assuming it is an output                           |
 
 ## Advanced Settings {#advanced-settings}
 

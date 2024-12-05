@@ -18,8 +18,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "quantum.h"
 
 void board_init(void) {
-    gpio_set_pin_input(B9);
-    gpio_set_pin_input(B10);
+    gpio_set_Pin_input(B9);
+    gpio_set_Pin_input(B10);
 }
 
 led_config_t g_led_config = { {
@@ -39,9 +39,9 @@ led_config_t g_led_config = { {
 	{   0, 225}, {  14, 225}, {  28, 225},                           {  84, 225},                                        { 140, 225}, { 154, 225}, { 168, 225},                           { 196, 225}, { 210, 225}, { 224, 225}
 }, {
 	1          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          ,              4          , 4          , 4          ,
-	4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 
+	4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          ,
 	4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          ,
 	4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 1          ,
 	1                       , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 4          , 1                                    , 1          ,
-	1          , 1          , 1          ,                                        4          ,                                        1          , 1          , 1                       , 1          , 1          , 1          
+	1          , 1          , 1          ,                                        4          ,                                        1          , 1          , 1                       , 1          , 1          , 1
 } };

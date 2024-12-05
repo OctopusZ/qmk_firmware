@@ -79,29 +79,29 @@ static void pal_cb(void* unused) {
 
 void matrix_init(void) {
     //Set I/O as pull-up inputs to read states
-    gpio_set_pin_input_high(A0);
-    gpio_set_pin_input_high(A1);
-    gpio_set_pin_input_high(A2);
-    gpio_set_pin_input_high(A3);
-    gpio_set_pin_input_high(A4);
-    gpio_set_pin_input_high(A5);
-    gpio_set_pin_input_high(A6);
-    gpio_set_pin_input_high(A7);
-    gpio_set_pin_input_high(A8);
-    gpio_set_pin_input_high(A9);
-    gpio_set_pin_input_high(A10);
-    gpio_set_pin_input_high(B3);
-    gpio_set_pin_input_high(B4);
-    gpio_set_pin_input_high(B5);
-    gpio_set_pin_input_high(B6);
-    gpio_set_pin_input_high(B7);
-    gpio_set_pin_input_high(B8);
-    gpio_set_pin_input_high(B9);
-    gpio_set_pin_input_high(B11);
-    gpio_set_pin_input_high(B12);
-    gpio_set_pin_input_high(B13);
-    gpio_set_pin_input_high(B14);
-    gpio_set_pin_input_high(B15);
+    gpio_set_Pin_input_high(A0);
+    gpio_set_Pin_input_high(A1);
+    gpio_set_Pin_input_high(A2);
+    gpio_set_Pin_input_high(A3);
+    gpio_set_Pin_input_high(A4);
+    gpio_set_Pin_input_high(A5);
+    gpio_set_Pin_input_high(A6);
+    gpio_set_Pin_input_high(A7);
+    gpio_set_Pin_input_high(A8);
+    gpio_set_Pin_input_high(A9);
+    gpio_set_Pin_input_high(A10);
+    gpio_set_Pin_input_high(B3);
+    gpio_set_Pin_input_high(B4);
+    gpio_set_Pin_input_high(B5);
+    gpio_set_Pin_input_high(B6);
+    gpio_set_Pin_input_high(B7);
+    gpio_set_Pin_input_high(B8);
+    gpio_set_Pin_input_high(B9);
+    gpio_set_Pin_input_high(B11);
+    gpio_set_Pin_input_high(B12);
+    gpio_set_Pin_input_high(B13);
+    gpio_set_Pin_input_high(B14);
+    gpio_set_Pin_input_high(B15);
 
     memset(matrix, 0, MATRIX_ROWS * sizeof(matrix_row_t));
     memset(matrix_debouncing, 0, MATRIX_ROWS * sizeof(matrix_row_t));
@@ -207,7 +207,7 @@ uint8_t matrix_scan(void) {
                  matrix[3] = 0x00;
     }
     //Special case for Shift
-    if (gpio_read_pin(B11) == 0) { matrix[3] |= 0x01; }
+    if (gpio_read_Pin(B11) == 0) { matrix[3] |= 0x01; }
 
     porta_buffer = 65535;
     portb_buffer = 65535;

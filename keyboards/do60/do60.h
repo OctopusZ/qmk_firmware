@@ -18,18 +18,18 @@
 /*
 inline void do60_caps_led_on(void) {
     gpio_set_pin_output(DO60_CAPS_LOCK_LED_PIN);
-    gpio_write_pin_low(DO60_CAPS_LOCK_LED_PIN);
+    gpio_write_Pin_low(DO60_CAPS_LOCK_LED_PIN);
 }
 inline void do60_bl_led_on(void) {
     gpio_set_pin_output(DO60_BACKLIGHT_PIN);
-    gpio_write_pin_low(DO60_BACKLIGHT_PIN);
+    gpio_write_Pin_low(DO60_BACKLIGHT_PIN);
 }
 
 inline void do60_caps_led_off(void) {
-    gpio_set_pin_input(DO60_CAPS_LOCK_LED_PIN);
+    gpio_set_Pin_input(DO60_CAPS_LOCK_LED_PIN);
 }
 inline void do60_bl_led_off(void) {
-    gpio_set_pin_input(DO60_BACKLIGHT_PIN);
+    gpio_set_Pin_input(DO60_BACKLIGHT_PIN);
 }
 */
 

@@ -2,11 +2,11 @@
 
 void led_init(void) {
     gpio_set_pin_output(UNI660_GREEN_LED_PIN);
-    gpio_write_pin_high(UNI660_GREEN_LED_PIN);
+    gpio_write_Pin_high(UNI660_GREEN_LED_PIN);
     gpio_set_pin_output(UNI660_BLUE_LED_PIN);
-    gpio_write_pin_high(UNI660_BLUE_LED_PIN);
+    gpio_write_Pin_high(UNI660_BLUE_LED_PIN);
     gpio_set_pin_output(UNI660_RED_LED_PIN);
-    gpio_write_pin_high(UNI660_RED_LED_PIN);
+    gpio_write_Pin_high(UNI660_RED_LED_PIN);
 }
 
 void matrix_init_kb(void) {

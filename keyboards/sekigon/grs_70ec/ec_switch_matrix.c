@@ -31,13 +31,13 @@ static uint16_t      ecsm_sw_value[MATRIX_ROWS][MATRIX_COLS];
 
 static inline void discharge_capacitor(void) { gpio_set_pin_output(DISCHARGE_PIN); }
 static inline void charge_capacitor(uint8_t row) {
-    gpio_set_pin_input(DISCHARGE_PIN);
-    gpio_write_pin_high(row_pins[row]);
+    gpio_set_Pin_input(DISCHARGE_PIN);
+    gpio_write_Pin_high(row_pins[row]);
 }
 
 static inline void clear_all_row_pins(void) {
     for (int row = 0; row < sizeof(row_pins); row++) {
-        gpio_write_pin_low(row_pins[row]);
+        gpio_write_Pin_low(row_pins[row]);
     }
 }
 
@@ -49,15 +49,15 @@ static inline void init_mux_sel(void) {
 
 static inline void select_mux(uint8_t col) {
     uint8_t ch = col_channels[col];
-    gpio_write_pin(mux_sel_pins[0], ch & 1);
-    gpio_write_pin(mux_sel_pins[1], ch & 2);
-    gpio_write_pin(mux_sel_pins[2], ch & 4);
+    gpio_write_Pin(mux_sel_pins[0], ch & 1);
+    gpio_write_Pin(mux_sel_pins[1], ch & 2);
+    gpio_write_Pin(mux_sel_pins[2], ch & 4);
 }
 
 static inline void init_row(void) {
     for (int idx = 0; idx < sizeof(row_pins); idx++) {
         gpio_set_pin_output(row_pins[idx]);
-        gpio_write_pin_low(row_pins[idx]);
+        gpio_write_Pin_low(row_pins[idx]);
     }
 }
 
@@ -67,7 +67,7 @@ int ecsm_init(ecsm_config_t const* const ecsm_config) {
     config = *ecsm_config;
 
     // initialize discharge pin as discharge mode
-    gpio_write_pin_low(DISCHARGE_PIN);
+    gpio_write_Pin_low(DISCHARGE_PIN);
     gpio_set_pin_output(DISCHARGE_PIN);
 
     // set analog reference
@@ -80,7 +80,7 @@ int ecsm_init(ecsm_config_t const* const ecsm_config) {
     init_mux_sel();
 
     // set discharge pin to charge mode
-    gpio_set_pin_input(DISCHARGE_PIN);
+    gpio_set_Pin_input(DISCHARGE_PIN);
 
     return 0;
 }

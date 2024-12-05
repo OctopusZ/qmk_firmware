@@ -16,16 +16,16 @@
  */
 inline void xd60_caps_led_on(void) {
     gpio_set_pin_output(XD60_CAPS_LOCK_LED_PIN);
-    gpio_write_pin_low(XD60_CAPS_LOCK_LED_PIN);
+    gpio_write_Pin_low(XD60_CAPS_LOCK_LED_PIN);
 }
 inline void xd60_bl_led_on(void) {
     gpio_set_pin_output(XD60_BACKLIGHT_PIN);
-    gpio_write_pin_low(XD60_BACKLIGHT_PIN);
+    gpio_write_Pin_low(XD60_BACKLIGHT_PIN);
 }
 
 inline void xd60_caps_led_off(void) {
-    gpio_set_pin_input(XD60_CAPS_LOCK_LED_PIN);
+    gpio_set_Pin_input(XD60_CAPS_LOCK_LED_PIN);
 }
 inline void xd60_bl_led_off(void) {
-    gpio_set_pin_input(XD60_BACKLIGHT_PIN);
+    gpio_set_Pin_input(XD60_BACKLIGHT_PIN);
 }

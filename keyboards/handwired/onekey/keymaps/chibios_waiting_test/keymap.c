@@ -18,15 +18,15 @@ void keyboard_post_init_user(void) {
 }
 
 static inline void wait_us_polling_with_strobe(uint32_t us) {
-    gpio_write_pin_high(QMK_WAITING_TEST_BUSY_PIN);
+    gpio_write_Pin_high(QMK_WAITING_TEST_BUSY_PIN);
     wait_us(us);
-    gpio_write_pin_low(QMK_WAITING_TEST_BUSY_PIN);
+    gpio_write_Pin_low(QMK_WAITING_TEST_BUSY_PIN);
 }
 
 static inline void wait_us_yield_with_strobe(uint32_t us) {
-    gpio_write_pin_high(QMK_WAITING_TEST_YIELD_PIN);
+    gpio_write_Pin_high(QMK_WAITING_TEST_YIELD_PIN);
     chThdSleepMicroseconds(us);
-    gpio_write_pin_low(QMK_WAITING_TEST_YIELD_PIN);
+    gpio_write_Pin_low(QMK_WAITING_TEST_YIELD_PIN);
 }
 
 static const uint32_t waiting_values[] = {0, 1, 5, 10, 25, 50, 100, 150, 200, 500, 1000};

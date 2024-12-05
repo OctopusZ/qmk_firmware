@@ -38,7 +38,7 @@ void pca9555_setup(void) {
 
 void matrix_init_custom(void) {
     // Encoder pushbutton on the MCU is connected to PD2
-    gpio_set_pin_input_high(D2);
+    gpio_set_Pin_input_high(D2);
     pca9555_setup();
 }
 
@@ -48,8 +48,8 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
 
     // initialize one byte filled with 1
     uint8_t pin_states = 0xFF;
-    
-    
+
+
     if (status != UNPLUGGED || timer_elapsed32(retry_timer) > RETRY_TIMESPAN) {
         // If the chip was unplugged before, it needs to be re-initialized
         if(status==UNPLUGGED) {
@@ -79,7 +79,7 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     }
 
     // Shift pin states by 1 to make room for the switch connected to the MCU, then OR them together and invert (as QMK uses inverted logic compared to the electrical levels)
-    matrix_row_t data = ~(pin_states << 1 | gpio_read_pin(D2));
+    matrix_row_t data = ~(pin_states << 1 | gpio_read_Pin(D2));
 
     bool changed = current_matrix[0] != data;
     current_matrix[0] = data;

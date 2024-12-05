@@ -66,11 +66,11 @@ const is31fl3731_led_t PROGMEM g_is31fl3731_leds[IS31FL3731_LED_COUNT] = {
 void keyboard_pre_init_kb(void) {
     // Light power LED
     gpio_set_pin_output(POWER_LED_PIN);
-    gpio_write_pin_low(POWER_LED_PIN);
+    gpio_write_Pin_low(POWER_LED_PIN);
 
     // We don't use this feature of the IS31FL3731 but it is electrically connected
     // Make sure not to drive it
-    gpio_set_pin_input(IS31FL3731_IRQ_PIN);
+    gpio_set_Pin_input(IS31FL3731_IRQ_PIN);
 
     keyboard_pre_init_user();
 }

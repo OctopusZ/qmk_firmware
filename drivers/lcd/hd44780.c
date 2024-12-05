@@ -57,14 +57,14 @@ static const pin_t data_pins[4] = HD44780_DATA_PINS;
 #define HD44780_ENABLE_DELAY_US 1
 
 static void hd44780_latch(void) {
-    gpio_write_pin_high(HD44780_E_PIN);
+    gpio_write_Pin_high(HD44780_E_PIN);
     wait_us(HD44780_ENABLE_DELAY_US);
-    gpio_write_pin_low(HD44780_E_PIN);
+    gpio_write_Pin_low(HD44780_E_PIN);
 }
 
 void hd44780_write(uint8_t data, bool isData) {
-    gpio_write_pin(HD44780_RS_PIN, isData);
-    gpio_write_pin_low(HD44780_RW_PIN);
+    gpio_write_Pin(HD44780_RS_PIN, isData);
+    gpio_write_Pin_low(HD44780_RW_PIN);
 
     for (int i = 0; i < 4; i++) {
         gpio_set_pin_output(data_pins[i]);
@@ -72,52 +72,52 @@ void hd44780_write(uint8_t data, bool isData) {
 
     // Write high nibble
     for (int i = 0; i < 4; i++) {
-        gpio_write_pin(data_pins[i], (data >> 4) & (1 << i));
+        gpio_write_Pin(data_pins[i], (data >> 4) & (1 << i));
     }
     hd44780_latch();
 
     // Write low nibble
     for (int i = 0; i < 4; i++) {
-        gpio_write_pin(data_pins[i], data & (1 << i));
+        gpio_write_Pin(data_pins[i], data & (1 << i));
     }
     hd44780_latch();
 
     for (int i = 0; i < 4; i++) {
-        gpio_write_pin_high(data_pins[i]);
+        gpio_write_Pin_high(data_pins[i]);
     }
 }
 
 uint8_t hd44780_read(bool isData) {
     uint8_t data = 0;
 
-    gpio_write_pin(HD44780_RS_PIN, isData);
-    gpio_write_pin_high(HD44780_RW_PIN);
+    gpio_write_Pin(HD44780_RS_PIN, isData);
+    gpio_write_Pin_high(HD44780_RW_PIN);
 
     for (int i = 0; i < 4; i++) {
-        gpio_set_pin_input(data_pins[i]);
+        gpio_set_Pin_input(data_pins[i]);
     }
 
-    gpio_write_pin_high(HD44780_E_PIN);
+    gpio_write_Pin_high(HD44780_E_PIN);
     wait_us(HD44780_ENABLE_DELAY_US);
 
     // Read high nibble
     for (int i = 0; i < 4; i++) {
-        data |= (gpio_read_pin(data_pins[i]) << i);
+        data |= (gpio_read_Pin(data_pins[i]) << i);
     }
 
     data <<= 4;
 
-    gpio_write_pin_low(HD44780_E_PIN);
+    gpio_write_Pin_low(HD44780_E_PIN);
     wait_us(HD44780_ENABLE_DELAY_US);
-    gpio_write_pin_high(HD44780_E_PIN);
+    gpio_write_Pin_high(HD44780_E_PIN);
     wait_us(HD44780_ENABLE_DELAY_US);
 
     // Read low nibble
     for (int i = 0; i < 4; i++) {
-        data |= (gpio_read_pin(data_pins[i]) << i);
+        data |= (gpio_read_Pin(data_pins[i]) << i);
     }
 
-    gpio_write_pin_low(HD44780_E_PIN);
+    gpio_write_Pin_low(HD44780_E_PIN);
 
     return data;
 }
@@ -183,8 +183,8 @@ void hd44780_init(bool cursor, bool blink) {
 
     // Manually configure for 4-bit mode - can't use hd44780_command() yet
     // HD44780U datasheet, Fig. 24 (p46)
-    gpio_write_pin_high(data_pins[0]); // Function set
-    gpio_write_pin_high(data_pins[1]); // DL = 1
+    gpio_write_Pin_high(data_pins[0]); // Function set
+    gpio_write_Pin_high(data_pins[1]); // DL = 1
     hd44780_latch();
     wait_ms(5);
     // Send again
@@ -194,7 +194,7 @@ void hd44780_init(bool cursor, bool blink) {
     hd44780_latch();
     wait_us(64);
 
-    gpio_write_pin_low(data_pins[0]); // DL = 0
+    gpio_write_Pin_low(data_pins[0]); // DL = 0
     hd44780_latch();
     wait_us(64);
 

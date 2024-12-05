@@ -58,32 +58,32 @@ uint8_t ergodox_left_leds_update(void);
 
 inline void ergodox_board_led_on(void) {
     gpio_set_pin_output(ERGODOX_EZ_BOARD_LED_PIN);
-    gpio_write_pin_high(ERGODOX_EZ_BOARD_LED_PIN);
+    gpio_write_Pin_high(ERGODOX_EZ_BOARD_LED_PIN);
 }
 inline void ergodox_right_led_1_on(void) {
     gpio_set_pin_output(ERGODOX_EZ_RIGHT_LED_1_PIN);
-    gpio_write_pin_high(ERGODOX_EZ_RIGHT_LED_1_PIN);
+    gpio_write_Pin_high(ERGODOX_EZ_RIGHT_LED_1_PIN);
 }
 inline void ergodox_right_led_2_on(void) {
     gpio_set_pin_output(ERGODOX_EZ_RIGHT_LED_2_PIN);
-    gpio_write_pin_high(ERGODOX_EZ_RIGHT_LED_2_PIN);
+    gpio_write_Pin_high(ERGODOX_EZ_RIGHT_LED_2_PIN);
 }
 inline void ergodox_right_led_3_on(void) {
     gpio_set_pin_output(ERGODOX_EZ_RIGHT_LED_3_PIN);
-    gpio_write_pin_high(ERGODOX_EZ_RIGHT_LED_3_PIN);
+    gpio_write_Pin_high(ERGODOX_EZ_RIGHT_LED_3_PIN);
 }
 
 inline void ergodox_board_led_off(void) {
-    gpio_set_pin_input(ERGODOX_EZ_BOARD_LED_PIN);
+    gpio_set_Pin_input(ERGODOX_EZ_BOARD_LED_PIN);
 }
 inline void ergodox_right_led_1_off(void) {
-    gpio_set_pin_input(ERGODOX_EZ_RIGHT_LED_1_PIN);
+    gpio_set_Pin_input(ERGODOX_EZ_RIGHT_LED_1_PIN);
 }
 inline void ergodox_right_led_2_off(void) {
-    gpio_set_pin_input(ERGODOX_EZ_RIGHT_LED_2_PIN);
+    gpio_set_Pin_input(ERGODOX_EZ_RIGHT_LED_2_PIN);
 }
 inline void ergodox_right_led_3_off(void) {
-    gpio_set_pin_input(ERGODOX_EZ_RIGHT_LED_3_PIN);
+    gpio_set_Pin_input(ERGODOX_EZ_RIGHT_LED_3_PIN);
 }
 
 #ifdef LEFT_LEDS

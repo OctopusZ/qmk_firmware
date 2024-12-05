@@ -5,6 +5,6 @@
 
 void keyboard_pre_init_kb(void) {
     gpio_set_pin_output(A5);
-    gpio_write_pin_high(A5);
+    gpio_write_Pin_high(A5);
     keyboard_pre_init_user();
 }

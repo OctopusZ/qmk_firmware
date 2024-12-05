@@ -18,15 +18,15 @@
 
 /* Private Functions */
 void off_all_leds(void) {
-    gpio_write_pin_high(LED_CAPS_LOCK_PIN);
-    gpio_write_pin_high(LED_WIN_LOCK_PIN);
-    gpio_write_pin_high(LED_MR_LOCK_PIN);
+    gpio_write_Pin_high(LED_CAPS_LOCK_PIN);
+    gpio_write_Pin_high(LED_WIN_LOCK_PIN);
+    gpio_write_Pin_high(LED_MR_LOCK_PIN);
 }
 
 void on_all_leds(void) {
-    gpio_write_pin_low(LED_CAPS_LOCK_PIN);
-    gpio_write_pin_low(LED_WIN_LOCK_PIN);
-    gpio_write_pin_low(LED_MR_LOCK_PIN);
+    gpio_write_Pin_low(LED_CAPS_LOCK_PIN);
+    gpio_write_Pin_low(LED_WIN_LOCK_PIN);
+    gpio_write_Pin_low(LED_MR_LOCK_PIN);
 }
 
 /* WinLock and MR LEDs are non-standard. Need to override led init */
@@ -44,7 +44,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
         case GU_TOGG:
             if (record->event.pressed) {
                 // Toggle LED on key press
-                gpio_toggle_pin(LED_WIN_LOCK_PIN);
+                gpio_toggle_Pin(LED_WIN_LOCK_PIN);
             }
             break;
     }

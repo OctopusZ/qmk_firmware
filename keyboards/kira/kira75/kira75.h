@@ -24,16 +24,16 @@
 // Functions for setting LEDs on toggle keys
 inline void caps_led_on(void) {
     gpio_set_pin_output(KIRA75_CAPS_LOCK_LED_PIN);
-    gpio_write_pin_low(KIRA75_CAPS_LOCK_LED_PIN);
+    gpio_write_Pin_low(KIRA75_CAPS_LOCK_LED_PIN);
 }
 inline void caps_led_off(void) {
-    gpio_set_pin_input(KIRA75_CAPS_LOCK_LED_PIN);
+    gpio_set_Pin_input(KIRA75_CAPS_LOCK_LED_PIN);
 }
 
 inline void num_led_on(void) {
     gpio_set_pin_output(KIRA75_NUM_LOCK_LED_PIN);
-    gpio_write_pin_low(KIRA75_NUM_LOCK_LED_PIN);
+    gpio_write_Pin_low(KIRA75_NUM_LOCK_LED_PIN);
 }
 inline void num_led_off(void) {
-    gpio_set_pin_input(KIRA75_NUM_LOCK_LED_PIN);
+    gpio_set_Pin_input(KIRA75_NUM_LOCK_LED_PIN);
 }

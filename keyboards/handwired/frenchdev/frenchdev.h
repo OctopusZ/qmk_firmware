@@ -34,32 +34,32 @@ uint8_t init_mcp23018(void);
 
 inline void frenchdev_board_led_on(void) {
     gpio_set_pin_output(FRENCHDEV_BOARD_LED_PIN);
-    gpio_write_pin_high(FRENCHDEV_BOARD_LED_PIN);
+    gpio_write_Pin_high(FRENCHDEV_BOARD_LED_PIN);
 }
 inline void frenchdev_led_1_on(void) {
     gpio_set_pin_output(FRENCHDEV_LED_1_PIN);
-    gpio_write_pin_high(FRENCHDEV_LED_1_PIN);
+    gpio_write_Pin_high(FRENCHDEV_LED_1_PIN);
 }
 inline void frenchdev_led_2_on(void) {
     gpio_set_pin_output(FRENCHDEV_LED_2_PIN);
-    gpio_write_pin_high(FRENCHDEV_LED_2_PIN);
+    gpio_write_Pin_high(FRENCHDEV_LED_2_PIN);
 }
 inline void frenchdev_led_3_on(void) {
     gpio_set_pin_output(FRENCHDEV_LED_3_PIN);
-    gpio_write_pin_high(FRENCHDEV_LED_3_PIN);
+    gpio_write_Pin_high(FRENCHDEV_LED_3_PIN);
 }
 
 inline void frenchdev_board_led_off(void) {
-    gpio_set_pin_input(FRENCHDEV_BOARD_LED_PIN);
+    gpio_set_Pin_input(FRENCHDEV_BOARD_LED_PIN);
 }
 inline void frenchdev_led_1_off(void) {
-    gpio_set_pin_input(FRENCHDEV_LED_1_PIN);
+    gpio_set_Pin_input(FRENCHDEV_LED_1_PIN);
 }
 inline void frenchdev_led_2_off(void) {
-    gpio_set_pin_input(FRENCHDEV_LED_2_PIN);
+    gpio_set_Pin_input(FRENCHDEV_LED_2_PIN);
 }
 inline void frenchdev_led_3_off(void) {
-    gpio_set_pin_input(FRENCHDEV_LED_3_PIN);
+    gpio_set_Pin_input(FRENCHDEV_LED_3_PIN);
 }
 
 inline void frenchdev_led_all_on(void)

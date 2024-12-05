@@ -106,7 +106,7 @@ void snled27351_init_drivers(void) {
 
 #if defined(SNLED27351_SDB_PIN)
     gpio_set_pin_output(SNLED27351_SDB_PIN);
-    gpio_write_pin_high(SNLED27351_SDB_PIN);
+    gpio_write_Pin_high(SNLED27351_SDB_PIN);
 #endif
 
     for (uint8_t i = 0; i < SNLED27351_DRIVER_COUNT; i++) {

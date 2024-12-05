@@ -53,7 +53,7 @@ bool shake_hands(bool master) {
          * alignment. */
 
         if (master) {
-            gpio_write_pin_low(SPI_SS_PIN);
+            gpio_write_Pin_low(SPI_SS_PIN);
         }
 
         for (i = 0 ; i < 8 ; i += 1) {
@@ -64,7 +64,7 @@ bool shake_hands(bool master) {
         }
 
         if (master) {
-            gpio_write_pin_high(SPI_SS_PIN);
+            gpio_write_Pin_high(SPI_SS_PIN);
         }
     } while (i < 8);
 
@@ -176,7 +176,7 @@ void transport_master_init(void) {
      * above depends on it and the SPI master driver won't do it
      * before we call spi_start(). */
 
-    gpio_write_pin_high(SPI_SS_PIN);
+    gpio_write_Pin_high(SPI_SS_PIN);
     gpio_set_pin_output(SPI_SS_PIN);
 
     spi_init();
@@ -195,9 +195,9 @@ void transport_slave_init(void) {
      * they're asserted making the MISO pin an output on both ends and
      * leading to potential shorts. */
 
-    gpio_set_pin_input_high(SPI_SS_PIN);
-    gpio_set_pin_input(SPI_SCK_PIN);
-    gpio_set_pin_input(SPI_MOSI_PIN);
+    gpio_set_Pin_input_high(SPI_SS_PIN);
+    gpio_set_Pin_input(SPI_SCK_PIN);
+    gpio_set_Pin_input(SPI_MOSI_PIN);
     gpio_set_pin_output(SPI_MISO_PIN);
 
     SPCR = _BV(SPE);

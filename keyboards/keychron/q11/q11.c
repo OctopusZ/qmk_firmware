@@ -131,11 +131,11 @@ void keyboard_post_init_kb(void) {
     // to avoid affecting the serial usart communication between the left hand and the right hand.
     if (is_keyboard_left()) {
         gpio_set_pin_output(A0);
-        gpio_write_pin_high(A0);
+        gpio_write_Pin_high(A0);
     } else {
         if ((analogReadPin_my(B0) > 1000) || (analogReadPin_my(B1) > 1000)) {
-            gpio_set_pin_input(A11);
-            gpio_set_pin_input(A12);
+            gpio_set_Pin_input(A11);
+            gpio_set_Pin_input(A12);
         }
     }
 

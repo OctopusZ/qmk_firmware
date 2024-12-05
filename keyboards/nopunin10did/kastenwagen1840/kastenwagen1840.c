@@ -26,22 +26,22 @@ void keyboard_pre_init_kb(void) {
 }
 
 __attribute__((weak)) layer_state_t layer_state_set_user(layer_state_t state) {
-    gpio_write_pin_high(LED_INDICATOR_TOP);
-    gpio_write_pin_high(LED_INDICATOR_MID);
-    gpio_write_pin_high(LED_INDICATOR_BOT);
+    gpio_write_Pin_high(LED_INDICATOR_TOP);
+    gpio_write_Pin_high(LED_INDICATOR_MID);
+    gpio_write_Pin_high(LED_INDICATOR_BOT);
 
     switch(get_highest_layer(state) % 4) {
     case 1:
-        gpio_write_pin_low(LED_INDICATOR_TOP);
-        gpio_write_pin_low(LED_INDICATOR_MID);
+        gpio_write_Pin_low(LED_INDICATOR_TOP);
+        gpio_write_Pin_low(LED_INDICATOR_MID);
         break;
     case 2:
-        gpio_write_pin_low(LED_INDICATOR_TOP);
-        gpio_write_pin_low(LED_INDICATOR_BOT);
+        gpio_write_Pin_low(LED_INDICATOR_TOP);
+        gpio_write_Pin_low(LED_INDICATOR_BOT);
         break;
     case 3:
-        gpio_write_pin_low(LED_INDICATOR_MID);
-        gpio_write_pin_low(LED_INDICATOR_BOT);
+        gpio_write_Pin_low(LED_INDICATOR_MID);
+        gpio_write_Pin_low(LED_INDICATOR_BOT);
         break;
     }
     return state;

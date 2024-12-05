@@ -32,9 +32,9 @@ void matrix_init_kb(void) {
 
     // unused pins - D4, D5, E6
     // set as input with internal pull-ip enabled
-    gpio_set_pin_input_high(D4);
-    gpio_set_pin_input_high(D5);
-    gpio_set_pin_input_high(E6);
+    gpio_set_Pin_input_high(D4);
+    gpio_set_Pin_input_high(D5);
+    gpio_set_Pin_input_high(E6);
 
     frenchdev_blink_all_leds();
     frenchdev_blink_all_leds();

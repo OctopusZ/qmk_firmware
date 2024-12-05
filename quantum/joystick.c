@@ -46,7 +46,7 @@ __attribute__((weak)) void joystick_axis_init(uint8_t axis) {
     if (axis >= JOYSTICK_AXIS_COUNT) return;
 
 #if defined(JOYSTICK_ANALOG)
-    gpio_set_pin_input(joystick_axes[axis].input_pin);
+    gpio_set_Pin_input(joystick_axes[axis].input_pin);
 #endif
 }
 

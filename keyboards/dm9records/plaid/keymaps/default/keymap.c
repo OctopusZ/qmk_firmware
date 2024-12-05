@@ -223,15 +223,15 @@ void keyboard_post_init_user(void) {
   led_config.raw = eeconfig_read_user();
 
   if(led_config.red_mode == LEDMODE_ON) {
-      gpio_write_pin_high(LED_RED);
+      gpio_write_Pin_high(LED_RED);
   }
 
   if(led_config.green_mode == LEDMODE_ON) {
-      gpio_write_pin_high(LED_GREEN);
+      gpio_write_Pin_high(LED_GREEN);
   }
 }
 
-void eeconfig_init_user(void) {  // EEPROM is getting reset! 
+void eeconfig_init_user(void) {  // EEPROM is getting reset!
   led_config.raw = 0;
   led_config.red_mode = LEDMODE_ON;
   led_config.green_mode = LEDMODE_MODS;
@@ -249,10 +249,10 @@ void led_keypress_update(uint8_t led, uint8_t led_mode, uint16_t keycode, keyrec
         for (int i=0;i<ARRAY_SIZE(modifiers);i++) {
           if(keycode==modifiers[i]) {
             if (record->event.pressed) {
-              gpio_write_pin_high(led);
+              gpio_write_Pin_high(led);
             }
             else {
-              gpio_write_pin_low(led);
+              gpio_write_Pin_low(led);
             }
           }
         }
@@ -261,30 +261,30 @@ void led_keypress_update(uint8_t led, uint8_t led_mode, uint16_t keycode, keyrec
         if (record->event.pressed) {
           if(rand() % 2 == 1) {
             if(rand() % 2 == 0) {
-              gpio_write_pin_low(led);
+              gpio_write_Pin_low(led);
             }
             else {
-              gpio_write_pin_high(led);
+              gpio_write_Pin_high(led);
             }
           }
         }
         break;
       case LEDMODE_KEY:
         if (record->event.pressed) {
-          gpio_write_pin_high(led);
+          gpio_write_Pin_high(led);
           return;
         }
         else {
-          gpio_write_pin_low(led);
+          gpio_write_Pin_low(led);
           return;
         }
         break;
       case LEDMODE_ENTER:
         if (keycode==KC_ENT) {
-          gpio_write_pin_high(led);
+          gpio_write_Pin_high(led);
         }
         else {
-          gpio_write_pin_low(led);
+          gpio_write_Pin_low(led);
         }
         break;
 
@@ -293,7 +293,7 @@ void led_keypress_update(uint8_t led, uint8_t led_mode, uint16_t keycode, keyrec
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   /* If the either led mode is keypressed based, call the led updater
-     then let it fall through the keypress handlers. Just to keep 
+     then let it fall through the keypress handlers. Just to keep
      the logic out of this procedure */
   if (led_config.red_mode >= LEDMODE_MODS && led_config.red_mode <= LEDMODE_ENTER) {
       led_keypress_update(LED_RED, led_config.red_mode, keycode, record);
@@ -327,11 +327,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         if (led_config.red_mode==LEDMODE_ON) {
             led_config.red_mode=LEDMODE_OFF;
-            gpio_write_pin_low(LED_RED);
+            gpio_write_Pin_low(LED_RED);
         }
         else {
             led_config.red_mode=LEDMODE_ON;
-            gpio_write_pin_high(LED_RED);
+            gpio_write_Pin_high(LED_RED);
         }
       }
       eeconfig_update_user(led_config.raw);
@@ -341,11 +341,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         if (led_config.green_mode==LEDMODE_ON) {
             led_config.green_mode=LEDMODE_OFF;
-            gpio_write_pin_low(LED_GREEN);
+            gpio_write_Pin_low(LED_GREEN);
         }
         else {
             led_config.green_mode=LEDMODE_ON;
-            gpio_write_pin_high(LED_GREEN);
+            gpio_write_Pin_high(LED_GREEN);
         }
       }
       eeconfig_update_user(led_config.raw);

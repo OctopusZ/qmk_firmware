@@ -7,7 +7,7 @@
 void keyboard_post_init_kb(void) {
     // Enable RGB current limiter and wait for a bit before allowing RGB to continue
     gpio_set_pin_output(RGB_ENABLE_PIN);
-    gpio_write_pin_high(RGB_ENABLE_PIN);
+    gpio_write_Pin_high(RGB_ENABLE_PIN);
     wait_ms(20);
 
     // Offload to the user func
@@ -17,11 +17,11 @@ void keyboard_post_init_kb(void) {
 void matrix_init_custom(void) {
     // SPI Matrix
     gpio_set_pin_output(SPI_MATRIX_CHIP_SELECT_PIN);
-    gpio_write_pin_high(SPI_MATRIX_CHIP_SELECT_PIN);
+    gpio_write_Pin_high(SPI_MATRIX_CHIP_SELECT_PIN);
     spi_init();
 
     // Encoder pushbutton
-    gpio_set_pin_input_low(ENCODER_PUSHBUTTON_PIN);
+    gpio_set_Pin_input_low(ENCODER_PUSHBUTTON_PIN);
 }
 
 bool matrix_scan_custom(matrix_row_t current_matrix[]) {
@@ -33,7 +33,7 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     spi_stop();
 
     // Read from the encoder pushbutton
-    temp_matrix[5] = gpio_read_pin(ENCODER_PUSHBUTTON_PIN) ? 1 : 0;
+    temp_matrix[5] = gpio_read_Pin(ENCODER_PUSHBUTTON_PIN) ? 1 : 0;
 
     // Check if we've changed, return the last-read data
     bool changed = memcmp(current_matrix, temp_matrix, sizeof(temp_matrix)) != 0;

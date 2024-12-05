@@ -30,10 +30,10 @@ void keyboard_pre_init_kb(void) {
 layer_state_t layer_state_set_kb(layer_state_t state) {
     switch (get_highest_layer(state)) {
       case 1:
-        gpio_write_pin_high(LED_LAYERS_PIN);
+        gpio_write_Pin_high(LED_LAYERS_PIN);
         break;
       default: //  for any other layers, or the default layer
-        gpio_write_pin_low(LED_LAYERS_PIN);
+        gpio_write_Pin_low(LED_LAYERS_PIN);
         break;
       }
     return layer_state_set_user(state);

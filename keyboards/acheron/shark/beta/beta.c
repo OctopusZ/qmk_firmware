@@ -17,6 +17,6 @@
 #include "quantum.h"
 
 void board_init(void) {
-	gpio_set_pin_input(B6);
-	gpio_set_pin_input(B7);
+	gpio_set_Pin_input(B6);
+	gpio_set_Pin_input(B7);
 }

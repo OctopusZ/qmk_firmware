@@ -44,26 +44,26 @@ pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
 static inline void gpio_atomic_set_pin_output_low(pin_t pin) {
     ATOMIC_BLOCK_FORCEON {
         gpio_set_pin_output(pin);
-        gpio_write_pin_low(pin);
+        gpio_write_Pin_low(pin);
     }
 }
 
 static inline void gpio_atomic_set_pin_output_high(pin_t pin) {
     ATOMIC_BLOCK_FORCEON {
         gpio_set_pin_output(pin);
-        gpio_write_pin_high(pin);
+        gpio_write_Pin_high(pin);
     }
 }
 
 static inline void gpio_atomic_set_pin_input_high(pin_t pin) {
     ATOMIC_BLOCK_FORCEON {
-        gpio_set_pin_input_high(pin);
+        gpio_set_Pin_input_high(pin);
     }
 }
 
 static inline uint8_t readMatrixPin(pin_t pin) {
     if (pin != NO_PIN) {
-        return gpio_read_pin(pin);
+        return gpio_read_Pin(pin);
     } else {
         return 1;
     }
@@ -81,13 +81,13 @@ static void HC595_output(SIZE_T data, uint8_t bit) {
     ATOMIC_BLOCK_FORCEON {
         for (uint8_t i = 0; i < (SHIFT_COL_END - SHIFT_COL_START + 1); i++) {
             if (data & 0x1) {
-                gpio_write_pin_high(HC595_DS);
+                gpio_write_Pin_high(HC595_DS);
             } else {
-                gpio_write_pin_low(HC595_DS);
+                gpio_write_Pin_low(HC595_DS);
             }
-            gpio_write_pin_high(HC595_SHCP);
+            gpio_write_Pin_high(HC595_SHCP);
             HC595_delay(n);
-            gpio_write_pin_low(HC595_SHCP);
+            gpio_write_Pin_low(HC595_SHCP);
             HC595_delay(n);
             if (bit) {
                 break;
@@ -95,9 +95,9 @@ static void HC595_output(SIZE_T data, uint8_t bit) {
                 data = data >> 1;
             }
         }
-        gpio_write_pin_high(HC595_STCP);
+        gpio_write_Pin_high(HC595_STCP);
         HC595_delay(n);
-        gpio_write_pin_low(HC595_STCP);
+        gpio_write_Pin_low(HC595_STCP);
         HC595_delay(n);
     }
 }

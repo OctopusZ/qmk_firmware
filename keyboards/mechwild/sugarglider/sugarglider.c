@@ -19,13 +19,13 @@ uint16_t          dpi_array[] = GLIDEPOINT_DPI_OPTIONS;
 void board_init(void) {
     // B9 is configured as I2C1_SDA in the board file; that function must be
     // disabled before using B7 as I2C1_SDA.
-    gpio_set_pin_input_high(B9);
+    gpio_set_Pin_input_high(B9);
     gpio_set_pin_output(B12);
     gpio_set_pin_output(B13);
     gpio_set_pin_output(B14);
-    gpio_write_pin_low(B12);
-    gpio_write_pin_low(B13);
-    gpio_write_pin_low(B14);
+    gpio_write_Pin_low(B12);
+    gpio_write_Pin_low(B13);
+    gpio_write_Pin_low(B14);
     gpio_set_pin_output(C13);
 }
 
@@ -110,10 +110,10 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
 bool led_update_kb(led_t led_state) {
     bool res = led_update_user(led_state);
     if(res) {
-        gpio_write_pin(B12, led_state.num_lock);     // Updates status LEDs
-        gpio_write_pin(B13, led_state.caps_lock);    // Updates status LEDs
-        gpio_write_pin(B14, led_state.scroll_lock);  // Updates status LEDs
-        gpio_write_pin(C13, !led_state.caps_lock);   // Updates status LEDs, this is the LED on the blackpill itself
+        gpio_write_Pin(B12, led_state.num_lock);     // Updates status LEDs
+        gpio_write_Pin(B13, led_state.caps_lock);    // Updates status LEDs
+        gpio_write_Pin(B14, led_state.scroll_lock);  // Updates status LEDs
+        gpio_write_Pin(C13, !led_state.caps_lock);   // Updates status LEDs, this is the LED on the blackpill itself
     }
     return res;
 }
@@ -124,7 +124,7 @@ static void render_logo(void) {     // Render MechWild "MW" Logo
     static const char PROGMEM logo_2[] = {0xD0, 0xD1, 0xD2, 0xD3, 0xD4, 0x00};
     static const char PROGMEM logo_3[] = {0xD5, 0xD6, 0xD7, 0xD8, 0x00};
     static const char PROGMEM logo_4[] = {0xDE, 0xD9, 0xDA, 0xDB, 0x00};
-    
+
     oled_write_P(logo_1, false);
     oled_set_cursor(0,1);
     oled_write_P(logo_2, false);
@@ -369,7 +369,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t* record) {
                 tap_toggle();
             }
             return false;
-#endif // ifdef 
+#endif // ifdef
     }
     return process_record_user(keycode, record);
 }

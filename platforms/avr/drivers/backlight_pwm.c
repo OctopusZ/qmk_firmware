@@ -293,9 +293,9 @@ ISR(TIMERx_OVF_vect) {
 void backlight_init_ports(void) {
     gpio_set_pin_output(BACKLIGHT_PIN);
 #if BACKLIGHT_ON_STATE == 1
-    gpio_write_pin_low(BACKLIGHT_PIN);
+    gpio_write_Pin_low(BACKLIGHT_PIN);
 #else
-    gpio_write_pin_high(BACKLIGHT_PIN);
+    gpio_write_Pin_high(BACKLIGHT_PIN);
 #endif
 
     // I could write a wall of text here to explain... but TL;DW

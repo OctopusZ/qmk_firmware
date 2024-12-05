@@ -61,7 +61,7 @@ void init_row(void) {
     // Set all row pins as output and low
     for (uint8_t idx = 0; idx < MATRIX_ROWS; idx++) {
         gpio_set_pin_output(row_pins[idx]);
-        gpio_write_pin_low(row_pins[idx]);
+        gpio_write_Pin_low(row_pins[idx]);
     }
 }
 
@@ -69,7 +69,7 @@ void init_row(void) {
 void init_amux(void) {
     for (uint8_t idx = 0; idx < AMUX_COUNT; idx++) {
         gpio_set_pin_output(amux_en_pins[idx]);
-        gpio_write_pin_low(amux_en_pins[idx]);
+        gpio_write_Pin_low(amux_en_pins[idx]);
     }
     for (uint8_t idx = 0; idx < AMUX_SEL_PINS_COUNT; idx++) {
         gpio_set_pin_output(amux_sel_pins[idx]);
@@ -81,7 +81,7 @@ void disable_unused_row(uint8_t row) {
     // disable all the other rows apart from the current selected one
     for (uint8_t idx = 0; idx < MATRIX_ROWS; idx++) {
         if (idx != row) {
-            gpio_write_pin_low(row_pins[idx]);
+            gpio_write_Pin_low(row_pins[idx]);
         }
     }
 }
@@ -91,13 +91,13 @@ void select_amux_channel(uint8_t channel, uint8_t col) {
     // Get the channel for the specified multiplexer
     uint8_t ch = amux_n_col_channels[channel][col];
     // momentarily disable specified multiplexer
-    gpio_write_pin_high(amux_en_pins[channel]);
+    gpio_write_Pin_high(amux_en_pins[channel]);
     // Select the multiplexer channel
     for (uint8_t i = 0; i < AMUX_SEL_PINS_COUNT; i++) {
-        gpio_write_pin(amux_sel_pins[i], ch & (1 << i));
+        gpio_write_Pin(amux_sel_pins[i], ch & (1 << i));
     }
     // re enable specified multiplexer
-    gpio_write_pin_low(amux_en_pins[channel]);
+    gpio_write_Pin_low(amux_en_pins[channel]);
 }
 
 // Disable all the unused multiplexers
@@ -105,16 +105,16 @@ void disable_unused_amux(uint8_t channel) {
     // disable all the other multiplexers apart from the current selected one
     for (uint8_t idx = 0; idx < AMUX_COUNT; idx++) {
         if (idx != channel) {
-            gpio_write_pin_high(amux_en_pins[idx]);
+            gpio_write_Pin_high(amux_en_pins[idx]);
         }
     }
 }
 // Discharge the peak hold capacitor
 void discharge_capacitor(void) {
 #ifdef OPEN_DRAIN_SUPPORT
-    gpio_write_pin_low(DISCHARGE_PIN);
+    gpio_write_Pin_low(DISCHARGE_PIN);
 #else
-    gpio_write_pin_low(DISCHARGE_PIN);
+    gpio_write_Pin_low(DISCHARGE_PIN);
     gpio_set_pin_output(DISCHARGE_PIN);
 #endif
 }
@@ -122,11 +122,11 @@ void discharge_capacitor(void) {
 // Charge the peak hold capacitor
 void charge_capacitor(uint8_t row) {
 #ifdef OPEN_DRAIN_SUPPORT
-    gpio_write_pin_high(DISCHARGE_PIN);
+    gpio_write_Pin_high(DISCHARGE_PIN);
 #else
-    gpio_set_pin_input(DISCHARGE_PIN);
+    gpio_set_Pin_input(DISCHARGE_PIN);
 #endif
-    gpio_write_pin_high(row_pins[row]);
+    gpio_write_Pin_high(row_pins[row]);
 }
 
 // Initialize the peripherals pins
@@ -139,9 +139,9 @@ int ec_init(void) {
     adc_read(adcMux);
 
     // Initialize discharge pin as discharge mode
-    gpio_write_pin_low(DISCHARGE_PIN);
+    gpio_write_Pin_low(DISCHARGE_PIN);
 #ifdef OPEN_DRAIN_SUPPORT
-    gpio_set_pin_output_open_drain(DISCHARGE_PIN);
+    gpio_set_Pin_output_open_drain(DISCHARGE_PIN);
 #else
     gpio_set_pin_output(DISCHARGE_PIN);
 #endif
@@ -236,7 +236,7 @@ uint16_t ec_readkey_raw(uint8_t channel, uint8_t row, uint8_t col) {
     select_amux_channel(channel, col);
 
     // Set the row pin to low state to avoid ghosting
-    gpio_write_pin_low(row_pins[row]);
+    gpio_write_Pin_low(row_pins[row]);
 
     ATOMIC_BLOCK_FORCEON {
         // Set the row pin to high state and have capacitor charge

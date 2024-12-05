@@ -45,11 +45,11 @@
 
 #define APA102_SEND_BIT(byte, bit)                        \
     do {                                                  \
-        gpio_write_pin(APA102_DI_PIN, (byte >> bit) & 1); \
+        gpio_write_Pin(APA102_DI_PIN, (byte >> bit) & 1); \
         io_wait;                                          \
-        gpio_write_pin_high(APA102_CI_PIN);               \
+        gpio_write_Pin_high(APA102_CI_PIN);               \
         io_wait;                                          \
-        gpio_write_pin_low(APA102_CI_PIN);                \
+        gpio_write_Pin_low(APA102_CI_PIN);                \
         io_wait;                                          \
     } while (0)
 
@@ -68,8 +68,8 @@ static void apa102_send_byte(uint8_t byte) {
 }
 
 static void apa102_start_frame(void) {
-    gpio_write_pin_low(APA102_DI_PIN);
-    gpio_write_pin_low(APA102_CI_PIN);
+    gpio_write_Pin_low(APA102_DI_PIN);
+    gpio_write_Pin_low(APA102_CI_PIN);
 
     for (uint16_t i = 0; i < 4; i++) {
         apa102_send_byte(0);
@@ -106,8 +106,8 @@ static void apa102_end_frame(uint16_t num_leds) {
         apa102_send_byte(0);
     }
 
-    gpio_write_pin_low(APA102_DI_PIN);
-    gpio_write_pin_low(APA102_CI_PIN);
+    gpio_write_Pin_low(APA102_DI_PIN);
+    gpio_write_Pin_low(APA102_CI_PIN);
 }
 
 static void apa102_send_frame(uint8_t red, uint8_t green, uint8_t blue, uint8_t brightness) {

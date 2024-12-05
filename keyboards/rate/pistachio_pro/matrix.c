@@ -23,12 +23,12 @@ static const pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
 static inline void gpio_atomic_set_pin_output_low(pin_t pin) {
     ATOMIC_BLOCK_FORCEON {
         gpio_set_pin_output(pin);
-        gpio_write_pin_low(pin);
+        gpio_write_Pin_low(pin);
     }
 }
 
 static inline void gpio_atomic_set_pin_input_high(pin_t pin) {
-    ATOMIC_BLOCK_FORCEON { gpio_set_pin_input_high(pin); }
+    ATOMIC_BLOCK_FORCEON { gpio_set_Pin_input_high(pin); }
 }
 
 static void select_row(uint8_t row) {
@@ -81,7 +81,7 @@ static bool read_cols_on_row(matrix_row_t current_matrix[], uint8_t current_row)
     // For each col...
     for (uint8_t col_index = 0; col_index < MATRIX_COLS / 2; col_index++) {
         // Check row pin state
-        if (gpio_read_pin(col_pins[col_index])) {
+        if (gpio_read_Pin(col_pins[col_index])) {
             // Pin HI, clear col bit
             current_matrix[current_row] &= ~(MATRIX_ROW_SHIFTER << col_index);
         } else {
@@ -109,7 +109,7 @@ static bool read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
         matrix_row_t last_row_value = current_matrix[row_index];
 
         // Check row pin state
-        if (gpio_read_pin(row_pins[row_index])) {
+        if (gpio_read_Pin(row_pins[row_index])) {
             // Pin HI, clear col bit
             current_matrix[row_index] &= ~(MATRIX_ROW_SHIFTER << ( current_col + MATRIX_COLS/2));
         } else {

@@ -23,26 +23,26 @@ static const pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
 static inline void gpio_atomic_set_pin_output_low(pin_t pin) {
     ATOMIC_BLOCK_FORCEON {
         gpio_set_pin_output(pin);
-        gpio_write_pin_low(pin);
+        gpio_write_Pin_low(pin);
     }
 }
 
 static inline void gpio_atomic_set_pin_output_high(pin_t pin) {
     ATOMIC_BLOCK_FORCEON {
         gpio_set_pin_output(pin);
-        gpio_write_pin_high(pin);
+        gpio_write_Pin_high(pin);
     }
 }
 
 static inline void gpio_atomic_set_pin_input_high(pin_t pin) {
     ATOMIC_BLOCK_FORCEON {
-        gpio_set_pin_input_high(pin);
+        gpio_set_Pin_input_high(pin);
     }
 }
 
 static inline uint8_t readMatrixPin(pin_t pin) {
     if (pin != NO_PIN) {
-        return gpio_read_pin(pin);
+        return gpio_read_Pin(pin);
     } else {
         return 1;
     }

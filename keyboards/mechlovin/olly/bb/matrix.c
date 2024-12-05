@@ -67,109 +67,109 @@ static const pin_t row_pins[MATRIX_ROWS] = MATRIX_ROW_PINS;
 static void select_col(uint8_t col) {
     switch (col) {
         case 0:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_high(B4);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_high(B4);
           break;
         case 1:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_high(B4);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_high(B4);
           break;
         case 2:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_high(B4);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_high(B4);
           break;
         case 3:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_high(B4);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_high(B4);
           break;
         case 4:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_high(B4);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_high(B4);
           break;
         case 5:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_high(B4);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_high(B4);
           break;
         case 6:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_high(B4);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_high(B4);
           break;
         case 7:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_high(B4);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_high(B4);
           break;
         case 8:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_high(C7);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_high(C7);
           break;
         case 9:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_high(C7);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_high(C7);
           break;
         case 10:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_high(C7);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_high(C7);
           break;
         case 11:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_high(C7);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_high(C7);
           break;
         case 12:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_high(C7);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_high(C7);
           break;
         case 13:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_high(C7);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_high(C7);
           break;
         case 14:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_high(C7);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_high(C7);
           break;
         case 15:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_high(C7);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_high(C7);
           break;
         case 16:
-          gpio_write_pin_low(C2);
+          gpio_write_Pin_low(C2);
           break;
         case 17:
-          gpio_write_pin_low(C3);
+          gpio_write_Pin_low(C3);
           break;
         case 18:
-          gpio_write_pin_low(C5);
+          gpio_write_Pin_low(C5);
           break;
     }
 }
@@ -177,131 +177,131 @@ static void select_col(uint8_t col) {
 static void unselect_col(uint8_t col) {
     switch (col) {
         case 0:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_low(B4);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_low(B4);
           break;
         case 1:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_low(B4);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_low(B4);
           break;
         case 2:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_low(B4);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_low(B4);
           break;
         case 3:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_low(B4);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_low(B4);
           break;
         case 4:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_low(B4);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_low(B4);
           break;
         case 5:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_low(B4);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_low(B4);
           break;
         case 6:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_low(B4);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_low(B4);
           break;
         case 7:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_low(B4);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_low(B4);
           break;
         case 8:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_low(C7);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_low(C7);
           break;
         case 9:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_low(C7);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_low(C7);
           break;
         case 10:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_low(C7);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_low(C7);
           break;
         case 11:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_low(C7);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_low(C7);
           break;
         case 12:
-          gpio_write_pin_high(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_low(C7);
+          gpio_write_Pin_high(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_low(C7);
           break;
         case 13:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_low(C7);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_low(C7);
           break;
         case 14:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_high(A1);
-          gpio_write_pin_low(A2);
-          gpio_write_pin_low(C7);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_high(A1);
+          gpio_write_Pin_low(A2);
+          gpio_write_Pin_low(C7);
           break;
         case 15:
-          gpio_write_pin_low(A0);
-          gpio_write_pin_low(A1);
-          gpio_write_pin_high(A2);
-          gpio_write_pin_low(C7);
+          gpio_write_Pin_low(A0);
+          gpio_write_Pin_low(A1);
+          gpio_write_Pin_high(A2);
+          gpio_write_Pin_low(C7);
           break;
         case 16:
-          gpio_write_pin_high(C2);
+          gpio_write_Pin_high(C2);
           break;
         case 17:
-          gpio_write_pin_high(C3);
+          gpio_write_Pin_high(C3);
           break;
         case 18:
-          gpio_write_pin_high(C5);
+          gpio_write_Pin_high(C5);
           break;
     }
 }
 
 static void unselect_cols(void) {
     //Native
-    gpio_write_pin_high(C2);
-    gpio_write_pin_high(C3);
-    gpio_write_pin_high(C5);
+    gpio_write_Pin_high(C2);
+    gpio_write_Pin_high(C3);
+    gpio_write_Pin_high(C5);
 
     //Demultiplexer
-    gpio_write_pin_low(B4);
-    gpio_write_pin_low(C7);
-    gpio_write_pin_high(A0);
-    gpio_write_pin_high(A1);
-    gpio_write_pin_high(A2);
+    gpio_write_Pin_low(B4);
+    gpio_write_Pin_low(C7);
+    gpio_write_Pin_high(A0);
+    gpio_write_Pin_high(A1);
+    gpio_write_Pin_high(A2);
 }
 
 static void init_pins(void) {
     unselect_cols();
     for (uint8_t x = 0; x < MATRIX_ROWS; x++) {
-        gpio_set_pin_input_high(row_pins[x]);
+        gpio_set_Pin_input_high(row_pins[x]);
     }
     gpio_set_pin_output(A0);
     gpio_set_pin_output(A1);
@@ -326,7 +326,7 @@ static bool read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
         matrix_row_t last_row_value = current_matrix[row_index];
 
         // Check row pin state
-        if (gpio_read_pin(row_pins[row_index]) == 0) {
+        if (gpio_read_Pin(row_pins[row_index]) == 0) {
             // Pin LO, set col bit
             current_matrix[row_index] |= (MATRIX_ROW_SHIFTER << current_col);
         } else {

@@ -57,12 +57,12 @@ void sleep_led_toggle(void) {}
 
 void sleep_led_disable(void) {
     suspend_active = false;
-    gpio_write_pin_high(MODELM_STATUS_LED);
+    gpio_write_Pin_high(MODELM_STATUS_LED);
 }
 
 void sleep_led_enable(void) {
     suspend_active = true;
-    gpio_write_pin_low(MODELM_STATUS_LED);
+    gpio_write_Pin_low(MODELM_STATUS_LED);
 #ifdef KEYBOARD_ibm_model_m_mschwingen_led_ws2812
     ws2812_set_color_all(0, 0, 0);
     ws2812_flush();
@@ -78,12 +78,12 @@ void keyboard_pre_init_kb(void) {
     gpio_set_pin_output(MODELM_LED_CAPSLOCK);
     gpio_set_pin_output(MODELM_LED_SCROLLOCK);
     gpio_set_pin_output(MODELM_LED_NUMLOCK);
-    gpio_write_pin_low(MODELM_LED_CAPSLOCK);
-    gpio_write_pin_low(MODELM_LED_SCROLLOCK);
-    gpio_write_pin_low(MODELM_LED_NUMLOCK);
+    gpio_write_Pin_low(MODELM_LED_CAPSLOCK);
+    gpio_write_Pin_low(MODELM_LED_SCROLLOCK);
+    gpio_write_Pin_low(MODELM_LED_NUMLOCK);
 #endif
     gpio_set_pin_output(MODELM_STATUS_LED);
-    gpio_write_pin_high(MODELM_STATUS_LED);
+    gpio_write_Pin_high(MODELM_STATUS_LED);
     _delay_ms(50);
 #ifdef UART_DEBUG
     uart_init(115200);
@@ -94,7 +94,7 @@ void keyboard_pre_init_kb(void) {
     gpio_set_pin_output(SR_LOAD_PIN);
     gpio_set_pin_output(SR_CLK_PIN);
     gpio_set_pin_output(SR_DOUT_PIN);  // MOSI - unused
-    gpio_write_pin_low(SR_CLK_PIN);
+    gpio_write_Pin_low(SR_CLK_PIN);
 
     keyboard_pre_init_user();
 }
@@ -194,9 +194,9 @@ bool led_update_kb(led_t led_state) {
     dprintf("LED Update: %d %d %d", led_state.num_lock, led_state.caps_lock, led_state.scroll_lock);
 
     if (led_update_user(led_state)) {
-        if (!isRecording) gpio_write_pin(MODELM_LED_NUMLOCK, !led_state.num_lock);
-        gpio_write_pin(MODELM_LED_CAPSLOCK, !led_state.caps_lock);
-        gpio_write_pin(MODELM_LED_SCROLLOCK, !led_state.scroll_lock);
+        if (!isRecording) gpio_write_Pin(MODELM_LED_NUMLOCK, !led_state.num_lock);
+        gpio_write_Pin(MODELM_LED_CAPSLOCK, !led_state.caps_lock);
+        gpio_write_Pin(MODELM_LED_SCROLLOCK, !led_state.scroll_lock);
     }
     return true;
 }
@@ -205,7 +205,7 @@ void update_layer_leds(void) {
     if (isRecording && timer_elapsed(blink_cycle_timer) > 150) {
         blink_state = !blink_state;
         blink_cycle_timer = timer_read();
-        gpio_write_pin(MODELM_LED_NUMLOCK, blink_state);
+        gpio_write_Pin(MODELM_LED_NUMLOCK, blink_state);
     }
 }
 

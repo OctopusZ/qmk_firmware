@@ -32,12 +32,12 @@ static void init_pins(void) {
 
     // Unselect cols
     for (uint8_t bit = 0; bit < MATRIX_MUX_COLS; bit++) {
-        gpio_write_pin_low(col_pins[bit]);
+        gpio_write_Pin_low(col_pins[bit]);
     }
 
     // Set rows to input, pullup
     for (uint8_t pin = 0; pin < MATRIX_ROWS; pin++) {
-        gpio_set_pin_input_high(row_pins[pin]);
+        gpio_set_Pin_input_high(row_pins[pin]);
     }
 }
 
@@ -45,7 +45,7 @@ static void select_col(uint8_t col)
 {
     for (uint8_t bit = 0; bit < MATRIX_MUX_COLS; bit++) {
         uint8_t state = (col & (0b1 << bit)) >> bit;
-        gpio_write_pin(col_pins[bit], state);
+        gpio_write_Pin(col_pins[bit], state);
     }
 }
 
@@ -60,7 +60,7 @@ static bool read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
     {
         matrix_row_t last_row_value = current_matrix[row_index];
 
-        if (!gpio_read_pin(row_pins[row_index]))
+        if (!gpio_read_Pin(row_pins[row_index]))
         {
             current_matrix[row_index] |= (COL_SHIFTER << current_col);
         }

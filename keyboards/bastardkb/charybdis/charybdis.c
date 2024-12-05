@@ -371,12 +371,12 @@ void housekeeping_task_kb(void) {
 
 #if defined(KEYBOARD_bastardkb_charybdis_3x5_blackpill) || defined(KEYBOARD_bastardkb_charybdis_4x6_blackpill)
 void keyboard_pre_init_kb(void) {
-    gpio_set_pin_input_high(A0);
+    gpio_set_Pin_input_high(A0);
     keyboard_pre_init_user();
 }
 
 void matrix_scan_kb(void) {
-    if (!gpio_read_pin(A0)) {
+    if (!gpio_read_Pin(A0)) {
         reset_keyboard();
     }
     matrix_scan_user();

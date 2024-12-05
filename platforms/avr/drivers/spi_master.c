@@ -42,18 +42,18 @@ static uint8_t current_slave_config  = 0;
 static bool    current_slave_2x      = false;
 
 static inline void spi_select(void) {
-    gpio_write_pin(current_slave_pin, current_cs_active_low ? 0 : 1);
+    gpio_write_Pin(current_slave_pin, current_cs_active_low ? 0 : 1);
 }
 
 static inline void spi_unselect(void) {
-    gpio_write_pin(current_slave_pin, current_cs_active_low ? 1 : 0);
+    gpio_write_Pin(current_slave_pin, current_cs_active_low ? 1 : 0);
 }
 
 void spi_init(void) {
-    gpio_write_pin_high(SPI_SS_PIN);
+    gpio_write_Pin_high(SPI_SS_PIN);
     gpio_set_pin_output(SPI_SCK_PIN);
     gpio_set_pin_output(SPI_MOSI_PIN);
-    gpio_set_pin_input(SPI_MISO_PIN);
+    gpio_set_Pin_input(SPI_MISO_PIN);
 
     SPCR = (_BV(SPE) | _BV(MSTR));
 }

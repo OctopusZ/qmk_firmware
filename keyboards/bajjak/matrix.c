@@ -128,13 +128,13 @@ static void init_cols(void) {
     // not needed, already done as part of init_mcp23018()
 
     // init on teensy
-    gpio_set_pin_input_high(F0);
-    gpio_set_pin_input_high(F1);
-    gpio_set_pin_input_high(F4);
-    gpio_set_pin_input_high(F5);
-    gpio_set_pin_input_high(F6);
-    gpio_set_pin_input_high(F7);
-    gpio_set_pin_input_high(D7);
+    gpio_set_Pin_input_high(F0);
+    gpio_set_Pin_input_high(F1);
+    gpio_set_Pin_input_high(F4);
+    gpio_set_Pin_input_high(F5);
+    gpio_set_Pin_input_high(F6);
+    gpio_set_Pin_input_high(F7);
+    gpio_set_Pin_input_high(D7);
 }
 
 static matrix_row_t read_cols(uint8_t row) {
@@ -175,13 +175,13 @@ static void unselect_rows(void) {
     // direction
 
     // unselect on teensy
-    gpio_set_pin_input(B0);
-    gpio_set_pin_input(B1);
-    gpio_set_pin_input(B2);
-    gpio_set_pin_input(B3);
-    gpio_set_pin_input(D2);
-    gpio_set_pin_input(D3);
-    gpio_set_pin_input(C6);
+    gpio_set_Pin_input(B0);
+    gpio_set_Pin_input(B1);
+    gpio_set_Pin_input(B2);
+    gpio_set_Pin_input(B3);
+    gpio_set_Pin_input(D2);
+    gpio_set_Pin_input(D3);
+    gpio_set_Pin_input(C6);
 }
 
 static void select_row(uint8_t row) {
@@ -201,31 +201,31 @@ static void select_row(uint8_t row) {
         switch (row) {
             case 7:
                 gpio_set_pin_output(B0);
-                gpio_write_pin_low(B0);
+                gpio_write_Pin_low(B0);
                 break;
             case 8:
                 gpio_set_pin_output(B1);
-                gpio_write_pin_low(B1);
+                gpio_write_Pin_low(B1);
                 break;
             case 9:
                 gpio_set_pin_output(B2);
-                gpio_write_pin_low(B2);
+                gpio_write_Pin_low(B2);
                 break;
             case 10:
                 gpio_set_pin_output(B3);
-                gpio_write_pin_low(B3);
+                gpio_write_Pin_low(B3);
                 break;
             case 11:
                 gpio_set_pin_output(D2);
-                gpio_write_pin_low(D2);
+                gpio_write_Pin_low(D2);
                 break;
             case 12:
                 gpio_set_pin_output(D3);
-                gpio_write_pin_low(D3);
+                gpio_write_Pin_low(D3);
                 break;
             case 13:
                 gpio_set_pin_output(C6);
-                gpio_write_pin_low(C6);
+                gpio_write_Pin_low(C6);
                 break;
         }
     }

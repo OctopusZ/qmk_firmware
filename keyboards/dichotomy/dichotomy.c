@@ -64,9 +64,9 @@ void led_init(void) {
     gpio_set_pin_output(F5);
     gpio_set_pin_output(F6);
 
-	gpio_write_pin_high(D1);
-    gpio_write_pin_high(F5);
-    gpio_write_pin_high(F6);
+	gpio_write_Pin_high(D1);
+    gpio_write_Pin_high(F5);
+    gpio_write_Pin_high(F6);
 }
 
 

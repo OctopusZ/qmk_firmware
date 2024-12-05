@@ -82,13 +82,13 @@ static void expander_scan(void) {
  */
 static void init_cols(void) {
     // Pro Micro
-    gpio_set_pin_input_high(E6);
-    gpio_set_pin_input_high(D2);
-    gpio_set_pin_input_high(D3);
-    gpio_set_pin_input_high(D4);
-    gpio_set_pin_input_high(D7);
-    gpio_set_pin_input_high(C6);
-    gpio_set_pin_input_high(B4);
+    gpio_set_Pin_input_high(E6);
+    gpio_set_Pin_input_high(D2);
+    gpio_set_Pin_input_high(D3);
+    gpio_set_Pin_input_high(D4);
+    gpio_set_Pin_input_high(D7);
+    gpio_set_Pin_input_high(C6);
+    gpio_set_Pin_input_high(B4);
 
     // Expander
     expander_init_cols();
@@ -97,13 +97,13 @@ static void init_cols(void) {
 static matrix_row_t read_cols(void) {
     // clang-format off
     return expander_read_row() |
-        (gpio_read_pin(D3) ? 0 : (1<<6)) |
-        (gpio_read_pin(D2) ? 0 : (1<<5)) |
-        (gpio_read_pin(D4) ? 0 : (1<<4)) |
-        (gpio_read_pin(C6) ? 0 : (1<<3)) |
-        (gpio_read_pin(D7) ? 0 : (1<<2)) |
-        (gpio_read_pin(E6) ? 0 : (1<<1)) |
-        (gpio_read_pin(B4) ? 0 : (1<<0)) ;
+        (gpio_read_Pin(D3) ? 0 : (1<<6)) |
+        (gpio_read_Pin(D2) ? 0 : (1<<5)) |
+        (gpio_read_Pin(D4) ? 0 : (1<<4)) |
+        (gpio_read_Pin(C6) ? 0 : (1<<3)) |
+        (gpio_read_Pin(D7) ? 0 : (1<<2)) |
+        (gpio_read_Pin(E6) ? 0 : (1<<1)) |
+        (gpio_read_Pin(B4) ? 0 : (1<<0)) ;
     // clang-format on
 }
 
@@ -116,18 +116,18 @@ static matrix_row_t read_cols(void) {
  */
 static void unselect_rows(void) {
     // Pro Micro
-    gpio_set_pin_input(B1);
-    gpio_set_pin_input(B2);
-    gpio_set_pin_input(F4);
-    gpio_set_pin_input(F5);
-    gpio_set_pin_input(F6);
-    gpio_set_pin_input(F7);
-    gpio_write_pin_low(B1);
-    gpio_write_pin_low(B2);
-    gpio_write_pin_low(F4);
-    gpio_write_pin_low(F5);
-    gpio_write_pin_low(F6);
-    gpio_write_pin_low(F7);
+    gpio_set_Pin_input(B1);
+    gpio_set_Pin_input(B2);
+    gpio_set_Pin_input(F4);
+    gpio_set_Pin_input(F5);
+    gpio_set_Pin_input(F6);
+    gpio_set_Pin_input(F7);
+    gpio_write_Pin_low(B1);
+    gpio_write_Pin_low(B2);
+    gpio_write_Pin_low(F4);
+    gpio_write_Pin_low(F5);
+    gpio_write_Pin_low(F6);
+    gpio_write_Pin_low(F7);
 
     // Expander
     expander_unselect_rows();
@@ -137,28 +137,28 @@ static void unselect_row(uint8_t row) {
     // Pro Micro
     switch (row) {
         case 0:
-            gpio_set_pin_input(F4);
-            gpio_write_pin_low(F4);
+            gpio_set_Pin_input(F4);
+            gpio_write_Pin_low(F4);
             break;
         case 1:
-            gpio_set_pin_input(F5);
-            gpio_write_pin_low(F5);
+            gpio_set_Pin_input(F5);
+            gpio_write_Pin_low(F5);
             break;
         case 2:
-            gpio_set_pin_input(F6);
-            gpio_write_pin_low(F6);
+            gpio_set_Pin_input(F6);
+            gpio_write_Pin_low(F6);
             break;
         case 3:
-            gpio_set_pin_input(F7);
-            gpio_write_pin_low(F7);
+            gpio_set_Pin_input(F7);
+            gpio_write_Pin_low(F7);
             break;
         case 4:
-            gpio_set_pin_input(B1);
-            gpio_write_pin_low(B1);
+            gpio_set_Pin_input(B1);
+            gpio_write_Pin_low(B1);
             break;
         case 5:
-            gpio_set_pin_input(B2);
-            gpio_write_pin_low(B2);
+            gpio_set_Pin_input(B2);
+            gpio_write_Pin_low(B2);
             break;
     }
 
@@ -171,27 +171,27 @@ static void select_row(uint8_t row) {
     switch (row) {
         case 0:
             gpio_set_pin_output(F4);
-            gpio_write_pin_low(F4);
+            gpio_write_Pin_low(F4);
             break;
         case 1:
             gpio_set_pin_output(F5);
-            gpio_write_pin_low(F5);
+            gpio_write_Pin_low(F5);
             break;
         case 2:
             gpio_set_pin_output(F6);
-            gpio_write_pin_low(F6);
+            gpio_write_Pin_low(F6);
             break;
         case 3:
             gpio_set_pin_output(F7);
-            gpio_write_pin_low(F7);
+            gpio_write_Pin_low(F7);
             break;
         case 4:
             gpio_set_pin_output(B1);
-            gpio_write_pin_low(B1);
+            gpio_write_Pin_low(B1);
             break;
         case 5:
             gpio_set_pin_output(B2);
-            gpio_write_pin_low(B2);
+            gpio_write_Pin_low(B2);
             break;
     }
 

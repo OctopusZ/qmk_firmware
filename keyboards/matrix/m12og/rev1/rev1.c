@@ -17,7 +17,7 @@
 #include "quantum.h"
 
 void board_init(void) {
-    gpio_write_pin_low(A8);
+    gpio_write_Pin_low(A8);
 }
 
 void bootloader_jump(void) {

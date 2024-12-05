@@ -63,14 +63,14 @@ void matrix_init_custom(void) {
     gpio_set_pin_output(D6);
 
     /* Row input pins */
-    gpio_write_pin_high(B0);
-    gpio_write_pin_high(B1);
-    gpio_write_pin_high(B2);
-    gpio_write_pin_high(B3);
-    gpio_write_pin_high(B4);
-    gpio_write_pin_high(B5);
-    gpio_write_pin_high(B6);
-    gpio_write_pin_high(C2);
+    gpio_write_Pin_high(B0);
+    gpio_write_Pin_high(B1);
+    gpio_write_Pin_high(B2);
+    gpio_write_Pin_high(B3);
+    gpio_write_Pin_high(B4);
+    gpio_write_Pin_high(B5);
+    gpio_write_Pin_high(B6);
+    gpio_write_Pin_high(C2);
 }
 
 bool matrix_scan_custom(matrix_row_t current_matrix[]) {

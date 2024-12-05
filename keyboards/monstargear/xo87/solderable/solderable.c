@@ -54,22 +54,22 @@ void backlight_task(void) {
     // This is a temporary workaround to get the status LEDs working until we can figure out the LED matrix
     led_t host_leds = host_keyboard_led_state();
     if (host_leds.scroll_lock) {
-    gpio_write_pin_high(Lcom3);
-    gpio_write_pin_high(Lseg5);
+    gpio_write_Pin_high(Lcom3);
+    gpio_write_Pin_high(Lseg5);
     } else {
-    gpio_write_pin_low(Lcom3);
+    gpio_write_Pin_low(Lcom3);
     }
     if (host_leds.num_lock) {
-    gpio_write_pin_high(Lcom7);
-    gpio_write_pin_high(Lseg5);
+    gpio_write_Pin_high(Lcom7);
+    gpio_write_Pin_high(Lseg5);
     } else {
-    gpio_write_pin_low(Lcom7);
+    gpio_write_Pin_low(Lcom7);
     }
     if (host_leds.caps_lock) {
-    gpio_write_pin_high(Lcom8);
-    gpio_write_pin_high(Lseg5);
+    gpio_write_Pin_high(Lcom8);
+    gpio_write_Pin_high(Lseg5);
     } else {
-    gpio_write_pin_low(Lcom8);
+    gpio_write_Pin_low(Lcom8);
     }
 }
 

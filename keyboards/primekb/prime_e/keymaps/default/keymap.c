@@ -48,25 +48,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 void matrix_init_user(void) {
   // set CapsLock LED to output and low
   gpio_set_pin_output(B1);
-  gpio_write_pin_low(B1);
+  gpio_write_Pin_low(B1);
   // set NumLock LED to output and low
   gpio_set_pin_output(B2);
-  gpio_write_pin_low(B2);
+  gpio_write_Pin_low(B2);
   // set ScrollLock LED to output and low
   gpio_set_pin_output(B3);
-  gpio_write_pin_low(B3);
+  gpio_write_Pin_low(B3);
 }
 
 bool led_update_user(led_t led_state) {
   if (led_state.num_lock) {
-    gpio_write_pin_high(B2);
+    gpio_write_Pin_high(B2);
   } else {
-    gpio_write_pin_low(B2);
+    gpio_write_Pin_low(B2);
   }
   if (led_state.caps_lock) {
-    gpio_write_pin_high(B1);
+    gpio_write_Pin_high(B1);
   } else {
-    gpio_write_pin_low(B1);
+    gpio_write_Pin_low(B1);
   }
   return false;
 }
@@ -75,9 +75,9 @@ bool led_update_user(led_t led_state) {
 layer_state_t layer_state_set_user(layer_state_t state)
 {
     if (get_highest_layer(state) == 1) {
-    gpio_write_pin_high(B3);
+    gpio_write_Pin_high(B3);
 	} else {
-		gpio_write_pin_low(B3);
+		gpio_write_Pin_low(B3);
     }
     return state;
 }

@@ -6,12 +6,12 @@
 #define CHIMERA_ERGO_GREEN_LED_PIN D1
 #define CHIMERA_ERGO_BLUE_LED_PIN F4
 
-#define red_led_off   gpio_write_pin_high(CHIMERA_ERGO_RED_LED_PIN)
-#define red_led_on    gpio_write_pin_low(CHIMERA_ERGO_RED_LED_PIN)
-#define blu_led_off   gpio_write_pin_high(CHIMERA_ERGO_BLUE_LED_PIN)
-#define blu_led_on    gpio_write_pin_low(CHIMERA_ERGO_BLUE_LED_PIN)
-#define grn_led_off   gpio_write_pin_high(CHIMERA_ERGO_GREEN_LED_PIN)
-#define grn_led_on    gpio_write_pin_low(CHIMERA_ERGO_GREEN_LED_PIN)
+#define red_led_off   gpio_write_Pin_high(CHIMERA_ERGO_RED_LED_PIN)
+#define red_led_on    gpio_write_Pin_low(CHIMERA_ERGO_RED_LED_PIN)
+#define blu_led_off   gpio_write_Pin_high(CHIMERA_ERGO_BLUE_LED_PIN)
+#define blu_led_on    gpio_write_Pin_low(CHIMERA_ERGO_BLUE_LED_PIN)
+#define grn_led_off   gpio_write_Pin_high(CHIMERA_ERGO_GREEN_LED_PIN)
+#define grn_led_on    gpio_write_Pin_low(CHIMERA_ERGO_GREEN_LED_PIN)
 
 #define set_led_off     red_led_off; grn_led_off; blu_led_off
 #define set_led_red     red_led_on;  grn_led_off; blu_led_off

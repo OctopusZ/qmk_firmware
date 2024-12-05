@@ -45,10 +45,10 @@ static uint8_t matrix [MATRIX_ROWS] = {0};
 #if ( DEBOUNCE > 0 )
 static uint8_t matrix_debounce_old [MATRIX_ROWS] = {0};
 static uint8_t matrix_debounce_new [MATRIX_ROWS] = {0};
-#endif 
+#endif
 
 __attribute__ ((weak))
-void matrix_init_kb(void) {    
+void matrix_init_kb(void) {
     matrix_init_user();
 }
 
@@ -71,12 +71,12 @@ void matrix_scan_user(void) {
 // would work normally
 //
 // the device functions, by using the clock signal to count 128 bits, the lower
-// 3 bits of this 7 bit counter are tied to a 1-of-8 multiplexer, this forms 
+// 3 bits of this 7 bit counter are tied to a 1-of-8 multiplexer, this forms
 // the columns.
-// the upper 4 bits form the rows, and are decoded using bcd to decimal 
-// decoders, so that 14 out of 16 of the outputs are wired to the rows of the 
+// the upper 4 bits form the rows, and are decoded using bcd to decimal
+// decoders, so that 14 out of 16 of the outputs are wired to the rows of the
 // matrix. each switch has a diode, such that the row signal feeds into the
-// switch, and then into the diode, then into one of the columns into the 
+// switch, and then into the diode, then into one of the columns into the
 // matrix. the reset pin can be used to reset the entire counter.
 
 #define HP_46010A_RESET_PIN B0
@@ -87,21 +87,21 @@ void matrix_scan_user(void) {
 inline
 static
 void SCLK_increment(void) {
-    gpio_write_pin_low(HP_46010A_SCLK_PIN);
+    gpio_write_Pin_low(HP_46010A_SCLK_PIN);
     _delay_us( 4 ) ; // make sure the line is stable
-    gpio_write_pin_high(HP_46010A_SCLK_PIN);
+    gpio_write_Pin_high(HP_46010A_SCLK_PIN);
     _delay_us( 4 ) ;
-    
+
     return ;
-}    
+}
 
 inline
 static
 void Matrix_Reset(void) {
-    gpio_write_pin_high(HP_46010A_RESET_PIN);
+    gpio_write_Pin_high(HP_46010A_RESET_PIN);
     _delay_us( 4 ) ; // make sure the line is stable
-    gpio_write_pin_low(HP_46010A_RESET_PIN);
-    
+    gpio_write_Pin_low(HP_46010A_RESET_PIN);
+
     return ;
 }
 
@@ -113,7 +113,7 @@ uint8_t Matrix_ReceiveByte (void) {
     for ( uint8_t bit = 0; bit < MATRIX_COLS; ++bit ) {
         // toggle the clock
         SCLK_increment();
-        temp      = gpio_read_pin(HP_46010A_SDATA_PIN) << 4 ;
+        temp      = gpio_read_Pin(HP_46010A_SDATA_PIN) << 4 ;
         received |= temp >> bit ;
     }
 
@@ -128,7 +128,7 @@ void Matrix_ThrowByte(void) {
         // toggle the clock
         SCLK_increment();
     }
-    
+
     return ;
 }
 
@@ -138,16 +138,16 @@ void matrix_init (void) {
     gpio_set_pin_output(HP_46010A_RESET_PIN);
     gpio_set_pin_output(HP_46010A_SCLK_PIN);
     // PB2, is unused, and PB3 is our serial input
-    gpio_set_pin_input(HP_46010A_SDATA_PIN);
-    
+    gpio_set_Pin_input(HP_46010A_SDATA_PIN);
+
     // SS is reset for this board, and is active High
     // SCLK is the serial clock and is active High
-    gpio_write_pin_low(HP_46010A_RESET_PIN);
-    gpio_write_pin_high(HP_46010A_SCLK_PIN);
+    gpio_write_Pin_low(HP_46010A_RESET_PIN);
+    gpio_write_Pin_high(HP_46010A_SCLK_PIN);
 
     // led pin
     gpio_set_pin_output(HP_46010A_LED_PIN);
-    gpio_write_pin_low(HP_46010A_LED_PIN);
+    gpio_write_Pin_low(HP_46010A_LED_PIN);
 
     matrix_init_kb();
 
@@ -159,7 +159,7 @@ uint8_t matrix_scan(void)  {
 
     // the first byte of the keyboard's output data can be ignored
     Matrix_ThrowByte();
-    
+
 #if ( DEBOUNCE > 0 )
 
     for ( uint8_t row = 0 ; row < MATRIX_ROWS ; ++row ) {
@@ -167,24 +167,24 @@ uint8_t matrix_scan(void)  {
         matrix_debounce_old[row] = matrix_debounce_new[row] ;
         // read new key-states in
         matrix_debounce_new[row] = Matrix_ReceiveByte() ;
-            
+
         if ( matrix_debounce_new[row] != matrix_debounce_old[row] ) {
             debouncing      = true ;
             debouncing_time = timer_read() ;
         }
     }
-    
+
 #else
     // without debouncing we simply just read in the raw matrix
     for ( uint8_t row = 0 ; row < MATRIX_ROWS ; ++row ) {
         matrix[row] = Matrix_ReceiveByte ;
     }
-#endif 
+#endif
 
-    
+
 #if ( DEBOUNCE > 0 )
     if ( debouncing && ( timer_elapsed( debouncing_time ) > DEBOUNCE ) ) {
-        
+
         for ( uint8_t row = 0 ; row < MATRIX_ROWS ; ++row ) {
             matrix[row] = matrix_debounce_new[row] ;
         }
@@ -193,7 +193,7 @@ uint8_t matrix_scan(void)  {
     }
 #endif
     Matrix_Reset() ;
-    
+
     matrix_scan_kb() ;
     return 1;
 }
@@ -226,7 +226,7 @@ uint8_t matrix_cols(void) {
 
 // as an aside, I used the M0110 converter:
 // tmk_core/common/keyboard.c, quantum/matrix.c, and the project layout of the planck
-// the online ducmentation starting from : 
+// the online ducmentation starting from :
 // https://docs.qmk.fm/#/config_options
 // https://docs.qmk.fm/#/understanding_qmk
 // and probably a few i forgot....

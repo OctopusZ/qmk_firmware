@@ -165,8 +165,8 @@ static void init_cols(void) {
     pin_t matrix_col_pins_mcu[MATRIX_COLS_PER_SIDE] = MATRIX_COL_PINS_L;
     for (int pin_index = 0; pin_index < MATRIX_COLS_PER_SIDE; pin_index++) {
         pin_t pin = matrix_col_pins_mcu[pin_index];
-        gpio_set_pin_input(pin);
-        gpio_write_pin_high(pin);
+        gpio_set_Pin_input(pin);
+        gpio_write_Pin_high(pin);
     }
 }
 
@@ -177,7 +177,7 @@ static matrix_row_t read_cols(uint8_t row) {
         // For each col...
         for (uint8_t col_index = 0; col_index < MATRIX_COLS_PER_SIDE; col_index++) {
             // Select the col pin to read (active low)
-            uint8_t pin_state = gpio_read_pin(matrix_col_pins_mcu[col_index]);
+            uint8_t pin_state = gpio_read_Pin(matrix_col_pins_mcu[col_index]);
 
             // Populate the matrix row with the state of the col pin
             current_row_value |= pin_state ? 0 : (MATRIX_ROW_SHIFTER << col_index);
@@ -200,11 +200,11 @@ static matrix_row_t read_cols(uint8_t row) {
                 // The initial state was all ones and any depressed key at a given column for the currently selected row will have its bit flipped to zero.
                 // The return value is a row as represented in the generic matrix code were the rightmost bits represent the lower columns and zeroes represent non-depressed keys while ones represent depressed keys.
                 // Since the pins are not ordered sequentially, we have to build the correct dataset from the two ports. Refer to the schematic to see where every pin is connected.
-                data |= ( port0 & 0x01 ); 
-                data |= ( port0 & 0x02 ); 
-                data |= ( port1 & 0x10 ) >> 2; 
-                data |= ( port1 & 0x08 ); 
-                data |= ( port0 & 0x40 ) >> 2; 
+                data |= ( port0 & 0x01 );
+                data |= ( port0 & 0x02 );
+                data |= ( port1 & 0x10 ) >> 2;
+                data |= ( port1 & 0x08 );
+                data |= ( port0 & 0x40 ) >> 2;
                 data = ~(data);
 
                 tca9555_status = I2C_STATUS_SUCCESS;
@@ -223,8 +223,8 @@ static void unselect_rows(void) {
     pin_t matrix_row_pins_mcu[MATRIX_ROWS_PER_SIDE] = MATRIX_ROW_PINS_L;
     for (int pin_index = 0; pin_index < MATRIX_ROWS_PER_SIDE; pin_index++) {
         pin_t pin = matrix_row_pins_mcu[pin_index];
-        gpio_set_pin_input(pin);
-        gpio_write_pin_low(pin);
+        gpio_set_Pin_input(pin);
+        gpio_write_Pin_low(pin);
     }
 }
 
@@ -237,7 +237,7 @@ static void select_row(uint8_t row) {
         pin_t matrix_row_pins_mcu[MATRIX_ROWS_PER_SIDE] = MATRIX_ROW_PINS_L;
         pin_t pin                                       = matrix_row_pins_mcu[row];
         gpio_set_pin_output(pin);
-        gpio_write_pin_low(pin);
+        gpio_write_Pin_low(pin);
     } else {
         // select on tca9555
         if (tca9555_status) {  // if there was an error

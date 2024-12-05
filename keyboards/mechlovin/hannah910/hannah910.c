@@ -26,7 +26,7 @@ void led_init_ports(void) {
 bool led_update_kb(led_t led_state) {
     bool res = led_update_user(led_state);
     if(res) {
-        gpio_write_pin(B2, led_state.caps_lock);
+        gpio_write_Pin(B2, led_state.caps_lock);
     }
     return res;
 }
@@ -35,22 +35,22 @@ layer_state_t layer_state_set_user(layer_state_t state)
 {
   // if on layer 1, turn on D2 LED, otherwise off.
     if (get_highest_layer(state) == 1) {
-        gpio_write_pin_high(D2);
+        gpio_write_Pin_high(D2);
     } else {
-        gpio_write_pin_low(D2);
+        gpio_write_Pin_low(D2);
     }
   // if on layer 2, turn on D1 LED, otherwise off.
     if (get_highest_layer(state) == 2) {
-        gpio_write_pin_high(D1);
+        gpio_write_Pin_high(D1);
     } else {
-        gpio_write_pin_low(D1);
+        gpio_write_Pin_low(D1);
     }
 
   // if on layer 3, turn on D0 LED, otherwise off.
     if (get_highest_layer(state) == 3) {
-        gpio_write_pin_high(D0);
+        gpio_write_Pin_high(D0);
     } else {
-        gpio_write_pin_low(D0);
+        gpio_write_Pin_low(D0);
     }
 
     return state;

@@ -71,12 +71,12 @@ uint8_t matrix_cols(void)
 
 void matrix_init(void)
 {
-    gpio_set_pin_input_high(C7);
-    gpio_set_pin_input_high(B5);
-    gpio_set_pin_input_high(B7);
-    gpio_set_pin_input_high(D1);
-    gpio_set_pin_input_high(D4);
-    gpio_set_pin_input_high(D6);
+    gpio_set_Pin_input_high(C7);
+    gpio_set_Pin_input_high(B5);
+    gpio_set_Pin_input_high(B7);
+    gpio_set_Pin_input_high(D1);
+    gpio_set_Pin_input_high(D4);
+    gpio_set_Pin_input_high(D6);
 
     for (uint8_t i=0; i < MATRIX_ROWS; i++) {
         matrix[i] = 0;

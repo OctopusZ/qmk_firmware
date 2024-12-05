@@ -25,9 +25,9 @@ void keyboard_pre_init_kb(void) {
 
 void matrix_init_kb(void) {
     // Flash the led 1 sec on startup.
-    gpio_write_pin_high(C3);
+    gpio_write_Pin_high(C3);
     wait_ms(1000);
-    gpio_write_pin_low(C3);
+    gpio_write_Pin_low(C3);
 
     matrix_init_user();
 }

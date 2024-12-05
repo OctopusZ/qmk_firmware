@@ -69,7 +69,7 @@ void is31fl3218_init(void) {
 
 #if defined(IS31FL3218_SDB_PIN)
     gpio_set_pin_output(IS31FL3218_SDB_PIN);
-    gpio_write_pin_high(IS31FL3218_SDB_PIN);
+    gpio_write_Pin_high(IS31FL3218_SDB_PIN);
 #endif
 
     // In case we ever want to reinitialize (?)

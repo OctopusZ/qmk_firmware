@@ -25,10 +25,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * +--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
  * | lshift |    Z   |    X   |    C   |    V   |    B   |    N   |    M   |    ,   |    .   |    /   |  enter |
  * +--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
- * |  lctrl |  lgui  |  lalt  |  ralt  |  lower |  space |  space |  raise |  left  |  down  |   up   |  right | 
+ * |  lctrl |  lgui  |  lalt  |  ralt  |  lower |  space |  space |  raise |  left  |  down  |   up   |  right |
  * +--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
  */
-[_QWERTY] = LAYOUT_ortho_4x12 ( 
+[_QWERTY] = LAYOUT_ortho_4x12 (
     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
@@ -77,24 +77,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
-    
+
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   #ifdef JOTANCK_LEDS
   switch (get_highest_layer(state)) {
   case _LOWER:
-    gpio_write_pin_high(JOTANCK_LED1);
-    gpio_write_pin_low(JOTANCK_LED2);
+    gpio_write_Pin_high(JOTANCK_LED1);
+    gpio_write_Pin_low(JOTANCK_LED2);
     break;
   case _RAISE:
-    gpio_write_pin_low(JOTANCK_LED1);
-    gpio_write_pin_high(JOTANCK_LED2);
+    gpio_write_Pin_low(JOTANCK_LED1);
+    gpio_write_Pin_high(JOTANCK_LED2);
     break;
   default:
-    gpio_write_pin_low(JOTANCK_LED1);
-    gpio_write_pin_low(JOTANCK_LED2);
-    break; 
+    gpio_write_Pin_low(JOTANCK_LED1);
+    gpio_write_Pin_low(JOTANCK_LED2);
+    break;
   };
   #endif
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);

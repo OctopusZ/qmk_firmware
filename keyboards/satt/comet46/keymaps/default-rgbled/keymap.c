@@ -143,19 +143,19 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // settings for LED on receiver
 void led_init(void) {
   gpio_set_pin_output(D1);
-  gpio_write_pin_high(D1);
+  gpio_write_Pin_high(D1);
   gpio_set_pin_output(F4);
-  gpio_write_pin_high(F4);
+  gpio_write_Pin_high(F4);
   gpio_set_pin_output(F5);
-  gpio_write_pin_high(F5);
+  gpio_write_Pin_high(F5);
 }
 
-#define red_led_off   gpio_write_pin_high(F5)
-#define red_led_on    gpio_write_pin_low(F5)
-#define blu_led_off   gpio_write_pin_high(F4)
-#define blu_led_on    gpio_write_pin_low(F4)
-#define grn_led_off   gpio_write_pin_high(D1)
-#define grn_led_on    gpio_write_pin_low(D1)
+#define red_led_off   gpio_write_Pin_high(F5)
+#define red_led_on    gpio_write_Pin_low(F5)
+#define blu_led_off   gpio_write_Pin_high(F4)
+#define blu_led_on    gpio_write_Pin_low(F4)
+#define grn_led_off   gpio_write_Pin_high(D1)
+#define grn_led_on    gpio_write_Pin_low(D1)
 
 #define set_led_off     red_led_off; grn_led_off; blu_led_off
 #define set_led_red     red_led_on;  grn_led_off; blu_led_off

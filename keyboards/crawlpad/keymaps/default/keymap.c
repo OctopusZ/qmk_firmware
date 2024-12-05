@@ -40,16 +40,16 @@ void set_led(int idx, bool enable) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case BL1:
-    gpio_write_pin(B4, record->event.pressed);
+    gpio_write_Pin(B4, record->event.pressed);
     return false;
   case BL2:
-    gpio_write_pin(B5, record->event.pressed);
+    gpio_write_Pin(B5, record->event.pressed);
     return false;
   case BL3:
-    gpio_write_pin(B6, record->event.pressed);
+    gpio_write_Pin(B6, record->event.pressed);
     return false;
   case BL4:
-    gpio_write_pin(B7, record->event.pressed);
+    gpio_write_Pin(B7, record->event.pressed);
     return false;
   }
   return true;
@@ -62,8 +62,8 @@ void matrix_init_user(void) {
   gpio_set_pin_output(B6);
   gpio_set_pin_output(B7);
 
-  gpio_write_pin_low(B4);
-  gpio_write_pin_low(B5);
-  gpio_write_pin_low(B6);
-  gpio_write_pin_low(B7);
+  gpio_write_Pin_low(B4);
+  gpio_write_Pin_low(B5);
+  gpio_write_Pin_low(B6);
+  gpio_write_Pin_low(B7);
 }

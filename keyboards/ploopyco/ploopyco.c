@@ -92,8 +92,8 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
 
 void encoder_driver_init(void) {
     for (uint8_t i = 0; i < ARRAY_SIZE(encoder_pins_a); i++) {
-        gpio_set_pin_input(encoder_pins_a[i]);
-        gpio_set_pin_input(encoder_pins_b[i]);
+        gpio_set_Pin_input(encoder_pins_a[i]);
+        gpio_set_Pin_input(encoder_pins_b[i]);
     }
     opt_encoder_init();
 }
@@ -215,15 +215,15 @@ void keyboard_pre_init_kb(void) {
     const pin_t unused_pins[] = UNUSABLE_PINS;
 
     for (uint8_t i = 0; i < ARRAY_SIZE(unused_pins); i++) {
-        gpio_set_pin_output_push_pull(unused_pins[i]);
-        gpio_write_pin_low(unused_pins[i]);
+        gpio_set_Pin_output_push_pull(unused_pins[i]);
+        gpio_write_Pin_low(unused_pins[i]);
     }
 #endif
 
     // This is the debug LED.
 #if defined(DEBUG_LED_PIN)
-    gpio_set_pin_output_push_pull(DEBUG_LED_PIN);
-    gpio_write_pin(DEBUG_LED_PIN, debug_enable);
+    gpio_set_Pin_output_push_pull(DEBUG_LED_PIN);
+    gpio_write_Pin(DEBUG_LED_PIN, debug_enable);
 #endif
 
     keyboard_pre_init_user();

@@ -20,13 +20,13 @@ void matrix_init_kb(void) {
 	// runs once when the firmware starts up
 
   gpio_set_pin_output(B0);
-  gpio_write_pin_low(B0);
+  gpio_write_Pin_low(B0);
   gpio_set_pin_output(B1);
-  gpio_write_pin_high(B1);
+  gpio_write_Pin_high(B1);
   gpio_set_pin_output(B2);
-  gpio_write_pin_high(B2);
+  gpio_write_Pin_high(B2);
   gpio_set_pin_output(B3);
-  gpio_write_pin_high(B3);
+  gpio_write_Pin_high(B3);
 
 	matrix_init_user();
 }
@@ -49,16 +49,16 @@ bool process_indicator_led_kb(layer_state_t state)
   if(process_indicator_led_user(state))
   {
     // if on layer 0, turn on B0 LED, otherwise off.
-    gpio_write_pin(B0, get_highest_layer(state) != 0);
+    gpio_write_Pin(B0, get_highest_layer(state) != 0);
 
     // if on layer 1, turn on B1 LED, otherwise off.
-    gpio_write_pin(B1, get_highest_layer(state) != 1);
+    gpio_write_Pin(B1, get_highest_layer(state) != 1);
 
     // if on layer 2, turn on B2 LED, otherwise off.
-    gpio_write_pin(B2, get_highest_layer(state) != 2);
+    gpio_write_Pin(B2, get_highest_layer(state) != 2);
 
     // if on layer 3, turn on B3 LED, otherwise off.
-    gpio_write_pin(B3, get_highest_layer(state) != 3);
+    gpio_write_Pin(B3, get_highest_layer(state) != 3);
   }
 
   return true;

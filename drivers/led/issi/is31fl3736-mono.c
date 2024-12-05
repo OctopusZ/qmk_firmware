@@ -116,7 +116,7 @@ void is31fl3736_init_drivers(void) {
 
 #if defined(IS31FL3736_SDB_PIN)
     gpio_set_pin_output(IS31FL3736_SDB_PIN);
-    gpio_write_pin_high(IS31FL3736_SDB_PIN);
+    gpio_write_Pin_high(IS31FL3736_SDB_PIN);
 #endif
 
     for (uint8_t i = 0; i < IS31FL3736_DRIVER_COUNT; i++) {

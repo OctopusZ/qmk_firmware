@@ -27,9 +27,9 @@ bool led_update_user(led_t led_state) {
   gpio_set_pin_output(B5);
   gpio_set_pin_output(B6);
 
-  gpio_write_pin(B4, led_state.num_lock);
-  gpio_write_pin(B5, led_state.caps_lock);
-  gpio_write_pin(B6, led_state.scroll_lock);
+  gpio_write_Pin(B4, led_state.num_lock);
+  gpio_write_Pin(B5, led_state.caps_lock);
+  gpio_write_Pin(B6, led_state.scroll_lock);
 
   return false;
 }

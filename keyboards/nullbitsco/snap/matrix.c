@@ -42,18 +42,18 @@ static void init_pins(void) {
 
     // Unselect cols
     for (uint8_t bit = 0; bit < MATRIX_MUX_COLS; bit++) {
-        gpio_write_pin_low(col_pins[bit]);
+        gpio_write_Pin_low(col_pins[bit]);
     }
 
     // Set rows to input, pullup
     for (uint8_t pin = 0; pin < ROWS_PER_HAND; pin++) {
-        gpio_set_pin_input_high(row_pins[pin]);
+        gpio_set_Pin_input_high(row_pins[pin]);
     }
 
     // Set extended pin (only on right side)
     if (!isLeftHand) {
         // Set extended pin to input, pullup
-        gpio_set_pin_input_high(MATRIX_EXT_PIN_RIGHT);
+        gpio_set_Pin_input_high(MATRIX_EXT_PIN_RIGHT);
     }
 }
 
@@ -61,7 +61,7 @@ static void select_col(uint8_t col) {
     // Drive demux with correct column address
     for (uint8_t bit = 0; bit < MATRIX_MUX_COLS; bit++) {
         uint8_t state = (col & (0b1 << bit)) >> bit;
-        gpio_write_pin(col_pins[bit], !state);
+        gpio_write_Pin(col_pins[bit], !state);
     }
 }
 
@@ -71,7 +71,7 @@ static void read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
 
     // Read each row sequentially
     for (uint8_t row_index = 0; row_index < ROWS_PER_HAND; row_index++) {
-        if (gpio_read_pin(row_pins[row_index]) == 0) {
+        if (gpio_read_Pin(row_pins[row_index]) == 0) {
             current_matrix[row_index] |= (COL_SHIFTER << current_col);
         } else {
             current_matrix[row_index] &= ~(COL_SHIFTER << current_col);
@@ -82,7 +82,7 @@ static void read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
 static void read_ext_pin(matrix_row_t current_matrix[]) {
     // Read the state of the extended matrix pin
     if (!isLeftHand) {
-        if (gpio_read_pin(MATRIX_EXT_PIN_RIGHT) == 0) {
+        if (gpio_read_Pin(MATRIX_EXT_PIN_RIGHT) == 0) {
             current_matrix[EXT_PIN_ROW] |= (COL_SHIFTER << EXT_PIN_COL);
         } else {
             current_matrix[EXT_PIN_ROW] &= ~(COL_SHIFTER << EXT_PIN_COL);

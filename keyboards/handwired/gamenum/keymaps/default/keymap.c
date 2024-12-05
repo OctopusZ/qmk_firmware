@@ -33,22 +33,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch(keycode) {
     case TO(HDN):
       if (record->event.pressed) {
-        gpio_write_pin_high(C6);
+        gpio_write_Pin_high(C6);
       }
 
       return true;
 
     case TO(OSY):
       if (record->event.pressed) {
-        gpio_write_pin_low(C6);
-        gpio_write_pin_high(D4);
+        gpio_write_Pin_low(C6);
+        gpio_write_Pin_high(D4);
       }
 
       return true;
 
     case TO(DEF):
       if (record->event.pressed) {
-        gpio_write_pin_low(D4);
+        gpio_write_Pin_low(D4);
       }
 
       return true;

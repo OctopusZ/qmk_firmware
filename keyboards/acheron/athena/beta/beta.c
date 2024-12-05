@@ -17,18 +17,18 @@
 #include "quantum.h"
 
 void board_init(void) {
-    gpio_set_pin_input(B6);
-    gpio_set_pin_input(B7);
+    gpio_set_Pin_input(B6);
+    gpio_set_Pin_input(B7);
 }
 
 bool led_update_kb(led_t led_state) {
     bool res = led_update_user(led_state);
     #ifdef CAPSLOCK_INDICATOR
     if(res) {
-        gpio_write_pin(LED_CAPS_LOCK_PIN, led_state.caps_lock);
+        gpio_write_Pin(LED_CAPS_LOCK_PIN, led_state.caps_lock);
     }
     #else
-    gpio_write_pin(LED_CAPS_LOCK_PIN, 0);
+    gpio_write_Pin(LED_CAPS_LOCK_PIN, 0);
     #endif
     return res;
 }

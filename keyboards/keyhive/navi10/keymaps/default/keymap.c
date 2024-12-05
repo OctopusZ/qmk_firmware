@@ -48,19 +48,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(/* Base */
                  TD(TAPPY_KEY),KC_HOME, KC_PGUP,
                  KC_DEL,    KC_END,     KC_PGDN,
-                 
+
                             KC_UP,
                  KC_LEFT,   KC_DOWN,    KC_RIGHT),
     [_FN0] = LAYOUT(/* function layer */
                  KC_TRNS,   KC_PAUS,    KC_VOLU,
                  KC_ENTER,  KC_SCRL,    KC_VOLD,
-                 
+
                             KC_TRNS,
                  KC_TRNS,   KC_TRNS,    KC_TRNS),
     [_ML1] = LAYOUT(/* media function layer, toggled on a single tap */
-                 KC_TRNS,   KC_TRNS,    KC_VOLU, 
+                 KC_TRNS,   KC_TRNS,    KC_VOLU,
                  KC_MUTE,   KC_TRNS,    KC_VOLD,
-                 
+
                             KC_SPC,
                  KC_MRWD,   KC_MPLY,    KC_MFFD),
 };
@@ -99,13 +99,13 @@ void tk_finished(tap_dance_state_t *state, void *user_data){
                 layer_off(_ML1);
                 //turn off the indicator LED
                 //set LED HI to turn it off
-                gpio_write_pin_high(INDICATOR_LED);
+                gpio_write_Pin_high(INDICATOR_LED);
             } else {
                 //turn on the media layer
                 layer_on(_ML1);
                 //turn on the indicator LED
                 //set LED pin to LOW to turn it on
-                gpio_write_pin_low(INDICATOR_LED);
+                gpio_write_Pin_low(INDICATOR_LED);
             }
             break;
         case SINGLE_HOLD:
@@ -122,7 +122,7 @@ void tk_reset(tap_dance_state_t *state, void *user_data){
         layer_off(_FN0);
     }
     //reset the state
-    tk_tap_state.state = 0; 
+    tk_tap_state.state = 0;
 }
 
 //associate the tap dance key with its functionality

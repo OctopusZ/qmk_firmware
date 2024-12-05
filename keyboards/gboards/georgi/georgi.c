@@ -7,16 +7,16 @@ void matrix_init_kb(void) {
   	steno_set_mode(STENO_MODE_GEMINI); // or STENO_MODE_BOLT
 
     // (tied to Vcc for hardware convenience)
-    //gpio_set_pin_input(B4);  // set B(4) as input, internal pull-up disabled
+    //gpio_set_Pin_input(B4);  // set B(4) as input, internal pull-up disabled
 
     // unused pins - C7, D4, D5, D6, D7, E6
     // set as input with internal pull-up enabled
-    gpio_set_pin_input_high(C7);
-    gpio_set_pin_input_high(D4);
-    gpio_set_pin_input_high(D5);
-    gpio_set_pin_input_high(D6);
-    gpio_set_pin_input_high(D7);
-    gpio_set_pin_input_high(E6);
+    gpio_set_Pin_input_high(C7);
+    gpio_set_Pin_input_high(D4);
+    gpio_set_Pin_input_high(D5);
+    gpio_set_Pin_input_high(D6);
+    gpio_set_Pin_input_high(D7);
+    gpio_set_Pin_input_high(E6);
 
     matrix_init_user();
 }

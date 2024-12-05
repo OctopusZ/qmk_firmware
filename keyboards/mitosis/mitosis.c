@@ -2,11 +2,11 @@
 
 void led_init(void) {
 	gpio_set_pin_output(MITOSIS_GREEN_LED_PIN);
-	gpio_write_pin_high(MITOSIS_GREEN_LED_PIN);
+	gpio_write_Pin_high(MITOSIS_GREEN_LED_PIN);
 	gpio_set_pin_output(MITOSIS_BLUE_LED_PIN);
-	gpio_write_pin_high(MITOSIS_BLUE_LED_PIN);
+	gpio_write_Pin_high(MITOSIS_BLUE_LED_PIN);
 	gpio_set_pin_output(MITOSIS_RED_LED_PIN);
-	gpio_write_pin_high(MITOSIS_RED_LED_PIN);
+	gpio_write_Pin_high(MITOSIS_RED_LED_PIN);
 }
 
 void matrix_init_kb(void) {

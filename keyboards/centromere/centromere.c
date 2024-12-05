@@ -6,9 +6,9 @@ void led_init(void) {
     gpio_set_pin_output(C5); // Set blue LED pin as output
     gpio_set_pin_output(D1); // Set green LED pin as output
 
-    gpio_write_pin_high(C4); // Turn off red LED pin
-    gpio_write_pin_high(C5); // Turn off blue LED pin
-    gpio_write_pin_high(D1); // Turn off green LED pin
+    gpio_write_Pin_high(C4); // Turn off red LED pin
+    gpio_write_Pin_high(C5); // Turn off blue LED pin
+    gpio_write_Pin_high(D1); // Turn off green LED pin
 
 #else
 
@@ -16,9 +16,9 @@ void led_init(void) {
     gpio_set_pin_output(F5); // Set blue LED pin as output
     gpio_set_pin_output(D1); // Set green LED pin as output
 
-    gpio_write_pin_high(F4); // Turn off red LED pin
-    gpio_write_pin_high(F5); // Turn off blue LED pin
-    gpio_write_pin_high(D1); // Turn off green LED pin
+    gpio_write_Pin_high(F4); // Turn off red LED pin
+    gpio_write_Pin_high(F5); // Turn off blue LED pin
+    gpio_write_Pin_high(D1); // Turn off green LED pin
 
 #endif
 

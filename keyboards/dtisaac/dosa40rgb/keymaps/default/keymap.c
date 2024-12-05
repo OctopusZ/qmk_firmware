@@ -67,5 +67,5 @@ bool rgb_matrix_indicators_user(void) {
 
 void keyboard_pre_init_user(void) {
     gpio_set_pin_output(B5);
-    gpio_write_pin_low(B5);
+    gpio_write_Pin_low(B5);
 }

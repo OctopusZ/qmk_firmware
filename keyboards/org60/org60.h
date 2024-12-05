@@ -17,16 +17,16 @@
  */
 inline void org60_caps_led_on(void) {
     gpio_set_pin_output(ORG60_CAPS_LOCK_LED_PIN);
-    gpio_write_pin_low(ORG60_CAPS_LOCK_LED_PIN);
+    gpio_write_Pin_low(ORG60_CAPS_LOCK_LED_PIN);
 }
 inline void org60_bl_led_on(void) {
     gpio_set_pin_output(ORG60_BACKLIGHT_PIN);
-    gpio_write_pin_low(ORG60_BACKLIGHT_PIN);
+    gpio_write_Pin_low(ORG60_BACKLIGHT_PIN);
 }
 
 inline void org60_caps_led_off(void) {
-    gpio_set_pin_input(ORG60_CAPS_LOCK_LED_PIN);
+    gpio_set_Pin_input(ORG60_CAPS_LOCK_LED_PIN);
 }
 inline void org60_bl_led_off(void) {
-    gpio_set_pin_input(ORG60_BACKLIGHT_PIN);
+    gpio_set_Pin_input(ORG60_BACKLIGHT_PIN);
 }

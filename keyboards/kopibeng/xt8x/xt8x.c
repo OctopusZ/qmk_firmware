@@ -23,6 +23,6 @@ void matrix_init_kb(void) {
 }
 
 __attribute__((weak)) layer_state_t layer_state_set_user(layer_state_t state) {
-  gpio_write_pin(INDICATOR_PIN_0, layer_state_cmp(state, 1));
+  gpio_write_Pin(INDICATOR_PIN_0, layer_state_cmp(state, 1));
   return state;
 }

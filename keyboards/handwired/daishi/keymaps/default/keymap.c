@@ -101,9 +101,9 @@ void matrix_init_user(void) {
 }
 
 bool led_update_user(led_t led_state) {
-    gpio_write_pin(C4, led_state.num_lock);
-    gpio_write_pin(C5, led_state.caps_lock);
-    gpio_write_pin(C6, led_state.scroll_lock);
+    gpio_write_Pin(C4, led_state.num_lock);
+    gpio_write_Pin(C5, led_state.caps_lock);
+    gpio_write_Pin(C6, led_state.scroll_lock);
 
     return false;
 }

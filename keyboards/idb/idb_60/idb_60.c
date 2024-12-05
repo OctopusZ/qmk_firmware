@@ -8,19 +8,19 @@ void keyboard_pre_init_kb(void) {
 }
 
 inline void _idb_60_caps_led_on(void) {
-    gpio_write_pin_low(C5);
+    gpio_write_Pin_low(C5);
 }
 
 inline void _idb_60_fn_led_on(void) {
-    gpio_write_pin_low(C4);
+    gpio_write_Pin_low(C4);
 }
 
 inline void _idb_60_caps_led_off(void) {
-    gpio_write_pin_high(C5);
+    gpio_write_Pin_high(C5);
 }
 
 inline void _idb_60_fn_led_off(void) {
-    gpio_write_pin_high(C4);
+    gpio_write_Pin_high(C4);
 }
 
 // Capslock LED indicator

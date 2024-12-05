@@ -32,26 +32,26 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
 }
 /* Set indicator leds to indicate which layer is active */
 void setLayerLed(layer_state_t state){
-    gpio_write_pin_low(LAYER_1);
-    gpio_write_pin_low(LAYER_2);
-    gpio_write_pin_low(LAYER_3);
-    gpio_write_pin_low(LAYER_4);
-    gpio_write_pin_low(LAYER_5);
+    gpio_write_Pin_low(LAYER_1);
+    gpio_write_Pin_low(LAYER_2);
+    gpio_write_Pin_low(LAYER_3);
+    gpio_write_Pin_low(LAYER_4);
+    gpio_write_Pin_low(LAYER_5);
     switch (get_highest_layer(state)) {
         case 0:
-            gpio_write_pin_high(LAYER_1);
+            gpio_write_Pin_high(LAYER_1);
             break;
         case 1:
-            gpio_write_pin_high(LAYER_2);
+            gpio_write_Pin_high(LAYER_2);
             break;
         case 2:
-            gpio_write_pin_high(LAYER_3);
+            gpio_write_Pin_high(LAYER_3);
             break;
         case 3:
-            gpio_write_pin_high(LAYER_4);
+            gpio_write_Pin_high(LAYER_4);
             break;
         case 4:
-            gpio_write_pin_high(LAYER_5);
+            gpio_write_Pin_high(LAYER_5);
             break;
     }
 }

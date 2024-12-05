@@ -53,17 +53,17 @@ uint8_t bajjak_left_leds_update(void);
 #endif
 
 
-inline void bajjak_board_led_on(void)      { gpio_set_pin_output(D6); gpio_write_pin_high(D6); }
-inline void bajjak_right_led_1_on(void)    { gpio_set_pin_output(B5); gpio_write_pin_high(B5); }
-inline void bajjak_right_led_2_on(void)    { gpio_set_pin_output(B6); gpio_write_pin_high(B6); }
-inline void bajjak_right_led_3_on(void)    { gpio_set_pin_output(B7); gpio_write_pin_high(B7); }
-inline void bajjak_right_led_on(uint8_t led) { gpio_set_pin_output(led+4); gpio_write_pin_high(led+4); }
+inline void bajjak_board_led_on(void)      { gpio_set_pin_output(D6); gpio_write_Pin_high(D6); }
+inline void bajjak_right_led_1_on(void)    { gpio_set_pin_output(B5); gpio_write_Pin_high(B5); }
+inline void bajjak_right_led_2_on(void)    { gpio_set_pin_output(B6); gpio_write_Pin_high(B6); }
+inline void bajjak_right_led_3_on(void)    { gpio_set_pin_output(B7); gpio_write_Pin_high(B7); }
+inline void bajjak_right_led_on(uint8_t led) { gpio_set_pin_output(led+4); gpio_write_Pin_high(led+4); }
 
-inline void bajjak_board_led_off(void)     { gpio_set_pin_input(D6); gpio_write_pin_low(D6); }
-inline void bajjak_right_led_1_off(void)   { gpio_set_pin_input(B5); gpio_write_pin_low(B5); }
-inline void bajjak_right_led_2_off(void)   { gpio_set_pin_input(B6); gpio_write_pin_low(B6); }
-inline void bajjak_right_led_3_off(void)   { gpio_set_pin_input(B7); gpio_write_pin_low(B7); }
-inline void bajjak_right_led_off(uint8_t led) { gpio_set_pin_input(led+4); gpio_write_pin_low(led+4); }
+inline void bajjak_board_led_off(void)     { gpio_set_Pin_input(D6); gpio_write_Pin_low(D6); }
+inline void bajjak_right_led_1_off(void)   { gpio_set_Pin_input(B5); gpio_write_Pin_low(B5); }
+inline void bajjak_right_led_2_off(void)   { gpio_set_Pin_input(B6); gpio_write_Pin_low(B6); }
+inline void bajjak_right_led_3_off(void)   { gpio_set_Pin_input(B7); gpio_write_Pin_low(B7); }
+inline void bajjak_right_led_off(uint8_t led) { gpio_set_Pin_input(led+4); gpio_write_Pin_low(led+4); }
 
 #ifdef LEFT_LEDS
 bool bajjak_left_led_1;

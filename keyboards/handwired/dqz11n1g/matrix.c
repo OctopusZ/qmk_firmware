@@ -53,14 +53,14 @@ void matrix_init_custom(void) {
 static void select_row(uint8_t row) {
     pin_t pin = row_pins[row];
     if (pin != NO_PIN) {
-        gpio_write_pin_high(pin);
+        gpio_write_Pin_high(pin);
     }
 }
 
 static void unselect_row(uint8_t row) {
     pin_t pin = row_pins[row];
     if (pin != NO_PIN) {
-        gpio_write_pin_low(pin);
+        gpio_write_Pin_low(pin);
     }
 }
 
@@ -75,12 +75,12 @@ bool matrix_read_cols_on_row(matrix_row_t current_matrix[], uint8_t current_row)
     matrix_row_t current_row_value = 0;
 
     /* Set shift register SH/~LD pin to "load" mode */
-    gpio_write_pin_low(ROW_SHIFT_PIN);
+    gpio_write_Pin_low(ROW_SHIFT_PIN);
     select_row(current_row);
     matrix_output_select_delay();
 
     /* Set shift register SH/~LD pin to "shift" mode */
-    gpio_write_pin_high(ROW_SHIFT_PIN);
+    gpio_write_Pin_high(ROW_SHIFT_PIN);
 
     /* For each octet of columns... */
     for (uint8_t col_index = 0; col_index < MATRIX_COLS; col_index += 8) {
@@ -94,7 +94,7 @@ bool matrix_read_cols_on_row(matrix_row_t current_matrix[], uint8_t current_row)
 
     /* Unselect row & wait for all columns signals to go high. */
     unselect_row(current_row);
-    matrix_output_unselect_delay(current_row, current_row_value != 0); 
+    matrix_output_unselect_delay(current_row, current_row_value != 0);
 
     /* Update row in matrix. */
     if (current_row_value != current_matrix[current_row]) {

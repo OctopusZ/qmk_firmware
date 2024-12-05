@@ -126,18 +126,18 @@ void matrix_print(void)
 static void  init_cols(void)
 {
     // Input with pull-up(DDR:0, PORT:1)
-    gpio_set_pin_input_high(F4);
-    gpio_set_pin_input_high(F5);
-    gpio_set_pin_input_high(F6);
-    gpio_set_pin_input_high(F7);
-    gpio_set_pin_input_high(E6);
-    gpio_set_pin_input_high(D7);
-    gpio_set_pin_input_high(B1);
-    gpio_set_pin_input_high(B2);
-    gpio_set_pin_input_high(B3);
-    gpio_set_pin_input_high(B4);
-    gpio_set_pin_input_high(B5);
-    gpio_set_pin_input_high(B6);
+    gpio_set_Pin_input_high(F4);
+    gpio_set_Pin_input_high(F5);
+    gpio_set_Pin_input_high(F6);
+    gpio_set_Pin_input_high(F7);
+    gpio_set_Pin_input_high(E6);
+    gpio_set_Pin_input_high(D7);
+    gpio_set_Pin_input_high(B1);
+    gpio_set_Pin_input_high(B2);
+    gpio_set_Pin_input_high(B3);
+    gpio_set_Pin_input_high(B4);
+    gpio_set_Pin_input_high(B5);
+    gpio_set_Pin_input_high(B6);
 }
 
 static matrix_row_t read_cols(void)
@@ -164,10 +164,10 @@ static matrix_row_t read_cols(void)
 static void unselect_rows(void)
 {
     // Hi-Z(DDR:0, PORT:0) to unselect
-    gpio_set_pin_input(C6);
-    gpio_set_pin_input(D0);
-    gpio_set_pin_input(D1);
-    gpio_set_pin_input(D4);
+    gpio_set_Pin_input(C6);
+    gpio_set_Pin_input(D0);
+    gpio_set_Pin_input(D1);
+    gpio_set_Pin_input(D4);
 }
 
 static void select_row(uint8_t row)
@@ -176,19 +176,19 @@ static void select_row(uint8_t row)
     switch (row) {
         case 0:
             gpio_set_pin_output(D1);
-            gpio_write_pin_low(D1);
+            gpio_write_Pin_low(D1);
             break;
         case 1:
             gpio_set_pin_output(D0);
-            gpio_write_pin_low(D0);
+            gpio_write_Pin_low(D0);
             break;
         case 2:
             gpio_set_pin_output(D4);
-            gpio_write_pin_low(D4);
+            gpio_write_Pin_low(D4);
             break;
         case 3:
             gpio_set_pin_output(C6);
-            gpio_write_pin_low(C6);
+            gpio_write_Pin_low(C6);
             break;
     }
 }

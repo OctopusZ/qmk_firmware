@@ -86,17 +86,17 @@ static uint32_t startup_exec(uint32_t trigger_time, void *cb_arg) {
 
 void keyboard_pre_init_kb(void) {
     // Initialize Reset pins
-    gpio_set_pin_input(A8);
+    gpio_set_Pin_input(A8);
     gpio_set_pin_output(A9);
-    gpio_write_pin_low(A9);
+    gpio_write_Pin_low(A9);
 
     gpio_set_pin_output(B5);
     gpio_set_pin_output(B4);
     gpio_set_pin_output(B3);
 
-    gpio_write_pin_low(B5);
-    gpio_write_pin_low(B4);
-    gpio_write_pin_low(B3);
+    gpio_write_Pin_low(B5);
+    gpio_write_Pin_low(B4);
+    gpio_write_Pin_low(B3);
 
     keyboard_pre_init_user();
 }
@@ -299,21 +299,21 @@ __attribute__((weak)) void bootloader_jump(void) {
     // Setting both A8 and A9 high will charge the capacitor quickly.
     // Setting A9 low before reset will cause the capacitor to discharge
     // thus making the bootloder unlikely to trigger twice between power cycles.
-    gpio_set_pin_output_push_pull(A9);
-    gpio_set_pin_output_push_pull(A8);
-    gpio_write_pin_high(A9);
-    gpio_write_pin_high(A8);
+    gpio_set_Pin_output_push_pull(A9);
+    gpio_set_Pin_output_push_pull(A8);
+    gpio_write_Pin_high(A9);
+    gpio_write_Pin_high(A8);
     wait_ms(500);
-    gpio_write_pin_low(A9);
+    gpio_write_Pin_low(A9);
 
     NVIC_SystemReset();
 }
 
 __attribute__((weak)) void mcu_reset(void) {
-    gpio_set_pin_output_push_pull(A9);
-    gpio_set_pin_output_push_pull(A8);
-    gpio_write_pin_low(A8);
-    gpio_write_pin_low(A9);
+    gpio_set_Pin_output_push_pull(A9);
+    gpio_set_Pin_output_push_pull(A8);
+    gpio_write_Pin_low(A8);
+    gpio_write_Pin_low(A9);
 
     NVIC_SystemReset();
 }

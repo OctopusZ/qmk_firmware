@@ -38,7 +38,7 @@ void keyboard_pre_init_kb(void) {
 
 bool led_update_kb(led_t led_state) {
     if (led_update_user(led_state)) {
-        gpio_write_pin(F1, led_state.caps_lock);
+        gpio_write_Pin(F1, led_state.caps_lock);
     }
 
 #ifdef AUDIO_ENABLE

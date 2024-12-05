@@ -60,7 +60,7 @@ const pointing_device_driver_t paw3204_pointing_device_driver = {
 
 void paw3204_init(void) {
     gpio_set_pin_output(PAW3204_SCLK_PIN);     // setclockpin to output
-    gpio_set_pin_input_high(PAW3204_SDIO_PIN); // set datapin input high
+    gpio_set_Pin_input_high(PAW3204_SDIO_PIN); // set datapin input high
 
     paw3204_write_reg(REG_SETUP, 0x86); // reset sensor and set 1600cpi
     wait_us(5);
@@ -72,16 +72,16 @@ void paw3204_init(void) {
 }
 
 uint8_t paw3204_serial_read(void) {
-    gpio_set_pin_input(PAW3204_SDIO_PIN);
+    gpio_set_Pin_input(PAW3204_SDIO_PIN);
     uint8_t byte = 0;
 
     for (uint8_t i = 0; i < 8; ++i) {
-        gpio_write_pin_low(PAW3204_SCLK_PIN);
+        gpio_write_Pin_low(PAW3204_SCLK_PIN);
         wait_us(1);
 
-        byte = (byte << 1) | gpio_read_pin(PAW3204_SDIO_PIN);
+        byte = (byte << 1) | gpio_read_Pin(PAW3204_SDIO_PIN);
 
-        gpio_write_pin_high(PAW3204_SCLK_PIN);
+        gpio_write_Pin_high(PAW3204_SCLK_PIN);
         wait_us(1);
     }
 
@@ -89,17 +89,17 @@ uint8_t paw3204_serial_read(void) {
 }
 
 void paw3204_serial_write(uint8_t data) {
-    gpio_write_pin_low(PAW3204_SDIO_PIN);
+    gpio_write_Pin_low(PAW3204_SDIO_PIN);
     gpio_set_pin_output(PAW3204_SDIO_PIN);
 
     for (int8_t b = 7; b >= 0; b--) {
-        gpio_write_pin_low(PAW3204_SCLK_PIN);
+        gpio_write_Pin_low(PAW3204_SCLK_PIN);
         if (data & (1 << b)) {
-            gpio_write_pin_high(PAW3204_SDIO_PIN);
+            gpio_write_Pin_high(PAW3204_SDIO_PIN);
         } else {
-            gpio_write_pin_low(PAW3204_SDIO_PIN);
+            gpio_write_Pin_low(PAW3204_SDIO_PIN);
         }
-        gpio_write_pin_high(PAW3204_SCLK_PIN);
+        gpio_write_Pin_high(PAW3204_SCLK_PIN);
     }
 
     wait_us(4);

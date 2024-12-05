@@ -21,13 +21,13 @@ extern uint8_t power_save_level;
 void hhkb_led_on(uint8_t led) {
     switch (led) {
         case 1:
-            gpio_write_pin_high(F4);
+            gpio_write_Pin_high(F4);
             break;
         case 2:
-            gpio_write_pin_high(F2);
+            gpio_write_Pin_high(F2);
             break;
         case 3:
-            gpio_write_pin_high(F0);
+            gpio_write_Pin_high(F0);
             break;
     }
 }
@@ -35,13 +35,13 @@ void hhkb_led_on(uint8_t led) {
 void hhkb_led_off(uint8_t led) {
     switch (led) {
         case 1:
-            gpio_write_pin_low(F4);
+            gpio_write_Pin_low(F4);
             break;
         case 2:
-            gpio_write_pin_low(F2);
+            gpio_write_Pin_low(F2);
             break;
         case 3:
-            gpio_write_pin_low(F0);
+            gpio_write_Pin_low(F0);
             break;
     }
 }
@@ -49,7 +49,7 @@ void hhkb_led_off(uint8_t led) {
 void keyboard_pre_init_kb(void) {
     // BT power up
     gpio_set_pin_output(D5);
-    gpio_write_pin_low(D5);
+    gpio_write_Pin_low(D5);
 
     // Row selectors
     gpio_set_pin_output(B0);
@@ -63,27 +63,27 @@ void keyboard_pre_init_kb(void) {
 
     // Key strobe
     gpio_set_pin_output(B6);
-    gpio_write_pin_high(B6);
+    gpio_write_Pin_high(B6);
 
     // Key: input with pull-up
-    gpio_set_pin_input_high(D7);
+    gpio_set_Pin_input_high(D7);
 
     // Unused pins on Pro2 ANSI
     // Input with pull up to save power
-    gpio_set_pin_input_high(C6);
-    gpio_set_pin_input_high(C7);
+    gpio_set_Pin_input_high(C6);
+    gpio_set_Pin_input_high(C7);
 
     // LED pin configuration
     gpio_set_pin_output(F0);
     gpio_set_pin_output(F1);
     gpio_set_pin_output(F4);
-    gpio_write_pin_low(F0);
-    gpio_write_pin_low(F1);
-    gpio_write_pin_low(F4);
+    gpio_write_Pin_low(F0);
+    gpio_write_Pin_low(F1);
+    gpio_write_Pin_low(F4);
 
     // Turn on switch PCB
     gpio_set_pin_output(D6);
-    gpio_write_pin_low(D6);
+    gpio_write_Pin_low(D6);
 
     keyboard_pre_init_user();
 }
@@ -93,7 +93,7 @@ void suspend_power_down_kb(void) {
         // Disable UART TX to avoid current leakage
         UCSR1B &= ~_BV(TXEN1);
         // Power down BLE module
-        gpio_write_pin_high(D5);
+        gpio_write_Pin_high(D5);
     }
 
     suspend_power_down_user();
@@ -101,7 +101,7 @@ void suspend_power_down_kb(void) {
 
 void suspend_wakeup_init_kb(void) {
     // Power up BLE module
-    gpio_write_pin_low(D5);
+    gpio_write_Pin_low(D5);
     // Enable UART TX
     UCSR1B |= _BV(TXEN1);
 
@@ -111,8 +111,8 @@ void suspend_wakeup_init_kb(void) {
 layer_state_t layer_state_set_kb(layer_state_t state) {
     state = layer_state_set_user(state);
 
-    gpio_write_pin(F1, IS_LAYER_ON_STATE(state, 1));
-    gpio_write_pin(F0, IS_LAYER_ON_STATE(state, 2));
+    gpio_write_Pin(F1, IS_LAYER_ON_STATE(state, 1));
+    gpio_write_Pin(F0, IS_LAYER_ON_STATE(state, 2));
 
     return state;
 }

@@ -20,7 +20,7 @@ void encoder_driver_task(void) {
     for (uint8_t i = 0; i < 4; i++) {
         // Set the row pin low for the corresponding encoder...
         for (uint8_t j = 0; j < 4; j++) {
-            gpio_write_pin(matrix_row_pins[j], (i == j) ? 0 : 1);
+            gpio_write_Pin(matrix_row_pins[j], (i == j) ? 0 : 1);
         }
         // ...and let them settle.
         wait_us(ENCODER_SETTLE_PIN_STATE_DELAY_US);
@@ -33,7 +33,7 @@ void encoder_driver_task(void) {
 
     // Set all rows back to input-high as per matrix expectations
     for (uint8_t i = 0; i < 4; i++) {
-        gpio_set_pin_input_high(matrix_row_pins[i]);
+        gpio_set_Pin_input_high(matrix_row_pins[i]);
     }
 }
 

@@ -19,8 +19,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 void keyboard_pre_init_kb(void) {
     gpio_set_pin_output(D0);
-    gpio_write_pin_low(D0);
+    gpio_write_Pin_low(D0);
     fn_led_off();
-    
+
     keyboard_pre_init_user();
 }

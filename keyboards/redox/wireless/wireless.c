@@ -22,11 +22,11 @@ void led_init(void) {
     gpio_set_pin_output(D1);
     gpio_set_pin_output(F4);
     gpio_set_pin_output(F5);
-    
-    gpio_write_pin_high(D0);
-    gpio_write_pin_high(D1);
-    gpio_write_pin_high(F4);
-    gpio_write_pin_high(F5);
+
+    gpio_write_Pin_high(D0);
+    gpio_write_Pin_high(D1);
+    gpio_write_Pin_high(F4);
+    gpio_write_Pin_high(F5);
 }
 
 

@@ -14,12 +14,12 @@ void matrix_init_kb(void)
 
 void turn_off_leds(void)
 {
-    gpio_write_pin_low(RED_LED);
-    gpio_write_pin_low(BLUE_LED);
-    gpio_write_pin_low(GREEN_LED);
+    gpio_write_Pin_low(RED_LED);
+    gpio_write_Pin_low(BLUE_LED);
+    gpio_write_Pin_low(GREEN_LED);
 }
 
 void turn_on_led(pin_t pin)
 {
-    gpio_write_pin_high(pin);
+    gpio_write_Pin_high(pin);
 }

@@ -298,7 +298,7 @@ const is31fl3731_led_t PROGMEM g_is31fl3731_leds[IS31FL3731_LED_COUNT] = {
 void matrix_init_kb(void)
 {
     gpio_set_pin_output(LED_CAPS_LOCK_PIN);
-    gpio_write_pin_low(LED_CAPS_LOCK_PIN);
+    gpio_write_Pin_low(LED_CAPS_LOCK_PIN);
 
     update_ticks();
     matrix_init_user();
@@ -363,7 +363,7 @@ bool led_update_kb(led_t led_state)
 {
     bool res = led_update_user(led_state);
     if (res) {
-        gpio_write_pin(LED_CAPS_LOCK_PIN, led_state.caps_lock);
+        gpio_write_Pin(LED_CAPS_LOCK_PIN, led_state.caps_lock);
 
         if (rgb_state.state != SELF_TESTING) {
             if (led_state.caps_lock) {

@@ -8,10 +8,10 @@ static matrix_row_t read_row(uint8_t row) {
 
     // keypad and program buttons
     if (row == 12) {
-        return ~(gpio_read_pin(B4) | (gpio_read_pin(B5) << 1) | 0b11111100);
+        return ~(gpio_read_Pin(B4) | (gpio_read_Pin(B5) << 1) | 0b11111100);
     }
 
-    return ~(gpio_read_pin(B6) | gpio_read_pin(B2) << 1 | gpio_read_pin(B3) << 2 | gpio_read_pin(B1) << 3 | gpio_read_pin(F7) << 4 | gpio_read_pin(F6) << 5 | gpio_read_pin(F5) << 6 | gpio_read_pin(F4) << 7);
+    return ~(gpio_read_Pin(B6) | gpio_read_Pin(B2) << 1 | gpio_read_Pin(B3) << 2 | gpio_read_Pin(B1) << 3 | gpio_read_Pin(F7) << 4 | gpio_read_Pin(F6) << 5 | gpio_read_Pin(F5) << 6 | gpio_read_Pin(F4) << 7);
 }
 
 static void unselect_rows(void) {
@@ -32,18 +32,18 @@ void matrix_init_custom(void) {
     gpio_set_pin_output(D3);
 
     // input with pullup (matrix)
-    gpio_set_pin_input_high(B6);
-    gpio_set_pin_input_high(B2);
-    gpio_set_pin_input_high(B3);
-    gpio_set_pin_input_high(B1);
-    gpio_set_pin_input_high(F7);
-    gpio_set_pin_input_high(F6);
-    gpio_set_pin_input_high(F5);
-    gpio_set_pin_input_high(F4);
+    gpio_set_Pin_input_high(B6);
+    gpio_set_Pin_input_high(B2);
+    gpio_set_Pin_input_high(B3);
+    gpio_set_Pin_input_high(B1);
+    gpio_set_Pin_input_high(F7);
+    gpio_set_Pin_input_high(F6);
+    gpio_set_Pin_input_high(F5);
+    gpio_set_Pin_input_high(F4);
 
     // input with pullup (program and keypad buttons)
-    gpio_set_pin_input_high(B4);
-    gpio_set_pin_input_high(B5);
+    gpio_set_Pin_input_high(B4);
+    gpio_set_Pin_input_high(B5);
 
     // initialize row and col
     unselect_rows();

@@ -12,7 +12,7 @@ void matrix_init_kb(void) {
 
     // Turn status LED on
     gpio_set_pin_output(C7);
-    gpio_write_pin_high(C7);
+    gpio_write_Pin_high(C7);
 
     matrix_init_user();
 }

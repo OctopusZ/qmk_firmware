@@ -75,7 +75,7 @@ uint8_t matrix_cols(void)
 void matrix_init(void)
 {
     /* gpio_set_pin_output(D6); */
-    /* gpio_write_pin_high(D6); */
+    /* gpio_write_Pin_high(D6); */
     debug_enable = true;
 
     uart_init(1200);
@@ -99,7 +99,7 @@ void matrix_init(void)
     /* } */
     /* print(" Done\n"); */
 
-    /* gpio_write_pin_low(D6) */
+    /* gpio_write_Pin_low(D6) */
 
     matrix_init_kb();
     return;

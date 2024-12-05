@@ -93,7 +93,7 @@ const aw20216s_led_t PROGMEM g_aw20216s_leds[AW20216S_LED_COUNT] = {
     {0, SW11_CS10, SW11_CS11, SW11_CS12}, //  61, ;
     {0, SW12_CS10, SW12_CS11, SW12_CS12}, //  62, '
     {1, SW11_CS1,  SW11_CS2,  SW11_CS3},  //  63, Enter
-    
+
     {0, SW1_CS13,  SW1_CS14,  SW1_CS15},  //  64, Shift_L
     {0, SW2_CS13,  SW2_CS14,  SW2_CS15},  //  65, Z
     {0, SW3_CS13,  SW3_CS14,  SW3_CS15},  //  66, X
@@ -107,7 +107,7 @@ const aw20216s_led_t PROGMEM g_aw20216s_leds[AW20216S_LED_COUNT] = {
     {0, SW11_CS13, SW11_CS14, SW11_CS15}, //  74, /
     {1, SW8_CS4,   SW8_CS5,   SW8_CS6},   //  75, Shift_R
     {1, SW9_CS4,   SW9_CS5,   SW9_CS6},   //  76, Up
-    
+
     {0, SW1_CS16,  SW1_CS17,  SW1_CS18},  //  77, Ctrl_L
     {0, SW2_CS16,  SW2_CS17,  SW2_CS18},  //  78, Win_L
     {0, SW3_CS16,  SW3_CS17,  SW3_CS18},  //  79, Alt_L
@@ -133,9 +133,9 @@ void spi_init(void) {
         is_initialised = true;
 
         // Try releasing special pins for a short time
-        gpio_set_pin_input(SPI_SCK_PIN);
-        gpio_set_pin_input(SPI_MOSI_PIN);
-        gpio_set_pin_input(SPI_MISO_PIN);
+        gpio_set_Pin_input(SPI_SCK_PIN);
+        gpio_set_Pin_input(SPI_MOSI_PIN);
+        gpio_set_Pin_input(SPI_MISO_PIN);
 
         chThdSleepMilliseconds(10);
 
@@ -153,7 +153,7 @@ void keyboard_pre_init_kb(void) {
     keyboard_pre_init_user();
 };
 void housekeeping_task_kb(void) {
-    gpio_write_pin(C15, keymap_config.no_gui);
+    gpio_write_Pin(C15, keymap_config.no_gui);
 };
 
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {

@@ -65,16 +65,16 @@ inline static void serial_output(void) {
     gpio_set_pin_output(SOFT_SERIAL_PIN);
 }
 inline static void serial_input(void) {
-    gpio_set_pin_input_high(SOFT_SERIAL_PIN);
+    gpio_set_Pin_input_high(SOFT_SERIAL_PIN);
 }
 inline static bool serial_read_pin(void) {
-    return !!gpio_read_pin(SOFT_SERIAL_PIN);
+    return !!gpio_read_Pin(SOFT_SERIAL_PIN);
 }
 inline static void serial_low(void) {
-    gpio_write_pin_low(SOFT_SERIAL_PIN);
+    gpio_write_Pin_low(SOFT_SERIAL_PIN);
 }
 inline static void serial_high(void) {
-    gpio_write_pin_high(SOFT_SERIAL_PIN);
+    gpio_write_Pin_high(SOFT_SERIAL_PIN);
 }
 
 void interrupt_handler(void *arg);

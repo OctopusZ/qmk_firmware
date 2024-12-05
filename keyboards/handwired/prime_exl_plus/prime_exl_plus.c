@@ -17,7 +17,7 @@
 
 void matrix_init_kb(void) {
   gpio_set_pin_output(B2);
-  gpio_write_pin_low(B2);
+  gpio_write_Pin_low(B2);
 
   matrix_init_user();
 }
@@ -26,9 +26,9 @@ void matrix_init_kb(void) {
 layer_state_t layer_state_set_kb(layer_state_t state)
 {
     if (get_highest_layer(state) == 1) {
-        gpio_write_pin_high(B2);
+        gpio_write_Pin_high(B2);
 	} else {
-		gpio_write_pin_low(B2);
+		gpio_write_Pin_low(B2);
     }
     return layer_state_set_user(state);
 }

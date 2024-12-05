@@ -21,8 +21,8 @@ void keyboard_pre_init_kb(void) {
   gpio_set_pin_output(F6);
   gpio_set_pin_output(F5);
   // and then turn them off
-  gpio_write_pin_high(F6);
-  gpio_write_pin_high(F5);
+  gpio_write_Pin_high(F6);
+  gpio_write_Pin_high(F5);
 
   keyboard_pre_init_user();
 }
@@ -30,16 +30,16 @@ void keyboard_pre_init_kb(void) {
 layer_state_t layer_state_set_kb(layer_state_t state) {
   switch (get_highest_layer(state)) {
     case 1:
-      gpio_write_pin_high(F6);
-      gpio_write_pin_low(F5);
+      gpio_write_Pin_high(F6);
+      gpio_write_Pin_low(F5);
       break;
     case 2:
-      gpio_write_pin_low(F6);
-      gpio_write_pin_high(F5);
+      gpio_write_Pin_low(F6);
+      gpio_write_Pin_high(F5);
       break;
     default:
-      gpio_write_pin_high(F6);
-      gpio_write_pin_high(F5);
+      gpio_write_Pin_high(F6);
+      gpio_write_Pin_high(F5);
       break;
   }
   return state;

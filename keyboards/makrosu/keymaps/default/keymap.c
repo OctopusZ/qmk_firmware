@@ -56,9 +56,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     state = update_tri_layer_state(state, _4, X_PAUSE, X_PAUSE);
-    gpio_write_pin(IND_1, layer_state_cmp(state, 1));
-    gpio_write_pin(IND_2, layer_state_cmp(state, 2));
-    gpio_write_pin(IND_3, layer_state_cmp(state, 3));
+    gpio_write_Pin(IND_1, layer_state_cmp(state, 1));
+    gpio_write_Pin(IND_2, layer_state_cmp(state, 2));
+    gpio_write_Pin(IND_3, layer_state_cmp(state, 3));
     return state;
 }
 
@@ -68,9 +68,9 @@ void matrix_init_user(void) {
     gpio_set_pin_output(IND_2);
     gpio_set_pin_output(IND_3);
     //set to off
-    gpio_write_pin_high(IND_1);
-    gpio_write_pin_high(IND_2);
-    gpio_write_pin_high(IND_3);
+    gpio_write_Pin_high(IND_1);
+    gpio_write_Pin_high(IND_2);
+    gpio_write_Pin_high(IND_3);
 }
 
 bool encoder_update_user(uint8_t index, bool clockwise) {

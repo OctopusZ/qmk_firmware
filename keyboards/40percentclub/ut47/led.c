@@ -26,13 +26,13 @@ bool led_update_kb(led_t led_state)
         if (led_state.caps_lock) {
             // output low
             gpio_set_pin_output(B0);
-            gpio_write_pin_low(B0);
+            gpio_write_Pin_low(B0);
             gpio_set_pin_output(D5);
-            gpio_write_pin_low(D5);
+            gpio_write_Pin_low(D5);
         } else {
             // Hi-Z
-            gpio_set_pin_input(B0);
-            gpio_set_pin_input(D5);
+            gpio_set_Pin_input(B0);
+            gpio_set_Pin_input(D5);
         }
     }
     return false;

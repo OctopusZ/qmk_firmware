@@ -128,8 +128,8 @@ audio_config_t audio_config;
 
 void audio_driver_initialize(void) {
 #ifdef AUDIO_POWER_CONTROL_PIN
-    gpio_set_pin_output_push_pull(AUDIO_POWER_CONTROL_PIN);
-    gpio_write_pin(AUDIO_POWER_CONTROL_PIN, !AUDIO_POWER_CONTROL_PIN_ON_STATE);
+    gpio_set_Pin_output_push_pull(AUDIO_POWER_CONTROL_PIN);
+    gpio_write_Pin(AUDIO_POWER_CONTROL_PIN, !AUDIO_POWER_CONTROL_PIN_ON_STATE);
 #endif
     audio_driver_initialize_impl();
 }
@@ -137,13 +137,13 @@ void audio_driver_initialize(void) {
 void audio_driver_stop(void) {
     audio_driver_stop_impl();
 #ifdef AUDIO_POWER_CONTROL_PIN
-    gpio_write_pin(AUDIO_POWER_CONTROL_PIN, !AUDIO_POWER_CONTROL_PIN_ON_STATE);
+    gpio_write_Pin(AUDIO_POWER_CONTROL_PIN, !AUDIO_POWER_CONTROL_PIN_ON_STATE);
 #endif
 }
 
 void audio_driver_start(void) {
 #ifdef AUDIO_POWER_CONTROL_PIN
-    gpio_write_pin(AUDIO_POWER_CONTROL_PIN, AUDIO_POWER_CONTROL_PIN_ON_STATE);
+    gpio_write_Pin(AUDIO_POWER_CONTROL_PIN, AUDIO_POWER_CONTROL_PIN_ON_STATE);
 #endif
     audio_driver_start_impl();
 }

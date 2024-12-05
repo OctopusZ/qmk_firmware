@@ -15,9 +15,9 @@
  */
 #include "staggered.h"
 void dimple_led_on(void) {
-    gpio_write_pin_low(E6);
+    gpio_write_Pin_low(E6);
   }
 
  void dimple_led_off(void) {
-    gpio_write_pin_high(E6);
+    gpio_write_Pin_high(E6);
   }

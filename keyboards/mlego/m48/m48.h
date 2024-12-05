@@ -21,18 +21,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 static inline void led_lwr(const bool on) {
 #ifdef LED_NUM_LOCK_PIN
-    gpio_write_pin(LED_NUM_LOCK_PIN, on);
+    gpio_write_Pin(LED_NUM_LOCK_PIN, on);
 #endif
 }
 
 static inline void led_rse(const bool on) {
 #ifdef LED_SCROLL_LOCK_PIN
-    gpio_write_pin(LED_SCROLL_LOCK_PIN, on);
+    gpio_write_Pin(LED_SCROLL_LOCK_PIN, on);
 #endif
 }
 static inline void led_caps(const bool on) {
 #ifdef LED_CAPS_LOCK_PIN
-    gpio_write_pin(LED_CAPS_LOCK_PIN, !on);
+    gpio_write_Pin(LED_CAPS_LOCK_PIN, !on);
 #endif
 }
 

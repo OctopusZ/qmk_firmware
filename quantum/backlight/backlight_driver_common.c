@@ -26,17 +26,17 @@ static const pin_t backlight_pin = BACKLIGHT_PIN;
 
 static inline void backlight_on(pin_t backlight_pin) {
 #if BACKLIGHT_ON_STATE == 0
-    gpio_write_pin_low(backlight_pin);
+    gpio_write_Pin_low(backlight_pin);
 #else
-    gpio_write_pin_high(backlight_pin);
+    gpio_write_Pin_high(backlight_pin);
 #endif
 }
 
 static inline void backlight_off(pin_t backlight_pin) {
 #if BACKLIGHT_ON_STATE == 0
-    gpio_write_pin_high(backlight_pin);
+    gpio_write_Pin_high(backlight_pin);
 #else
-    gpio_write_pin_low(backlight_pin);
+    gpio_write_Pin_low(backlight_pin);
 #endif
 }
 

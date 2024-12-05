@@ -37,26 +37,26 @@ static pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
 static inline void gpio_atomic_set_pin_output_low(pin_t pin) {
     ATOMIC_BLOCK_FORCEON {
         gpio_set_pin_output(pin);
-        gpio_write_pin_low(pin);
+        gpio_write_Pin_low(pin);
     }
 }
 
 static inline void gpio_atomic_set_pin_output_high(pin_t pin) {
     ATOMIC_BLOCK_FORCEON {
         gpio_set_pin_output(pin);
-        gpio_write_pin_high(pin);
+        gpio_write_Pin_high(pin);
     }
 }
 
 static inline void gpio_atomic_set_pin_input_high(pin_t pin) {
     ATOMIC_BLOCK_FORCEON {
-        gpio_set_pin_input_high(pin);
+        gpio_set_Pin_input_high(pin);
     }
 }
 
 static inline uint8_t readMatrixPin(pin_t pin) {
     if (pin != NO_PIN) {
-        return gpio_read_pin(pin);
+        return gpio_read_Pin(pin);
     } else {
         return 1;
     }
@@ -71,20 +71,20 @@ static void shiftOut(uint8_t dataOut) {
         for (uint8_t i = 0; i < 8; i++) {
             compiler_barrier();
             if (dataOut & 0x1) {
-                gpio_write_pin_high(DATA_PIN);
+                gpio_write_Pin_high(DATA_PIN);
             } else {
-                gpio_write_pin_low(DATA_PIN);
+                gpio_write_Pin_low(DATA_PIN);
             }
             dataOut = dataOut >> 1;
             compiler_barrier();
-            gpio_write_pin_high(CLOCK_PIN);
+            gpio_write_Pin_high(CLOCK_PIN);
             small_delay();
-            gpio_write_pin_low(CLOCK_PIN);
+            gpio_write_Pin_low(CLOCK_PIN);
         }
         compiler_barrier();
-        gpio_write_pin_high(LATCH_PIN);
+        gpio_write_Pin_high(LATCH_PIN);
         small_delay();
-        gpio_write_pin_low(LATCH_PIN);
+        gpio_write_Pin_low(LATCH_PIN);
         compiler_barrier();
     }
 }
@@ -93,18 +93,18 @@ static void shiftOut_single(uint8_t data) {
     ATOMIC_BLOCK_FORCEON {
         compiler_barrier();
         if (data & 0x1) {
-            gpio_write_pin_high(DATA_PIN);
+            gpio_write_Pin_high(DATA_PIN);
         } else {
-            gpio_write_pin_low(DATA_PIN);
+            gpio_write_Pin_low(DATA_PIN);
         }
         compiler_barrier();
-        gpio_write_pin_high(CLOCK_PIN);
+        gpio_write_Pin_high(CLOCK_PIN);
         small_delay();
-        gpio_write_pin_low(CLOCK_PIN);
+        gpio_write_Pin_low(CLOCK_PIN);
         compiler_barrier();
-        gpio_write_pin_high(LATCH_PIN);
+        gpio_write_Pin_high(LATCH_PIN);
         small_delay();
-        gpio_write_pin_low(LATCH_PIN);
+        gpio_write_Pin_low(LATCH_PIN);
         compiler_barrier();
     }
 }

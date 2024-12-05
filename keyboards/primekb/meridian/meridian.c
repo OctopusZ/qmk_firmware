@@ -35,7 +35,7 @@ void keyboard_post_init_user(void) {
 bool led_update_kb(led_t led_state) {
     bool res = led_update_user(led_state);
     if (res) {
- //       gpio_write_pin(B12, !led_state.caps_lock);  //Un-comment this line to enable in-switch capslock indicator
+ //       gpio_write_Pin(B12, !led_state.caps_lock);  //Un-comment this line to enable in-switch capslock indicator
     if (led_state.caps_lock) {
         rgblight_setrgb_at(0, 255, 0, 0); //green
     } else {
@@ -46,7 +46,7 @@ bool led_update_kb(led_t led_state) {
     } else {
         rgblight_setrgb_at(0, 0, 0, 1);
     }
-   if (led_state.scroll_lock) {          
+   if (led_state.scroll_lock) {
         rgblight_setrgb_at(255, 0, 0, 2); //red
     } else {
         rgblight_setrgb_at(0, 0, 0, 2);
@@ -55,7 +55,7 @@ bool led_update_kb(led_t led_state) {
     return res;
 }
 
-//Below is an exmaple of layer indication using one of the RGB indicatiors. As configured, uses the bottom indicator (2) to light up red when layer 1 is in use. 
+//Below is an exmaple of layer indication using one of the RGB indicatiors. As configured, uses the bottom indicator (2) to light up red when layer 1 is in use.
 /*
 layer_state_t layer_state_set_kb(layer_state_t state) {
     if (get_highest_layer(state) == 1) {

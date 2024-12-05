@@ -81,30 +81,30 @@ void adns5050_init(void) {
 // Just as with the serial protocol, this is used by the slave to send a
 // synchronization signal to the master.
 void adns5050_sync(void) {
-    gpio_write_pin_low(ADNS5050_CS_PIN);
+    gpio_write_Pin_low(ADNS5050_CS_PIN);
     wait_us(1);
-    gpio_write_pin_high(ADNS5050_CS_PIN);
+    gpio_write_Pin_high(ADNS5050_CS_PIN);
 }
 
 void adns5050_cs_select(void) {
-    gpio_write_pin_low(ADNS5050_CS_PIN);
+    gpio_write_Pin_low(ADNS5050_CS_PIN);
 }
 
 void adns5050_cs_deselect(void) {
-    gpio_write_pin_high(ADNS5050_CS_PIN);
+    gpio_write_Pin_high(ADNS5050_CS_PIN);
 }
 
 uint8_t adns5050_serial_read(void) {
-    gpio_set_pin_input(ADNS5050_SDIO_PIN);
+    gpio_set_Pin_input(ADNS5050_SDIO_PIN);
     uint8_t byte = 0;
 
     for (uint8_t i = 0; i < 8; ++i) {
-        gpio_write_pin_low(ADNS5050_SCLK_PIN);
+        gpio_write_Pin_low(ADNS5050_SCLK_PIN);
         wait_us(1);
 
-        byte = (byte << 1) | gpio_read_pin(ADNS5050_SDIO_PIN);
+        byte = (byte << 1) | gpio_read_Pin(ADNS5050_SDIO_PIN);
 
-        gpio_write_pin_high(ADNS5050_SCLK_PIN);
+        gpio_write_Pin_high(ADNS5050_SCLK_PIN);
         wait_us(1);
     }
 
@@ -115,16 +115,16 @@ void adns5050_serial_write(uint8_t data) {
     gpio_set_pin_output(ADNS5050_SDIO_PIN);
 
     for (int8_t b = 7; b >= 0; b--) {
-        gpio_write_pin_low(ADNS5050_SCLK_PIN);
+        gpio_write_Pin_low(ADNS5050_SCLK_PIN);
 
         if (data & (1 << b))
-            gpio_write_pin_high(ADNS5050_SDIO_PIN);
+            gpio_write_Pin_high(ADNS5050_SDIO_PIN);
         else
-            gpio_write_pin_low(ADNS5050_SDIO_PIN);
+            gpio_write_Pin_low(ADNS5050_SDIO_PIN);
 
         wait_us(2);
 
-        gpio_write_pin_high(ADNS5050_SCLK_PIN);
+        gpio_write_Pin_high(ADNS5050_SCLK_PIN);
     }
 
     // tSWR. See page 15 of the ADNS spec sheet.

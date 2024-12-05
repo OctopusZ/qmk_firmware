@@ -56,13 +56,13 @@ void matrix_init_custom(void) {
     gpio_set_pin_output(B15);
 
     // inputs
-    gpio_set_pin_input_low(A0);
-    gpio_set_pin_input_low(A1);
-    gpio_set_pin_input_low(A2);
-    gpio_set_pin_input_low(A3);
-    gpio_set_pin_input_low(A6);
-    gpio_set_pin_input_low(A7);
-    gpio_set_pin_input_low(B0);
+    gpio_set_Pin_input_low(A0);
+    gpio_set_Pin_input_low(A1);
+    gpio_set_Pin_input_low(A2);
+    gpio_set_Pin_input_low(A3);
+    gpio_set_Pin_input_low(A6);
+    gpio_set_Pin_input_low(A7);
+    gpio_set_Pin_input_low(B0);
 
     mcp23018_init(MCP23018_DEFAULT_ADDRESS);
     mcp23018_errors += !mcp23018_set_config(MCP23018_DEFAULT_ADDRESS, mcp23018_PORTA, 0b00000000);
@@ -92,22 +92,22 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
         // strobe row
         switch (row) {
             case 0:
-                gpio_write_pin_high(B10);
+                gpio_write_Pin_high(B10);
                 break;
             case 1:
-                gpio_write_pin_high(B11);
+                gpio_write_Pin_high(B11);
                 break;
             case 2:
-                gpio_write_pin_high(B12);
+                gpio_write_Pin_high(B12);
                 break;
             case 3:
-                gpio_write_pin_high(B13);
+                gpio_write_Pin_high(B13);
                 break;
             case 4:
-                gpio_write_pin_high(B14);
+                gpio_write_Pin_high(B14);
                 break;
             case 5:
-                gpio_write_pin_high(B15);
+                gpio_write_Pin_high(B15);
                 break;
             case 6:
                 break; // Left hand has 6 rows
@@ -131,22 +131,22 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
             // unstrobe  row
             switch (row) {
                 case 0:
-                    gpio_write_pin_low(B10);
+                    gpio_write_Pin_low(B10);
                     break;
                 case 1:
-                    gpio_write_pin_low(B11);
+                    gpio_write_Pin_low(B11);
                     break;
                 case 2:
-                    gpio_write_pin_low(B12);
+                    gpio_write_Pin_low(B12);
                     break;
                 case 3:
-                    gpio_write_pin_low(B13);
+                    gpio_write_Pin_low(B13);
                     break;
                 case 4:
-                    gpio_write_pin_low(B14);
+                    gpio_write_Pin_low(B14);
                     break;
                 case 5:
-                    gpio_write_pin_low(B15);
+                    gpio_write_Pin_low(B15);
                     break;
                 case 6:
                     break;

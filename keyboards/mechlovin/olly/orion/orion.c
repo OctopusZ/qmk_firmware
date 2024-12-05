@@ -17,7 +17,7 @@
 #include "quantum.h"
 
 void board_init(void) {
-   //JTAG-DP Disabled and SW-DP Enabled    
+   //JTAG-DP Disabled and SW-DP Enabled
    AFIO->MAPR = (AFIO->MAPR & ~AFIO_MAPR_SWJ_CFG_Msk) | AFIO_MAPR_SWJ_CFG_DISABLE;
 }
 
@@ -32,10 +32,10 @@ void keyboard_pre_init_kb(void) {
 
 layer_state_t layer_state_set_kb(layer_state_t state) {
     state = layer_state_set_user(state);
-    gpio_write_pin(B7, layer_state_cmp(state, 0));
-    gpio_write_pin(B6, layer_state_cmp(state, 1));
-    gpio_write_pin(B5, layer_state_cmp(state, 2));
-    gpio_write_pin(B8, layer_state_cmp(state, 3));
-    gpio_write_pin(B9, layer_state_cmp(state, 4));
+    gpio_write_Pin(B7, layer_state_cmp(state, 0));
+    gpio_write_Pin(B6, layer_state_cmp(state, 1));
+    gpio_write_Pin(B5, layer_state_cmp(state, 2));
+    gpio_write_Pin(B8, layer_state_cmp(state, 3));
+    gpio_write_Pin(B9, layer_state_cmp(state, 4));
     return state;
 }

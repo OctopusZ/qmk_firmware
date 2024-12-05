@@ -26,24 +26,24 @@ void keyboard_pre_init_kb(void) {
 __attribute__((weak)) layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
     case 1:
-        gpio_write_pin(B2, 1);
-        gpio_write_pin(B1, 0);
-        gpio_write_pin(B0, 0);
+        gpio_write_Pin(B2, 1);
+        gpio_write_Pin(B1, 0);
+        gpio_write_Pin(B0, 0);
         break;
     case 2:
-        gpio_write_pin(B2, 1);
-        gpio_write_pin(B1, 1);
-        gpio_write_pin(B0, 0);
+        gpio_write_Pin(B2, 1);
+        gpio_write_Pin(B1, 1);
+        gpio_write_Pin(B0, 0);
         break;
     case 3:
-        gpio_write_pin(B2, 1);
-        gpio_write_pin(B1, 1);
-        gpio_write_pin(B0, 1);
+        gpio_write_Pin(B2, 1);
+        gpio_write_Pin(B1, 1);
+        gpio_write_Pin(B0, 1);
         break;
     default: //  for any other layers, or the default layer
-        gpio_write_pin(B2, 0);
-        gpio_write_pin(B1, 0);
-        gpio_write_pin(B0, 0);
+        gpio_write_Pin(B2, 0);
+        gpio_write_Pin(B1, 0);
+        gpio_write_Pin(B0, 0);
         break;
     }
   return state;

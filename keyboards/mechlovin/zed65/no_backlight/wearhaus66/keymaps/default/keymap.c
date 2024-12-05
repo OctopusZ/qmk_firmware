@@ -32,13 +32,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case BL_ON:
         if (record->event.pressed) {
-             gpio_write_pin_high(B7);	
-        } 
+             gpio_write_Pin_high(B7);
+        }
         break;
     case BL_OFF:
         if (record->event.pressed) {
-             gpio_write_pin_low(B7);	
-        } 
+             gpio_write_Pin_low(B7);
+        }
         break;
   }
   return true;

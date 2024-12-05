@@ -45,17 +45,17 @@ void matrix_init_custom(void) {
     // actual matrix setup - cols
     for (int i = 0; i < MATRIX_COLS; i++) {
         gpio_set_pin_output(matrix_col_pins[i]);
-        gpio_write_pin_low(matrix_col_pins[i]);
+        gpio_write_Pin_low(matrix_col_pins[i]);
     }
 
     // rows
     for (int i = 0; i < MATRIX_ROWS; i++) {
-        gpio_set_pin_input_low(matrix_row_pins[i]);
+        gpio_set_Pin_input_low(matrix_row_pins[i]);
     }
 
     // encoder A & B setup
-    gpio_set_pin_input_low(B12);
-    gpio_set_pin_input_low(B13);
+    gpio_set_Pin_input_low(B12);
+    gpio_set_Pin_input_low(B13);
 
 #ifndef PLANCK_WATCHDOG_DISABLE
     wdgInit();
@@ -81,18 +81,18 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
         matrix_row_t data = 0;
 
         // strobe col
-        gpio_write_pin_high(matrix_col_pins[col]);
+        gpio_write_Pin_high(matrix_col_pins[col]);
 
         // need wait to settle pin state
         wait_us(20);
 
         // read row data
         for (int row = 0; row < MATRIX_ROWS; row++) {
-            data |= (gpio_read_pin(matrix_row_pins[row]) << row);
+            data |= (gpio_read_Pin(matrix_row_pins[row]) << row);
         }
 
         // unstrobe col
-        gpio_write_pin_low(matrix_col_pins[col]);
+        gpio_write_Pin_low(matrix_col_pins[col]);
 
         if (matrix_inverted[col] != data) {
             matrix_inverted[col] = data;
@@ -122,10 +122,10 @@ void encoder_quadrature_init_pin(uint8_t index, bool pad_b) {
 uint8_t encoder_quadrature_read_pin(uint8_t index, bool pad_b) {
     pin_t col_pin = pad_b ? B13 : B12;
     gpio_set_pin_output(col_pin);
-    gpio_write_pin_high(col_pin);
+    gpio_write_Pin_high(col_pin);
     wait_us(PLANCK_ENCODER_SETTLE_PIN_STATE_DELAY);
-    uint8_t ret = gpio_read_pin(matrix_row_pins[index]) ? 0 : 1;
-    gpio_set_pin_input_low(col_pin);
+    uint8_t ret = gpio_read_Pin(matrix_row_pins[index]) ? 0 : 1;
+    gpio_set_Pin_input_low(col_pin);
     return ret;
 }
 #endif // ENCODER_ENABLE || ENCODER_MAP_ENABLE

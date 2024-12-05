@@ -36,7 +36,7 @@ void housekeeping_task_kb(void){
     if(buzzer_on){
         if(buzzer_active && timer_elapsed(buzzer_timer) > buzzer_dwell){
         buzzer_active = false;
-        gpio_write_pin_low(BUZZER_PIN);
+        gpio_write_Pin_low(BUZZER_PIN);
         }
     }
 }
@@ -49,7 +49,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
             if(!buzzer_active){
                 buzzer_active = true;
                 buzzer_timer = timer_read();
-                gpio_write_pin_high(BUZZER_PIN);
+                gpio_write_Pin_high(BUZZER_PIN);
             }
         }
 
@@ -93,10 +93,10 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 if(buzzer_on == true){
                     buzzer_active = true;
                     buzzer_timer = timer_read();
-                    gpio_write_pin_high(BUZZER_PIN);
+                    gpio_write_Pin_high(BUZZER_PIN);
                 }
                 else{
-                    gpio_write_pin_low(BUZZER_PIN);
+                    gpio_write_Pin_low(BUZZER_PIN);
                 }
                 break;
 

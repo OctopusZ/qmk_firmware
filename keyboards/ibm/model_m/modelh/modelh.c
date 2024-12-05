@@ -19,7 +19,7 @@
 
 void keyboard_pre_init_kb(void) {
     gpio_set_pin_output(MODELH_STATUS_LED);
-    gpio_write_pin(MODELH_STATUS_LED, 0);
+    gpio_write_Pin(MODELH_STATUS_LED, 0);
 
     keyboard_pre_init_user();
 }

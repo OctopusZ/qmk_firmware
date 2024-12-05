@@ -50,24 +50,24 @@ void ws2812_poweron(void) {
     p_setup = true;
     s_init = false;
     gpio_set_pin_output(RGB_EN_PIN);
-    gpio_write_pin_high(RGB_EN_PIN);
+    gpio_write_Pin_high(RGB_EN_PIN);
 }
 
 void ws2812_poweroff(void) {
     if(!p_setup) return;
     p_setup = false;
-    gpio_set_pin_input_low(WS2812_DI_PIN);
-    gpio_write_pin_low(RGB_EN_PIN);
+    gpio_set_Pin_input_low(WS2812_DI_PIN);
+    gpio_write_Pin_low(RGB_EN_PIN);
 }
 
 void keyboard_pre_init_kb() {
 	keyboard_pre_init_user();
 
-    gpio_set_pin_input_low(MWPROTO_STATUS_PIN);
+    gpio_set_Pin_input_low(MWPROTO_STATUS_PIN);
     gpio_set_pin_output(MWPROTO_WAKEUP_PIN);
-    gpio_write_pin_low(MWPROTO_WAKEUP_PIN);
+    gpio_write_Pin_low(MWPROTO_WAKEUP_PIN);
     wait_ms(2);
-    gpio_write_pin_high(MWPROTO_WAKEUP_PIN);
+    gpio_write_Pin_high(MWPROTO_WAKEUP_PIN);
 
 	palSetLineMode(MWPROTO_TX_PIN, PAL_MODE_ALTERNATE(MWPROTO_TX_PAL_MODE) | PAL_OUTPUT_TYPE_OPENDRAIN);
 	sdStart(&MWPROTO_DRIVER, &mwproto_uart_config);
@@ -84,14 +84,14 @@ void keyboard_post_init_kb(void) {
         "BUILD: " __DATE__ "\n"
     ); /* clang-format on */
 
-    gpio_write_pin_low(MWPROTO_WAKEUP_PIN);
+    gpio_write_Pin_low(MWPROTO_WAKEUP_PIN);
     wait_ms(50);
     sdPutI(&MWPROTO_DRIVER, 0xA5);
     sdPutI(&MWPROTO_DRIVER, 0x12);
     sdPutI(&MWPROTO_DRIVER, 0x01);
     sdPutI(&MWPROTO_DRIVER, 0x02);
     sdPutI(&MWPROTO_DRIVER, 0xB4);
-    gpio_write_pin_high(MWPROTO_WAKEUP_PIN);
+    gpio_write_Pin_high(MWPROTO_WAKEUP_PIN);
 
     ws2812_poweron();
     loop10hz_token = defer_exec(LOOP_10HZ_PERIOD, loop_10Hz, NULL);
@@ -117,7 +117,7 @@ bool dip_switch_update_mask_kb(uint32_t state) {
         usbDisconnectBus(&USB_DRIVER);
         usbStop(&USB_DRIVER);
         shutdown_user(true);
-        gpio_set_pin_input_high(POWER_SWITCH_PIN);
+        gpio_set_Pin_input_high(POWER_SWITCH_PIN);
         palEnableLineEvent(POWER_SWITCH_PIN, PAL_EVENT_MODE_RISING_EDGE);
         POWER_EnterSleep();
     }
@@ -132,8 +132,8 @@ uint32_t loop_10Hz(uint32_t trigger_time, void *cb_arg) {
         static uint32_t pmu_timer = 0;
         if(timer_elapsed32(pmu_timer) > 3000) {
             pmu_timer = timer_read32();
-            gpio_write_pin_low(MWPROTO_WAKEUP_PIN);
-            if(gpio_read_pin(MWPROTO_STATUS_PIN))
+            gpio_write_Pin_low(MWPROTO_WAKEUP_PIN);
+            if(gpio_read_Pin(MWPROTO_STATUS_PIN))
                 wait_us(500);
             else
                 wait_us(1500);
@@ -141,7 +141,7 @@ uint32_t loop_10Hz(uint32_t trigger_time, void *cb_arg) {
             sdPutI(&MWPROTO_DRIVER, 0x28);
             sdPutI(&MWPROTO_DRIVER, 0x00);
             sdPutI(&MWPROTO_DRIVER, 0x8D);
-            gpio_write_pin_high(MWPROTO_WAKEUP_PIN);
+            gpio_write_Pin_high(MWPROTO_WAKEUP_PIN);
         }
     }
 
@@ -151,8 +151,8 @@ uint32_t loop_10Hz(uint32_t trigger_time, void *cb_arg) {
        matrix[2] == 0 && matrix[3] == 0 && matrix[4] == 0 && matrix[5] == 0x201) {
         if(restore_tick++ > 50) {
             restore_tick = 0;
-            gpio_write_pin_low(MWPROTO_WAKEUP_PIN);
-            if(gpio_read_pin(MWPROTO_STATUS_PIN))
+            gpio_write_Pin_low(MWPROTO_WAKEUP_PIN);
+            if(gpio_read_Pin(MWPROTO_STATUS_PIN))
                 wait_us(500);
             else
                 wait_us(1500);
@@ -161,7 +161,7 @@ uint32_t loop_10Hz(uint32_t trigger_time, void *cb_arg) {
             sdPutI(&MWPROTO_DRIVER, 0x01);
             sdPutI(&MWPROTO_DRIVER, 0x0F);
             sdPutI(&MWPROTO_DRIVER, 0xB4);
-            gpio_write_pin_high(MWPROTO_WAKEUP_PIN);
+            gpio_write_Pin_high(MWPROTO_WAKEUP_PIN);
             wait_ms(50);
             eeconfig_init();
     #ifdef RGB_MATRIX_ENABLE

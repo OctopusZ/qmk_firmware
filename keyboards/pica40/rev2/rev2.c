@@ -11,7 +11,7 @@
 
 // custom handler that returns encoder B pin status from slave side
 void encoder_sync_slave_handler(uint8_t in_buflen, const void *in_data, uint8_t out_buflen, void *out_data) {
-    *(uint8_t *)out_data = gpio_read_pin(ENCODER_PIN_B) ? 1 : 0;
+    *(uint8_t *)out_data = gpio_read_Pin(ENCODER_PIN_B) ? 1 : 0;
 }
 
 void encoder_quadrature_init_pin(uint8_t index, bool pad_b) {}
@@ -22,7 +22,7 @@ uint8_t encoder_quadrature_read_pin(uint8_t index, bool pad_b) {
         transaction_rpc_recv(ENCODER_SYNC, sizeof(data), &data);
         return data;
     }
-    return gpio_read_pin(ENCODER_PIN_A) ? 1 : 0;
+    return gpio_read_Pin(ENCODER_PIN_A) ? 1 : 0;
 }
 
 #endif // ENCODER_ENABLE
@@ -56,8 +56,8 @@ void keyboard_post_init_kb(void) {
     gpio_set_pin_output(PICA40_RGB_POWER_PIN);
 
 #ifdef ENCODER_ENABLE
-    gpio_set_pin_input_high(ENCODER_PIN_A);
-    gpio_set_pin_input_high(ENCODER_PIN_B);
+    gpio_set_Pin_input_high(ENCODER_PIN_A);
+    gpio_set_Pin_input_high(ENCODER_PIN_B);
     transaction_register_rpc(ENCODER_SYNC, encoder_sync_slave_handler);
 #endif // ENCODER_ENABLE
 
@@ -113,9 +113,9 @@ void housekeeping_task_kb(void) {
             should_set_rgblight = true;
 
             if (is_layer_active) {
-                gpio_write_pin_high(PICA40_RGB_POWER_PIN);
+                gpio_write_Pin_high(PICA40_RGB_POWER_PIN);
             } else {
-                gpio_write_pin_low(PICA40_RGB_POWER_PIN);
+                gpio_write_Pin_low(PICA40_RGB_POWER_PIN);
             }
         }
     }

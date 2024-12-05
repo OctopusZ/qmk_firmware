@@ -82,23 +82,23 @@ void keyboard_pre_init_user(void) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    gpio_write_pin_low(F5);
-    gpio_write_pin_low(F6);
-    gpio_write_pin_low(F7);
+    gpio_write_Pin_low(F5);
+    gpio_write_Pin_low(F6);
+    gpio_write_Pin_low(F7);
     switch (get_highest_layer(state)) {
         case _FN1:
-            gpio_write_pin_high(F5);
+            gpio_write_Pin_high(F5);
             break;
         case _FN2:
-            gpio_write_pin_high(F6);
+            gpio_write_Pin_high(F6);
             break;
         case _FN3:  // replace 'XXXX' with the layer or function name
-            gpio_write_pin_high(F7);
+            gpio_write_Pin_high(F7);
             break;
         case KC_F24:
-            gpio_write_pin_high(F7);
-            gpio_write_pin_high(F5);
-            gpio_write_pin_high(F6);
+            gpio_write_Pin_high(F7);
+            gpio_write_Pin_high(F5);
+            gpio_write_Pin_high(F6);
             break;
         }
     return state;

@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         QK_BOOT,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, BL_TOGG,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, BL_STEP,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,                   _______, BL_UP, 
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,                   _______, BL_UP,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, BL_DOWN,
         _______, _______, _______,                            _______,                            _______, _______,          _______, _______, _______
         )
@@ -56,26 +56,26 @@ bool led_update_user(led_t led_state) {
 
     if (led_state.num_lock) {
         gpio_set_pin_output(B0);
-        gpio_write_pin_low(B0);
+        gpio_write_Pin_low(B0);
     } else {
-        gpio_set_pin_input(B0);
-        gpio_write_pin_low(B0);
+        gpio_set_Pin_input(B0);
+        gpio_write_Pin_low(B0);
     }
 
     if (led_state.caps_lock) {
         gpio_set_pin_output(B1);
-        gpio_write_pin_low(B1);
+        gpio_write_Pin_low(B1);
     } else {
-        gpio_set_pin_input(B1);
-        gpio_write_pin_low(B1);
+        gpio_set_Pin_input(B1);
+        gpio_write_Pin_low(B1);
     }
 
     if (led_state.scroll_lock) {
         gpio_set_pin_output(B2);
-        gpio_write_pin_low(B2);
+        gpio_write_Pin_low(B2);
     } else {
-        gpio_set_pin_input(B2);
-        gpio_write_pin_low(B2);
+        gpio_set_Pin_input(B2);
+        gpio_write_Pin_low(B2);
     }
     return false;
 }

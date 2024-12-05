@@ -11,46 +11,46 @@
 
 inline void sixshooter_led_0_on(void) {
   gpio_set_pin_output(SIXSHOOTER_LED_0_PIN);
-  gpio_write_pin_high(SIXSHOOTER_LED_0_PIN);
+  gpio_write_Pin_high(SIXSHOOTER_LED_0_PIN);
 }
 inline void sixshooter_led_1_on(void) {
   gpio_set_pin_output(SIXSHOOTER_LED_1_PIN);
-  gpio_write_pin_high(SIXSHOOTER_LED_1_PIN);
+  gpio_write_Pin_high(SIXSHOOTER_LED_1_PIN);
 }
 inline void sixshooter_led_2_on(void) {
   gpio_set_pin_output(SIXSHOOTER_LED_2_PIN);
-  gpio_write_pin_high(SIXSHOOTER_LED_2_PIN);
+  gpio_write_Pin_high(SIXSHOOTER_LED_2_PIN);
 }
 inline void sixshooter_led_3_on(void) {
   gpio_set_pin_output(SIXSHOOTER_LED_3_PIN);
-  gpio_write_pin_high(SIXSHOOTER_LED_3_PIN);
+  gpio_write_Pin_high(SIXSHOOTER_LED_3_PIN);
 }
 inline void sixshooter_led_4_on(void) {
   gpio_set_pin_output(SIXSHOOTER_LED_4_PIN);
-  gpio_write_pin_high(SIXSHOOTER_LED_4_PIN);
+  gpio_write_Pin_high(SIXSHOOTER_LED_4_PIN);
 }
 inline void sixshooter_led_5_on(void) {
   gpio_set_pin_output(SIXSHOOTER_LED_5_PIN);
-  gpio_write_pin_high(SIXSHOOTER_LED_5_PIN);
+  gpio_write_Pin_high(SIXSHOOTER_LED_5_PIN);
 }
 
 inline void sixshooter_led_0_off(void) {
-  gpio_set_pin_input(SIXSHOOTER_LED_0_PIN);
+  gpio_set_Pin_input(SIXSHOOTER_LED_0_PIN);
 }
 inline void sixshooter_led_1_off(void) {
-  gpio_set_pin_input(SIXSHOOTER_LED_1_PIN);
+  gpio_set_Pin_input(SIXSHOOTER_LED_1_PIN);
 }
 inline void sixshooter_led_2_off(void) {
-  gpio_set_pin_input(SIXSHOOTER_LED_2_PIN);
+  gpio_set_Pin_input(SIXSHOOTER_LED_2_PIN);
 }
 inline void sixshooter_led_3_off(void) {
-  gpio_set_pin_input(SIXSHOOTER_LED_3_PIN);
+  gpio_set_Pin_input(SIXSHOOTER_LED_3_PIN);
 }
 inline void sixshooter_led_4_off(void) {
-  gpio_set_pin_input(SIXSHOOTER_LED_4_PIN);
+  gpio_set_Pin_input(SIXSHOOTER_LED_4_PIN);
 }
 inline void sixshooter_led_5_off(void) {
-  gpio_set_pin_input(SIXSHOOTER_LED_5_PIN);
+  gpio_set_Pin_input(SIXSHOOTER_LED_5_PIN);
 }
 
 inline void sixshooter_led_all_on(void) {

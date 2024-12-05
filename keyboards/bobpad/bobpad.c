@@ -18,14 +18,14 @@
 
 bool led_update_kb(led_t led_state) {
     if (!led_update_user(led_state)) { return false; }
-    
-    gpio_write_pin(LED_CAPS_LOCK_PIN, led_state.caps_lock);
+
+    gpio_write_Pin(LED_CAPS_LOCK_PIN, led_state.caps_lock);
     return true;
 };
 
 bool encoder_update_kb(uint8_t index, bool clockwise) {
     if (!encoder_update_user(index, clockwise)) { return false; }
-    
+
     if(IS_LAYER_ON(1)) { // on Raise layer
       if (clockwise) {
           tap_code(KC_A);

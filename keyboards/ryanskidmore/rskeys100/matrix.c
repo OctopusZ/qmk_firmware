@@ -30,12 +30,12 @@ static void    shift_out_single(uint8_t value);
 static void    shift_out(uint32_t value);
 
 void matrix_init_custom(void) {
-  gpio_set_pin_input(ROW_A);
-  gpio_set_pin_input(ROW_B);
-  gpio_set_pin_input(ROW_C);
-  gpio_set_pin_input(ROW_D);
-  gpio_set_pin_input(ROW_E);
-  gpio_set_pin_input(ROW_F);
+  gpio_set_Pin_input(ROW_A);
+  gpio_set_Pin_input(ROW_B);
+  gpio_set_Pin_input(ROW_C);
+  gpio_set_Pin_input(ROW_D);
+  gpio_set_Pin_input(ROW_E);
+  gpio_set_Pin_input(ROW_F);
 
   gpio_set_pin_output(SHR_DATA);
   gpio_set_pin_output(SHR_LATCH);
@@ -63,12 +63,12 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
 }
 
 static uint8_t read_rows(void) {
-  return (gpio_read_pin(ROW_F) << 5)
-         | (gpio_read_pin(ROW_E) << 4)
-         | (gpio_read_pin(ROW_D) << 3)
-         | (gpio_read_pin(ROW_C) << 2)
-         | (gpio_read_pin(ROW_B) << 1)
-         | (gpio_read_pin(ROW_A) );
+  return (gpio_read_Pin(ROW_F) << 5)
+         | (gpio_read_Pin(ROW_E) << 4)
+         | (gpio_read_Pin(ROW_D) << 3)
+         | (gpio_read_Pin(ROW_C) << 2)
+         | (gpio_read_Pin(ROW_B) << 1)
+         | (gpio_read_Pin(ROW_A) );
 }
 
 static void select_col(uint8_t col) {
@@ -76,7 +76,7 @@ static void select_col(uint8_t col) {
 }
 
 static void shift_out(uint32_t value) {
-  gpio_write_pin_low(SHR_LATCH);
+  gpio_write_Pin_low(SHR_LATCH);
   uint8_t first_byte  = (value >> 16) & 0xFF;
   uint8_t second_byte  = (value >> 8) & 0xFF;
   uint8_t third_byte = (uint8_t)(value & 0xFF);
@@ -84,7 +84,7 @@ static void shift_out(uint32_t value) {
   shift_out_single(first_byte);
   shift_out_single(second_byte);
   shift_out_single(third_byte);
-  gpio_write_pin_high(SHR_LATCH);
+  gpio_write_Pin_high(SHR_LATCH);
   /* We delay here to prevent multiple consecutive keys being triggered with a single switch press */
   _delay_us(10);
 }
@@ -92,9 +92,9 @@ static void shift_out(uint32_t value) {
 static void shift_out_single(uint8_t value) {
     for (uint8_t i = 0; i < 8; i++) {
         if (value & 0b10000000) {
-            gpio_write_pin_high(SHR_DATA);
+            gpio_write_Pin_high(SHR_DATA);
         } else {
-            gpio_write_pin_low(SHR_DATA);
+            gpio_write_Pin_low(SHR_DATA);
         }
 
         shift_pulse();
@@ -103,6 +103,6 @@ static void shift_out_single(uint8_t value) {
 }
 
 static inline void shift_pulse(void) {
-    gpio_write_pin_high(SHR_CLOCK);
-    gpio_write_pin_low(SHR_CLOCK);
+    gpio_write_Pin_high(SHR_CLOCK);
+    gpio_write_Pin_low(SHR_CLOCK);
 }

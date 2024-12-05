@@ -27,41 +27,41 @@ void keyboard_pre_init_kb (void) {
 __attribute__((weak)) layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case 1:
-            gpio_write_pin_high(INDICATOR_0);
-            gpio_write_pin_low(INDICATOR_1);
-            gpio_write_pin_low(INDICATOR_2);
+            gpio_write_Pin_high(INDICATOR_0);
+            gpio_write_Pin_low(INDICATOR_1);
+            gpio_write_Pin_low(INDICATOR_2);
             break;
         case 2:
-            gpio_write_pin_low(INDICATOR_0);
-            gpio_write_pin_high(INDICATOR_1);
-            gpio_write_pin_low(INDICATOR_2);
+            gpio_write_Pin_low(INDICATOR_0);
+            gpio_write_Pin_high(INDICATOR_1);
+            gpio_write_Pin_low(INDICATOR_2);
             break;
 		case 3:
-            gpio_write_pin_low(INDICATOR_0);
-            gpio_write_pin_low(INDICATOR_1);
-            gpio_write_pin_high(INDICATOR_2);
+            gpio_write_Pin_low(INDICATOR_0);
+            gpio_write_Pin_low(INDICATOR_1);
+            gpio_write_Pin_high(INDICATOR_2);
             break;
         default:
-            gpio_write_pin_high(INDICATOR_0);
-            gpio_write_pin_high(INDICATOR_1);
-            gpio_write_pin_high(INDICATOR_2);
+            gpio_write_Pin_high(INDICATOR_0);
+            gpio_write_Pin_high(INDICATOR_1);
+            gpio_write_Pin_high(INDICATOR_2);
             break;
     }
 	return state;
 }
 
 void suspend_power_down_kb(void) {
-    gpio_write_pin_low(INDICATOR_0);
-    gpio_write_pin_low(INDICATOR_1);
-    gpio_write_pin_low(INDICATOR_2);
+    gpio_write_Pin_low(INDICATOR_0);
+    gpio_write_Pin_low(INDICATOR_1);
+    gpio_write_Pin_low(INDICATOR_2);
 
     suspend_power_down_user();
 }
 
 void suspend_wakeup_init_kb(void) {
-    gpio_write_pin_high(INDICATOR_0);
-    gpio_write_pin_high(INDICATOR_1);
-    gpio_write_pin_high(INDICATOR_2);
+    gpio_write_Pin_high(INDICATOR_0);
+    gpio_write_Pin_high(INDICATOR_1);
+    gpio_write_Pin_high(INDICATOR_2);
 
     suspend_wakeup_init_user();
 }

@@ -20,8 +20,8 @@ void matrix_init_kb(void) {
     gpio_set_pin_output(D6);
 
     // Set our Tilt Sensor pins as input
-    gpio_set_pin_input_high(SHAKE_PIN_A);
-    gpio_set_pin_input_high(SHAKE_PIN_B);
+    gpio_set_Pin_input_high(SHAKE_PIN_A);
+    gpio_set_Pin_input_high(SHAKE_PIN_B);
 
     // Run the keymap level init
     matrix_init_user();
@@ -40,12 +40,12 @@ void check_encoder_buttons(void) {
 	if (drawing_mode) {
             dprintf("Turning drawing mode off.\n");
             drawing_mode = false;
-            gpio_write_pin_low(D6);
+            gpio_write_Pin_low(D6);
 	    unregister_code(KC_BTN1);
 	} else {
             dprintf("Turning drawing mode on.\n");
             drawing_mode = true;
-            gpio_write_pin_high(D6);
+            gpio_write_Pin_high(D6);
 	    register_code(KC_BTN1);
 	}
     }
@@ -62,7 +62,7 @@ void housekeeping_task_kb(void) {
 #ifdef SHAKE_ENABLE
     // Read the current state of the tilt sensor. It is physically
     // impossible for both pins to register a low state at the same time.
-    uint8_t tilt_read = (gpio_read_pin(SHAKE_PIN_A) << 4) | gpio_read_pin(SHAKE_PIN_B);
+    uint8_t tilt_read = (gpio_read_Pin(SHAKE_PIN_A) << 4) | gpio_read_Pin(SHAKE_PIN_B);
 
     // Check to see if the tilt sensor has changed state since our last read
     if (tilt_state != tilt_read) {

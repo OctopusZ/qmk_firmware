@@ -43,29 +43,29 @@ POSSIBILITY OF SUCH DAMAGE.
 
 #define XT_DATA_IN()               \
     do {                           \
-        gpio_set_pin_input(XT_DATA_PIN);  \
-        gpio_write_pin_high(XT_DATA_PIN); \
+        gpio_set_Pin_input(XT_DATA_PIN);  \
+        gpio_write_Pin_high(XT_DATA_PIN); \
     } while (0)
 
-#define XT_DATA_READ() gpio_read_pin(XT_DATA_PIN)
+#define XT_DATA_READ() gpio_read_Pin(XT_DATA_PIN)
 
 #define XT_DATA_LO()               \
     do {                           \
-        gpio_write_pin_low(XT_DATA_PIN);  \
+        gpio_write_Pin_low(XT_DATA_PIN);  \
         gpio_set_pin_output(XT_DATA_PIN); \
     } while (0)
 
 #define XT_CLOCK_IN()               \
     do {                            \
-        gpio_set_pin_input(XT_CLOCK_PIN);  \
-        gpio_write_pin_high(XT_CLOCK_PIN); \
+        gpio_set_Pin_input(XT_CLOCK_PIN);  \
+        gpio_write_Pin_high(XT_CLOCK_PIN); \
     } while (0)
 
-#define XT_CLOCK_READ() gpio_read_pin(XT_CLOCK_PIN)
+#define XT_CLOCK_READ() gpio_read_Pin(XT_CLOCK_PIN)
 
 #define XT_CLOCK_LO()               \
     do {                            \
-        gpio_write_pin_low(XT_CLOCK_PIN);  \
+        gpio_write_Pin_low(XT_CLOCK_PIN);  \
         gpio_set_pin_output(XT_CLOCK_PIN); \
     } while (0)
 
